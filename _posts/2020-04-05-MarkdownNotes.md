@@ -76,10 +76,6 @@ y~1~ = a~1~x^2^ + b~1~
 y~2~ = a~2~x^2^ + b~2~
 ```
 
-~~ ~y~1~ = a~1~x^2^ + b~1~ ~~
-~~ ~y~2~ = a~2~x^2^ + b~2~ ~~
-
-(Render problem, TBD)
 ---
 
 ### Blockquotes
