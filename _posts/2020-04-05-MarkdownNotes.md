@@ -24,13 +24,6 @@ Markdown supports 6 levels of heading with `# x n={1, 2, 3, 4, 5, 6}`
 ##### Heading 6
 ```
 
-> # Heading 1 
-> ## Heading 2 
-> ### Heading 3 
-> #### Heading 4 
-> ##### Heading 5 
-> ##### Heading 6
-
 ---
 
 ### Emphasizing
@@ -72,7 +65,9 @@ This text is ~~Strikethrough~~.
 I ==love== you so much.
 ```
 
-I ==love== you so much.
+~~I ==love== you so much.~~
+
+(Render problem, TBD)
 
 #### Subscript and Subscript
 
@@ -81,9 +76,10 @@ y~1~ = a~1~x^2^ + b~1~
 y~2~ = a~2~x^2^ + b~2~
 ```
 
-y~1~ = a~1~x^2^ + b~1~
-y~2~ = a~2~x^2^ + b~2~
+~~y~1~ = a~1~x^2^ + b~1~ ~~
+~~y~2~ = a~2~x^2^ + b~2~ ~~
 
+(Render problem, TBD)
 ---
 
 ### Blockquotes
@@ -303,7 +299,9 @@ When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$.
 ```
 
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are  $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$.
+~~When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are  $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$.~~
+
+(Render problem, TBD)
 
 ---
 
