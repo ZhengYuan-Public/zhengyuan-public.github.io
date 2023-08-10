@@ -214,7 +214,9 @@ Put
 ```
 
 [Link Text](link_url)
+
 <https://zhengyuan-public.github.io>
+
 <fake@example.com>
 
 ---
@@ -259,7 +261,11 @@ Task list
 
 ### Table
 
-Use three ore more hyphens (`-`) to create each column’s header; Use  pipes (`|`) to separate each column; Use colons (`:`) to align text.
+Use three ore more hyphens (`-`) to create each column’s header; 
+
+Use  pipes (`|`) to separate each column; 
+
+Use colons (`:`) to align text.
 
 ```markdown
 | Syntax      | Description | Test Text     |
@@ -277,10 +283,10 @@ Use three ore more hyphens (`-`) to create each column’s header; Use  pipes (`
 
 ```markdown
 ---
-title: Proxmox Notes
-date: 2023-08-06 12:00:00
-categories: [OS, homelab, proxmox, server, Linux]
-tags: [PCI-passthrough, KVM-Virtualization]
+title: Markdown Syntax
+date: 2020-04-05 12:00:00
+categories: [programming, markdown, generic]
+tags: [programming, markdown, generic]
 ---
 ```
 
@@ -330,3 +336,5 @@ From this :link: [GitHub Page](https://gist.github.com/pierrejoubert73/902cc94d7
 
 [Complete list of GitHub markdown emoji markup](https://gist.github.com/rxaviers/7360908)
 
+---
+:end: Foot notes below
