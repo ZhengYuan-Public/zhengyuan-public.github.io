@@ -243,9 +243,11 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
 [^bignote]: Here's one with multiple paragraphs and code.
 
-```markdown
-Indent paragraphs in the footnote.
-```
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
 
 Task list
 
@@ -336,5 +338,6 @@ From this :link: [GitHub Page](https://gist.github.com/pierrejoubert73/902cc94d7
 
 [Complete list of GitHub markdown emoji markup](https://gist.github.com/rxaviers/7360908)
 
----
-:end: Foot notes below
+:end: 
+
+Foot notes below
