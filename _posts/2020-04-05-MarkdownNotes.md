@@ -1,4 +1,5 @@
 ---
+comments: true
 title: Markdown Syntax
 date: 2020-04-05 12:00:00
 categories: [programming, markdown, generic]
@@ -34,46 +35,30 @@ Markdown supports 6 levels of heading with `# x n={1, 2, 3, 4, 5, 6}`
 This text is *Italic*.
 ```
 
-This text is *Italic*.
-
 #### Bold 
 
 ```markdown
 This text is **Bold**.
 ```
-
-This text is **Bold**.
-
 #### Bold and Italic
 
 ```markdown
 This text is ***Italic and Bold***.
 ```
-
-This text is ***Italic and Bold***.
-
 #### Strikethrough 
 
 ```markdown
 This text is ~~Strikethrough~~.
 ```
-This text is ~~Strikethrough~~.
-
 #### Highlight
 
 ```markdown
 I ==love== you so much.
 ```
-
-~~I ==love== you so much.~~
-
-(Render problem, TBD)
-
 #### Subscript and Subscript
 
 ```markdown
-y~1~ = a~1~x^2^ + b~1~
-y~2~ = a~2~x^2^ + b~2~
+y = a~1~x^2^ + b~1~
 ```
 
 ---
@@ -85,9 +70,7 @@ y~2~ = a~2~x^2^ + b~2~
 #### Blockquotes with one paragraph
 
 ```markdown
-
 > The quick brown fox jumps over the lazy dog.
-
 ```
 
 > The quick brown fox jumps over the lazy dog.
@@ -95,11 +78,9 @@ y~2~ = a~2~x^2^ + b~2~
 #### Blockquotes with multiple paragraphs
 
 ```markdown
-
 > The quick brown fox jumps over the lazy dog.
 >
 > Waltz, bad nymph, for quick jigs vex.
-
 ```
 
 > The quick brown fox jumps over the lazy dog.
@@ -109,11 +90,9 @@ y~2~ = a~2~x^2^ + b~2~
 #### Nested Blockquotes
 
 ```markdown
-
 > The quick brown fox jumps over the lazy dog.
 >
 >> Waltz, bad nymph, for quick jigs vex.
-
 ```
 
 > The quick brown fox jumps over the lazy dog.
@@ -213,7 +192,7 @@ Put
 
 ---
 
-### Foot notes
+### Footnotes
 
 ```markdown
 Here's a simple footnote,[^1] and here's a longer one.[^bignote]
@@ -295,10 +274,6 @@ When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$.
 ```
 
-~~When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are  $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$.~~
-
-(Render problem, TBD)
-
 ---
 
 ### Collapsible Sections
@@ -332,6 +307,5 @@ From this :link: [GitHub Page](https://gist.github.com/pierrejoubert73/902cc94d7
 
 [Complete list of GitHub markdown emoji markup](https://gist.github.com/rxaviers/7360908)
 
-:end: 
 
-Foot notes below
+## Reverse Footnotes below

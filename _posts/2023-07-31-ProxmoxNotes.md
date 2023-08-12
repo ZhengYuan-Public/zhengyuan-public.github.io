@@ -1,4 +1,5 @@
 ---
+comments: true
 title: Proxmox Installation and GPU Passthrough
 date: 2023-08-06 12:00:00
 categories: [hardware, homelab, proxmox, server, Linux]

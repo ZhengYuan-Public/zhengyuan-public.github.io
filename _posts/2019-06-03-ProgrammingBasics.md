@@ -1,4 +1,5 @@
 ---
+comments: true
 title: Programming Basics - Generic
 date: 2019-06-03 12:00:00
 categories: [programming, generic]
