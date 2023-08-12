@@ -6,13 +6,15 @@ categories: [hardware, homelab, proxmox, server, Linux]
 tags: [hardware, homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
 ---
 
-**Installation Resources** 
+**Installation Resources** :link:
 
-:cd:[Proxmox](https://proxmox.com/en/downloads)
-:link: [Rufus](https://rufus.ie/en/)
+:cd:[Proxmox](https://proxmox.com/en/downloads), [Rufus](https://rufus.ie/en/)
 
-## :rocket:Network
-### :file_folder: Related Files 
+---
+
+## Network Configuration
+
+### Related Files 
 
 ```bash
 /etc/network/interfaces
@@ -20,7 +22,7 @@ tags: [hardware, homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtuali
 /etc/resolv.conf
 ```
 
-### :link:Bonding a.k.a. Link Aggregation
+### Bonding a.k.a. Link Aggregation
 
 [Understanding and Configuring Linux Network Interfaces](https://www.baeldung.com/linux/network-interface-configure)
 
@@ -59,11 +61,11 @@ iface vmbr0 inet dhcp
 - **Adaptive transmit load balancing (balance-tlb):** Linux bonding driver mode that does not require any special network-switch support. The outgoing network packet traffic is distributed according to the current load (computed relative to the speed) on each network interface slave. Incoming traffic is received by one currently designated slave network interface. If this receiving slave fails, another slave takes over the MAC address of the failed receiving slave.
 - **Adaptive load balancing (balance-alb):** Includes balance-tlb plus receive load balancing (rlb) for IPV4 traffic, and does not require any special network switch support. The receive load balancing is achieved by ARP negotiation. The bonding driver intercepts the ARP Replies sent by the local system on their way out and overwrites the source hardware address with the unique hardware address of one of the NIC slaves in the single logical bonded interface such that different network-peers use different MAC addresses for their network packet traffic.
 
+---
 
+## GPU Passthrough
 
-## :fire:GPU Passthrough
-
-:link:**Web Resources** 
+**Web Resources** :link:
 
 ​	[PCI Passthrough(Proxmox Documentation)](https://pve.proxmox.com/wiki/PCI_Passthrough)
 
@@ -71,10 +73,9 @@ iface vmbr0 inet dhcp
 
 ​	[AMD/NVIDIA GPU Passthrough in Window 11 - Proxmox Guide(YouTube Video)](https://www.youtube.com/watch?v=S6jQx4AJlFw)
 
-### PCI Passthrough
-#### :ballot_box_with_check:Step 0 - Check your hardware
+### Step 0 - Check your hardware
 
-#### :ballot_box_with_check:Step 1 -  Enable IOMMU 
+### Step 1 -  Enable IOMMU
 
 > IOMMU = (Input/Output Memory Management Unit)
 
@@ -117,7 +118,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"   # ===> If you are using AMD CP
 update-grub
 ``````
 
-#### :ballot_box_with_check:**Step 2 - VFIO Modules**
+### Step 2 - VFIO Modules
 
 ``````bash
 #--- Add modules ---#
@@ -130,14 +131,14 @@ vfio_pci
 vfio_virqfd
 ``````
 
-#### :ballot_box_with_check:**Step 3: IOMMU Interrupt Remapping**
+### Step 3: IOMMU Interrupt Remapping
 
 ``````bash
 echo "options vfio_iommu_type1 allow_unsafe_interrupts=1" > /etc/modprobe.d/iommu_unsafe_interrupts.conf
 echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
 ``````
 
-#### :ballot_box_with_check:**Step 4: Blacklisting Drivers**
+### Step 4: Blacklisting Drivers
 
 ``````bash
 # Nouveau [noo-voh] adj. newly or recently created, developed, or come to prominence
@@ -150,7 +151,7 @@ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
 
 *Reboot the system after this step.
 
-#### :ballot_box_with_check:**Step 5: Adding GPU to VFIO**
+### Step 5: Adding GPU to VFIO
 
 ``````bash
 #--- Find your GPUs ---#\
@@ -201,7 +202,7 @@ update-initramfs -u
 # Reboot the system
 ``````
 
-#### :ballot_box_with_check:**Step6: Create VM**
+### Step6: Create VM
 
 `System`
 
@@ -216,9 +217,9 @@ update-initramfs -u
 
 ---
 
-#### Additional tips
+### Additional tips
 
-#### :chart_with_upwards_trend:Ubuntu 
+#### Ubuntu 
 
 ​	NVIDIA Driver
 
@@ -246,9 +247,9 @@ sudo apt install dconf-editor
 *Navigate to `/org/gnome/desktop/remote-access` with dconf-editor and disable `require-encryption`
 
 
-#### :chart_with_upwards_trend:Windows
+#### Windows
 
-​:link:[VirtIO Driver for Windows](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
+:link:[VirtIO Driver for Windows](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
 
 ​	Additional CPU Flags for Windows
 
@@ -264,7 +265,7 @@ args: -cpu 'host,+kvm_pv_unhalt,+kvm_pv_eoi,hv_vendor_id=NV43FIX,kvm=off'
 
 *The final config file will update automatically after booting the VM
 
-## :bicyclist:Useful commands
+## Useful commands
 
 Kill non-responding VMs
 
