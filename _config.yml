@@ -41,8 +41,8 @@ social:
   email: zhengyuan.contact@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/username # change to your github homepage
+    - https://github.com/zhengyuan-public # change to your github homepage
+    - https://twitter.com/zhengyuan_aries # change to your twitter homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -53,7 +53,7 @@ google_site_verification: # fill in to your verification string
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id: # fill in your Google Analytics ID
+  id: G-QSXB0BCSLM # fill in your Google Analytics ID (MEASUREMENT ID)
 
 # Prefer color scheme setting.
 #
