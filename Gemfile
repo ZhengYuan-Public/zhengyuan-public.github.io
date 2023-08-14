@@ -4,9 +4,9 @@ source "https://rubygems.org"
 
 gem "jekyll-theme-chirpy", "~> 6.1"
 
-# group :test do
-#   gem "html-proofer", "~> 3.18"
-# end
+group :test do
+  gem "html-proofer", "~> 3.18"
+end
 
 gem 'jemoji'
 
