@@ -6,7 +6,7 @@ categories: [programming, generic]
 tags: [programming, generic]
 ---
 
-## Naming Conventions
+## Variables Naming Conventions
 
 ### :cat: Most popular naming conventions
 
@@ -25,3 +25,8 @@ For example, naming two variables first name and last name
 - Go - [Uber Go Style Guide](https://github.com/uber-go/guide/blob/master/style.md)
 - C++ - [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 - PHP - [PSR-12: Extended Coding Style](https://www.php-fig.org/psr/psr-12/)
+
+## Major Types of Programming Languages
+
+> A programming language defines a set of instructions that are compiled together to perform a specific task by the CPU.
+
