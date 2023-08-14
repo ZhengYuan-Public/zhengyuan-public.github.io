@@ -179,12 +179,12 @@ Put
 ### Links
 
 ```markdown
-[Link Text](link_url)
+[ZhengYuan - GitHub Page](https://zhengyuan-public.github.io)
 <https://zhengyuan-public.github.io>
 <fake@example.com>
 ```
 
-[Link Text](link_url)
+[ZhengYuan - GitHub Page](https://zhengyuan-public.github.io)
 
 <https://zhengyuan-public.github.io>
 
