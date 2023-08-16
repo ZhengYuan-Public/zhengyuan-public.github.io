@@ -9,8 +9,11 @@ group :test do
 end
 
 group :jekyll_plugins do
+  gem "jemoji"
   gem "jekyll-pdf-embed"
-  gem 'jemoji'
+  gem "jekyll-admin"
+  gem "jekyll-scholar"
+  gem "jekyll-latex"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem

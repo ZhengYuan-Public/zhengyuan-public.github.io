@@ -119,6 +119,9 @@ paginate: 10
 plugins:
   - jemoji # Add support for emojis
   - jekyll-pdf-embed
+  - jekyll-admin
+  - jekyll-scholar
+  - jekyll-latex
 
 # ------------ The following options are not recommended to be modified ------------------
 
