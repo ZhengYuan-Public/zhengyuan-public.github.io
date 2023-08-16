@@ -8,7 +8,10 @@ group :test do
   gem "html-proofer", "~> 3.18"
 end
 
-gem 'jemoji'
+group :jekyll_plugins do
+  gem "jekyll-pdf-embed"
+  gem 'jemoji'
+end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
