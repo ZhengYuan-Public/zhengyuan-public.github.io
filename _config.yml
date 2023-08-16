@@ -117,8 +117,8 @@ pwa:
 paginate: 10
 
 plugins:
-  # Add support for emojis
-  - jemoji
+  - jemoji # Add support for emojis
+  - jekyll-pdf-embed
 
 # ------------ The following options are not recommended to be modified ------------------
 
