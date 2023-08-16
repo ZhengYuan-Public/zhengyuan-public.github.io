@@ -3,8 +3,8 @@ comments: true
 title: Python Notes
 date: 2019-01-06 12:00:00
 mermaid: true
-categories: [software, programming, python]
-tags: [software, programming, python]
+categories: [programming, python]
+tags: [programming, python]
 ---
 
 ## Python Basics
