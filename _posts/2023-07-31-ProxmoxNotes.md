@@ -6,15 +6,9 @@ categories: [hardware, homelab, proxmox, server, Linux]
 tags: [hardware, homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
 ---
 
-**Installation Resources** :link:
+# Network Configuration
 
-:cd:[Proxmox](https://proxmox.com/en/downloads), [Rufus](https://rufus.ie/en/)
-
----
-
-## Network Configuration
-
-### Related Files 
+## Related Files 
 
 ```bash
 /etc/network/interfaces
@@ -22,7 +16,7 @@ tags: [hardware, homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtuali
 /etc/resolv.conf
 ```
 
-### Bonding a.k.a. Link Aggregation
+## Bonding a.k.a. Link Aggregation
 
 [Understanding and Configuring Linux Network Interfaces](https://www.baeldung.com/linux/network-interface-configure)
 
@@ -63,19 +57,19 @@ iface vmbr0 inet dhcp
 
 ---
 
-## GPU Passthrough
+# GPU Passthrough
 
-**Web Resources** :link:
+## **Web Resources** 
 
-​	[PCI Passthrough(Proxmox Documentation)](https://pve.proxmox.com/wiki/PCI_Passthrough)
+​	[PCI Passthrough(Proxmox Documentation)](https://pve.proxmox.com/wiki/PCI_Passthrough) :link:
 
-​	[The Ultimate Beginner's Guide to GPU Passthrough (Reddit)](https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/) 
+​	[The Ultimate Beginner's Guide to GPU Passthrough (Reddit)](https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/) :link:
 
-​	[AMD/NVIDIA GPU Passthrough in Window 11 - Proxmox Guide(YouTube Video)](https://www.youtube.com/watch?v=S6jQx4AJlFw)
+​	[AMD/NVIDIA GPU Passthrough in Window 11 - Proxmox Guide(YouTube Video)](https://www.youtube.com/watch?v=S6jQx4AJlFw) :link:
 
-### Step 0 - Check your hardware
+## Step 0 - Check your hardware
 
-### Step 1 -  Enable IOMMU
+## Step 1 -  Enable IOMMU
 
 > IOMMU = (Input/Output Memory Management Unit)
 
@@ -118,7 +112,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"   # ===> If you are using AMD CP
 update-grub
 ``````
 
-### Step 2 - VFIO Modules
+## Step 2 - VFIO Modules
 
 ``````bash
 #--- Add modules ---#
@@ -131,14 +125,14 @@ vfio_pci
 vfio_virqfd
 ``````
 
-### Step 3: IOMMU Interrupt Remapping
+## Step 3: IOMMU Interrupt Remapping
 
 ``````bash
 echo "options vfio_iommu_type1 allow_unsafe_interrupts=1" > /etc/modprobe.d/iommu_unsafe_interrupts.conf
 echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
 ``````
 
-### Step 4: Blacklisting Drivers
+## Step 4: Blacklisting Drivers
 
 ``````bash
 # Nouveau [noo-voh] adj. newly or recently created, developed, or come to prominence
@@ -149,9 +143,9 @@ echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf
 echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
 ``````
 
-*Reboot the system after this step.
+\*Reboot the system after this step.
 
-### Step 5: Adding GPU to VFIO
+## Step 5: Adding GPU to VFIO
 
 ``````bash
 #--- Find your GPUs ---#\
@@ -202,26 +196,26 @@ update-initramfs -u
 # Reboot the system
 ``````
 
-### Step6: Create VM
+## Step6: Create VM
 
-`System`
+#### System Settings
 
 - Graphic Card: `Default`
 - Machine:  `q35`
 - BIOS: `OVMF(UEFI)`
 - SCSI Controller: `VirtIO SCSI`
 
-`Disk`
+#### Disk Settings
 
-:link:[Disk Cache Mode (Proxmox Documentation)](https://pve.proxmox.com/wiki/Performance_Tweaks#Disk_Cache)
+- [Disk Cache Mode (Proxmox Documentation)](https://pve.proxmox.com/wiki/Performance_Tweaks#Disk_Cache) :link:
 
 ---
 
-### Additional tips
+## Additional tips
 
-#### Ubuntu 
+### Ubuntu 
 
-​	NVIDIA Driver
+NVIDIA Driver
 
 ``````bash
 #--- Remove Old Drivers ---#
@@ -237,21 +231,19 @@ sudo apt install nvidia-driver-535  # Might need to set a secure boot password
 sudo reboot
 ``````
 
-​	VNC
+VNC
 
 ``````bash
 #--- Install Dependencies ---#
 sudo apt install vino
 sudo apt install dconf-editor
 ``````
-*Navigate to `/org/gnome/desktop/remote-access` with dconf-editor and disable `require-encryption`
+\*Navigate to `/org/gnome/desktop/remote-access` with `dconf-editor` and disable `require-encryption`
 
 
-#### Windows
+### Windows
 
-:link:[VirtIO Driver for Windows](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso)
-
-​	Additional CPU Flags for Windows
+Additional CPU Flags
 
 ``````bash
 # /etc/pve/qemu-server/<vmid>.conf
@@ -265,7 +257,7 @@ args: -cpu 'host,+kvm_pv_unhalt,+kvm_pv_eoi,hv_vendor_id=NV43FIX,kvm=off'
 
 *The final config file will update automatically after booting the VM
 
-## Useful commands
+# Useful commands
 
 Kill non-responding VMs
 
@@ -273,3 +265,11 @@ Kill non-responding VMs
 ps aux | grep "/usr/bin/kvm -id <vmid>"
 kill -9 <PID>
 ```
+
+# **Installation Resources** 
+
+[Proxmox](https://proxmox.com/en/downloads) :link:
+
+[Rufus](https://rufus.ie/en/) :link:
+
+[VirtIO Driver for Windows](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) :link:

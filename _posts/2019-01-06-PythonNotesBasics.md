@@ -1,15 +1,13 @@
 ---
 comments: true
-title: Python Notes
+title: Python Notes - Basics
 date: 2019-01-06 12:00:00
 mermaid: true
 categories: [software, programming, python]
 tags: [software, programming, python]
 ---
 
-## Python Basics
-
-### Quick Introduction
+# Quick Introduction
 
 Python is an ***interpreted*** programming language where codes go through a program called *interpreter*, which reads and execute the code line by line. 
 
@@ -22,17 +20,17 @@ Python is popular for
 - Data Science (numpy, pandas, matplotlib, scikit-learn) 
 - Large-scale web application (django).
 
-### Install Python
+# Install Python
 
 - From [official release](https://www.python.org/downloads/)
 
 - From [anaconda](https://www.anaconda.com/download) or [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links) (recommended)
 
-### Virtual Environment 
+# Virtual Environment 
 
 It's recommended to create a virtual environment for each of your project.
 
-#### Python Venv
+## Python Venv
 
 ```shell
 $ python -m venv /path/to/new/virtual/environment
@@ -48,7 +46,7 @@ $ which python
 /Users/zheng/Documents/demo/project_venv/bin/python
 ```
 
-#### Anaconda/Miniconda Venv
+## Anaconda/Miniconda Venv
 
 ```shell
 # Create venv
@@ -63,7 +61,7 @@ Django                   /Users/zheng/miniconda3/envs/Django
 $ conda activate CV
 ```
 
-### Install Python Libraries
+## Install Python Libraries
 
 ```shell 
 pip install <lib_name>
@@ -83,9 +81,9 @@ pip install <lib_name>
 pip -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
 ```
 
-### Variables
+# Variables
 
-#### Python Variable Names
+## Python Variable Names
 
 [Naming Conventions]():link:
 
@@ -94,7 +92,7 @@ pip -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
 - Contain ONLY  `[A-z]`, `[0-9]` and `_`
 - Are case-sensitive `Name` ≠ `name`
 
-#### Numerical Variables
+## Numerical Variables
 
 ```python
 # Define variables
@@ -117,7 +115,7 @@ pip -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
 
 *You can get get the type of any variable with `type(<var_name>)`
 
-#### String Variables
+## String Variables
 
 ```python
 # Define variables
@@ -152,11 +150,9 @@ pip -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
 2.0
 ```
 
-### Functions
+# Function - Loops
 
-#### Loops
-
-##### Loop with if
+## Loop with if
 
 ```python
 if condition_1:
@@ -170,7 +166,7 @@ else condition_3:
     return return_value
 ```
 
-##### Loop with while
+## Loop with while
 
 ```python
 while condition:
@@ -183,20 +179,17 @@ while condition:
         pass
 ```
 
-- **Break** will terminate the loop
-- **Continue** will only terminate/skip the current iteration
-- **Pass** is typically used as a placeholder for future code
+- ***Break*** will terminate the loop
+- ***Continue*** will only terminate/skip the current iteration
+- ***Pass*** is typically used as a placeholder for future code
 
-#### User-defined Functions
+# Function - Normal Arguments
 
-[Defining Your Own Python Function](https://realpython.com/defining-your-own-python-function/) :link:
+> **Parameters** are **placeholders** in a function definition, while **Arguments** are **actual values** passed during function invocation
+>
+> > [Defining Your Own Python Function](https://realpython.com/defining-your-own-python-function/) :link:
 
-- **Parameters** are **placeholders** in a function definition
-- **Arguments** are **actual values** passed during function invocation
-
-##### Normal Arguments
-
-###### Positional Arguments
+## Positional Arguments
 
 - Internally, values in `*args` as represented as in a `tuple`
 - The name `args` can be named arbitrarily
@@ -214,7 +207,7 @@ def cal_average(*int_nums):
 4.5
 ```
 
-###### Keyword Arguments
+## Keyword Arguments
 
 - Internally, values in `**kwargs` as represented as in a `dict`
 - The name `kwargs` can be named arbitrarily
@@ -233,7 +226,7 @@ first_name -> Zheng
 last_name -> Yuan
 ```
 
-###### All-in-One
+## All-in-One
 
 ```python
 def aio_func(a, b, *args, **kwargs):
@@ -254,9 +247,9 @@ def aio_func(a, b, *args, **kwargs):
 # first_name, last_name are keyword arguments
 ```
 
-##### Keyword/Positional-Only Arguments
+# Function - Keyword/Positional-Only Arguments
 
-###### Why do we need it? 
+## Why do we need them? 
 
 ```python
 # Q: How to give prefix a default value?
@@ -308,7 +301,7 @@ def concat(*args, prefix='-> ', sep='.'):
 # In examples above, prefix and sep are both keyword-only arguments
 ```
 
-###### Keyword-Only Arguments
+## Keyword-Only Arguments
 
 The bare variable argument parameter `*` indicates that there aren’t any more positional parameters.
 
@@ -348,7 +341,7 @@ def compare(a, b, *, key=None):
     do_smth
 ```
 
-###### Positional-Only Arguments
+## Positional-Only Arguments
 
 [Python 3.8: Cool New Features for You to Try](https://realpython.com/python38-new-features/#positional-only-arguments) :link:
 
@@ -374,7 +367,7 @@ TypeError: f() got some positional-only arguments passed as keyword arguments: '
 2
 ```
 
-###### All-in-One
+## All-in-One
 
 ```python
 def f(a, b, c, /, d, e, */, f, g):
@@ -385,19 +378,9 @@ def f(a, b, c, /, d, e, */, f, g):
 # f, g are keyword-only arguments
 ```
 
-##### Function Annotations			
+# Function - Decorators
 
-[PEP 3107 – Function Annotations](https://peps.python.org/pep-3107/)
-
-```python
-# Some demo syntax
-def demo_func(param_1: tuple = (1, 2, 3), 
-              param_2: int = 1024,
-              param_3: float = 1.0) -> bool:
-    do_smth
-```
-
-#### Anonymous Functions (aka Lambda)
+# Function - Lambda
 
 [Lambda expressions in Python](https://note.nkmk.me/en/python-lambda-usage/) :link:
 
@@ -418,14 +401,20 @@ def function_name(param_1, param_2, ...):
 lambda param_1, param_2: do_smth_1 if condition else do_smth_2
 ```
 
+# Function - Annotations			
 
+[PEP 3107 – Function Annotations](https://peps.python.org/pep-3107/)
 
-### Data Structure
+```python
+# Some demo syntax
+def demo_func(param_1: tuple = (1, 2, 3), 
+              param_2: int = 1024,
+              param_3: float = 1.0) -> bool:
+    do_smth
+```
 
+# Data Structure
 
+# File Operations
 
-### File Operations
-
-
-
-### Object-Oriented Programming (OOP)
+# Object-Oriented Programming

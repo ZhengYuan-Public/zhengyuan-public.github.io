@@ -1,18 +1,12 @@
 ---
 comments: true
-title: Markdown Syntax
+title: Markdown Notes
 date: 2020-04-05 12:00:00
 categories: [programming, markdown, generic]
 tags: [programming, markdown, generic]
 ---
 
-## Basic Syntax
-
-:link: [Markdown Guide - Basic Syntax](https://www.markdownguide.org/basic-syntax/)
-
-:link: [Markdown Guide - Extended Syntax](https://www.markdownguide.org/extended-syntax/)
-
-### Heading
+# Heading
 
 Markdown supports 6 levels of heading with `# x n={1, 2, 3, 4, 5, 6}`
 
@@ -25,49 +19,45 @@ Markdown supports 6 levels of heading with `# x n={1, 2, 3, 4, 5, 6}`
 ##### Heading 6
 ```
 
----
+# Emphasizing
 
-### Emphasizing
-
-#### Italic
+## Italic
 
 ```markdown
 This text is *Italic*.
 ```
 
-#### Bold 
+## Bold 
 
 ```markdown
 This text is **Bold**.
 ```
-#### Bold and Italic
+## Bold and Italic
 
 ```markdown
 This text is ***Italic and Bold***.
 ```
-#### Strikethrough 
+## Strikethrough 
 
 ```markdown
 This text is ~~Strikethrough~~.
 ```
-#### Highlight
+## Highlight
 
 ```markdown
 I ==love== you so much.
 ```
-#### Subscript and Subscript
+## Subscript and Subscript
 
 ```markdown
 y = a~1~x^2^ + b~1~
 ```
 
----
-
-### Blockquotes
+# Blockquotes
 
 \*Put blank lines ***before*** and ***after*** lines starting with `>`.
 
-#### Blockquotes with one paragraph
+## Blockquotes with one paragraph
 
 ```markdown
 > The quick brown fox jumps over the lazy dog.
@@ -75,7 +65,7 @@ y = a~1~x^2^ + b~1~
 
 > The quick brown fox jumps over the lazy dog.
 
-#### Blockquotes with multiple paragraphs
+## Blockquotes with multiple paragraphs
 
 ```markdown
 > The quick brown fox jumps over the lazy dog.
@@ -87,7 +77,7 @@ y = a~1~x^2^ + b~1~
 >
 > Waltz, bad nymph, for quick jigs vex.
 
-#### Nested Blockquotes
+## Nested Blockquotes
 
 ```markdown
 > The quick brown fox jumps over the lazy dog.
@@ -99,11 +89,9 @@ y = a~1~x^2^ + b~1~
 >
 > > Waltz, bad nymph, for quick jigs vex.
 
----
+# List
 
-### List
-
-#### Ordered list
+## Ordered list
 
 ```markdown
 1. First item
@@ -113,7 +101,7 @@ y = a~1~x^2^ + b~1~
 1. First item
 2. Second item
 
-#### Unordered list
+## Unordered list
 
 ```markdown
 - First item
@@ -125,7 +113,7 @@ y = a~1~x^2^ + b~1~
 - Second item
 - 1024\. A lovely number! (escape with \\)
 
-#### Nested list
+## Nested list
 
 ```markdown
 1. First item
@@ -141,17 +129,8 @@ y = a~1~x^2^ + b~1~
 2. Second item
 3. Third item
 
----
 
-### Code
-
-#### Code
-
-```markdown
-`<code_inside>`
-```
-
-#### Code block
+# Code
 
 ````markdown
 ```<programming_language_name>
@@ -162,21 +141,19 @@ Put
 ```
 ````
 
----
-
-### Image
+# Image
 
 ```markdown
 ![Image_alt_name](image_url)
 ```
 
-### Horizontal Rule
+# Horizontal Rule
 
 ```markdown
 ---
 ```
 
-### Links
+# Links
 
 ```markdown
 [ZhengYuan - GitHub Page](https://zhengyuan-public.github.io)
@@ -190,9 +167,7 @@ Put
 
 <fake@example.com>
 
----
-
-### Footnotes
+# Footnotes
 
 ```markdown
 Here's a simple footnote,[^1] and here's a longer one.[^bignote]
@@ -215,12 +190,12 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 [^bignote]: Here's one with multiple paragraphs and code.
 
     Indent paragraphs to include them in the footnote.
-
+    
     `{ my code }`
-
+    
     Add as many paragraphs as you like.
 
-Task list
+# Task list
 
 ```markdown
 - [x] Get up
@@ -232,7 +207,7 @@ Task list
 - [ ] Take a nap
 - [ ] Go to sleep
 
-### Table
+# Table
 
 Use three ore more hyphens (`-`) to create each column’s header; 
 
@@ -252,33 +227,28 @@ Use colons (`:`) to align text.
 | Header    |    Title    | Here's this |
 | Paragraph |    Text     |    And more |
 
-### YAML header
+# YAML header
 
 ```markdown
 ---
-title: Markdown Syntax
+comments: true
+title: Markdown Notes
 date: 2020-04-05 12:00:00
 categories: [programming, markdown, generic]
 tags: [programming, markdown, generic]
 ---
 ```
 
----
-
-## Advanced Syntax
-
-### Mathematics
+# Mathematics
 
 ```markdown
 When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$.
 ```
 
----
+# Collapsible Sections
 
-### Collapsible Sections
-
-From this :link: [GitHub Page](https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab).
+From this [GitHub Page](https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab) :link: 
 
 ```markdown
 <details>
@@ -299,13 +269,15 @@ From this :link: [GitHub Page](https://gist.github.com/pierrejoubert73/902cc94d7
 - *Typora might have some problem rendering it [Typora issue #499](https://github.com/typora/typora-issues/issues/499).
 
 
----
+# Useful Resources
 
-## Useful Resources
+[Markdown Guide - Basic Syntax](https://www.markdownguide.org/basic-syntax/) :link:
 
-[Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+[Markdown Guide - Extended Syntax](https://www.markdownguide.org/extended-syntax/) :link:
 
-[Complete list of GitHub markdown emoji markup](https://gist.github.com/rxaviers/7360908)
+[Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) :link: 
+
+[Complete list of GitHub markdown emoji markup](https://gist.github.com/rxaviers/7360908) :link: 
 
 
-## Reverse Footnotes below
+# ->Footnotes below
