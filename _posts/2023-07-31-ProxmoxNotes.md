@@ -2,8 +2,8 @@
 comments: true
 title: Proxmox Installation and GPU Passthrough
 date: 2023-08-06 12:00:00
-categories: [hardware, homelab, proxmox, server, Linux]
-tags: [hardware, homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
+categories: [homelab, proxmox, server, Linux]
+tags: [homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
 ---
 
 # Network Configuration
