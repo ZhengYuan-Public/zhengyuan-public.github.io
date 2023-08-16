@@ -16,7 +16,11 @@ Python is an ***interpreted*** programming language where codes go through a pro
 - Flexible
 - Platform independent
 
-Python is popular for Machine Learning (PyTorch, tensorflow), Data Science (numpy, pandas, matplotlib, scikit-learn) and large-scale web application (django).
+Python is popular for 
+
+- Machine Learning (PyTorch, tensorflow)
+- Data Science (numpy, pandas, matplotlib, scikit-learn) 
+- Large-scale web application (django).
 
 ### Install Python
 
@@ -244,6 +248,10 @@ def aio_func(a, b, *args, **kwargs):
 2
 (3, 4, 5)
 {'first_name': 'Zheng', 'last_name': 'Yuan'}
+
+# a, b are positional arguments
+# 3, 4, 5 are also positional arguments
+# first_name, last_name are keyword arguments
 ```
 
 ##### Keyword/Positional-Only Arguments
@@ -265,7 +273,9 @@ def concat(prefix='-> ', *args):
 
 >>> concat('a', 'b', 'c')
 ab.c
-# This won't work because prefix is a positional argument, so when invoking the function call 'a' replaced the default value '-> '. Actually, the default value can never be reached.
+# This won't work because prefix is a positional argument, so when invoking the function 
+# call, 'a' will replace the default value '-> '. 
+# Actually, the default value can never be reached.
 
 # 2. Try-2
 >>> concat(prefix='//', 'a', 'b', 'c')
@@ -419,7 +429,3 @@ lambda param_1, param_2: do_smth_1 if condition else do_smth_2
 
 
 ### Object-Oriented Programming (OOP)
-
-## Advanced Python
-
-### 
