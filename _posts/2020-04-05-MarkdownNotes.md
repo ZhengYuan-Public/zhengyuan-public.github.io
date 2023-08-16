@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Markdown Syntax
+title: Markdown Notes
 date: 2020-04-05 12:00:00
 categories: [programming, markdown, generic]
 tags: [programming, markdown, generic]
