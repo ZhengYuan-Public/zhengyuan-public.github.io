@@ -6,17 +6,9 @@ categories: [homelab, proxmox, server, Linux]
 tags: [homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
 ---
 
-# Network Configuration
+## Network Configuration
 
-## Related Files 
-
-```bash
-/etc/network/interfaces
-/etc/hosts
-/etc/resolv.conf
-```
-
-## Bonding a.k.a. Link Aggregation
+### Bonding a.k.a. Link Aggregation
 
 [Understanding and Configuring Linux Network Interfaces](https://www.baeldung.com/linux/network-interface-configure)
 
@@ -46,7 +38,8 @@ iface vmbr0 inet dhcp
         bridge-fd 0
 ```
 
-#### bond-mode
+bond-mode
+
 - **Round-robin (balance-rr):** Transmit network packets in sequential order from the first available network interface (NIC) slave through the last. This mode provides ***load balancing*** and ***fault tolerance***.
 - **Active-backup (active-backup):** Only one NIC slave in the bond is active. A different slave becomes active if, and only if, the active slave fails. The single logical bonded interface’s MAC address is externally visible on only one NIC (port) to avoid distortion in the network switch. This mode provides ***fault tolerance***.
 - **XOR (balance-xor):** Transmit network packets based on [(source MAC address XOR’d with destination MAC address) modulo NIC slave count]. This selects the same NIC slave for each destination MAC address. This mode provides ***load balancing*** and ***fault tolerance***.
@@ -55,11 +48,17 @@ iface vmbr0 inet dhcp
 - **Adaptive transmit load balancing (balance-tlb):** Linux bonding driver mode that does not require any special network-switch support. The outgoing network packet traffic is distributed according to the current load (computed relative to the speed) on each network interface slave. Incoming traffic is received by one currently designated slave network interface. If this receiving slave fails, another slave takes over the MAC address of the failed receiving slave.
 - **Adaptive load balancing (balance-alb):** Includes balance-tlb plus receive load balancing (rlb) for IPV4 traffic, and does not require any special network switch support. The receive load balancing is achieved by ARP negotiation. The bonding driver intercepts the ARP Replies sent by the local system on their way out and overwrites the source hardware address with the unique hardware address of one of the NIC slaves in the single logical bonded interface such that different network-peers use different MAC addresses for their network packet traffic.
 
----
+:page_facing_up: Related Files 
 
-# GPU Passthrough
+```bash
+/etc/network/interfaces
+/etc/hosts
+/etc/resolv.conf
+```
 
-## **Web Resources** 
+## GPU Passthrough
+
+### Web Resources 
 
 ​	[PCI Passthrough(Proxmox Documentation)](https://pve.proxmox.com/wiki/PCI_Passthrough) :link:
 
@@ -67,9 +66,9 @@ iface vmbr0 inet dhcp
 
 ​	[AMD/NVIDIA GPU Passthrough in Window 11 - Proxmox Guide(YouTube Video)](https://www.youtube.com/watch?v=S6jQx4AJlFw) :link:
 
-## Step 0 - Check your hardware
+### Step 0 - Check your hardware
 
-## Step 1 -  Enable IOMMU
+### Step 1 -  Enable IOMMU
 
 > IOMMU = (Input/Output Memory Management Unit)
 
@@ -112,7 +111,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"   # ===> If you are using AMD CP
 update-grub
 ``````
 
-## Step 2 - VFIO Modules
+### Step 2 - VFIO Modules
 
 ``````bash
 #--- Add modules ---#
@@ -125,14 +124,14 @@ vfio_pci
 vfio_virqfd
 ``````
 
-## Step 3: IOMMU Interrupt Remapping
+### Step 3: IOMMU Interrupt Remapping
 
 ``````bash
 echo "options vfio_iommu_type1 allow_unsafe_interrupts=1" > /etc/modprobe.d/iommu_unsafe_interrupts.conf
 echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
 ``````
 
-## Step 4: Blacklisting Drivers
+### Step 4: Blacklisting Drivers
 
 ``````bash
 # Nouveau [noo-voh] adj. newly or recently created, developed, or come to prominence
@@ -145,7 +144,7 @@ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
 
 \*Reboot the system after this step.
 
-## Step 5: Adding GPU to VFIO
+### Step 5: Adding GPU to VFIO
 
 ``````bash
 #--- Find your GPUs ---#\
@@ -196,24 +195,22 @@ update-initramfs -u
 # Reboot the system
 ``````
 
-## Step6: Create VM
+### Step6: Create VM
 
-#### System Settings
+System Settings
 
 - Graphic Card: `Default`
 - Machine:  `q35`
 - BIOS: `OVMF(UEFI)`
 - SCSI Controller: `VirtIO SCSI`
 
-#### Disk Settings
+Disk Settings
 
 - [Disk Cache Mode (Proxmox Documentation)](https://pve.proxmox.com/wiki/Performance_Tweaks#Disk_Cache) :link:
 
----
+### Additional tips
 
-## Additional tips
-
-### Ubuntu 
+#### Ubuntu 
 
 NVIDIA Driver
 
@@ -241,7 +238,7 @@ sudo apt install dconf-editor
 \*Navigate to `/org/gnome/desktop/remote-access` with `dconf-editor` and disable `require-encryption`
 
 
-### Windows
+#### Windows
 
 Additional CPU Flags
 
@@ -257,7 +254,7 @@ args: -cpu 'host,+kvm_pv_unhalt,+kvm_pv_eoi,hv_vendor_id=NV43FIX,kvm=off'
 
 *The final config file will update automatically after booting the VM
 
-# Useful commands
+## Useful commands
 
 Kill non-responding VMs
 
@@ -266,7 +263,7 @@ ps aux | grep "/usr/bin/kvm -id <vmid>"
 kill -9 <PID>
 ```
 
-# **Installation Resources** 
+## **Installation Resources** 
 
 [Proxmox](https://proxmox.com/en/downloads) :link:
 
