@@ -6,10 +6,10 @@ categories: [network, proxy, terminal]
 tags: [network, proxy, terminal]
 ---
 
-## Download VPN Software
+## VPN Software and Provider
 
 - [Clash for Windows - Release](https://github.com/Fndroid/clash_for_windows_pkg/releases)
-- Your VPN provider, [QQWLJS](https://qqwljs.buzz/#/register?code=p9tKWlt9), or [TLY]( https://u2263835.tly.sh/2263835)
+- Your VPN Provider, [QQWLJS](https://qqwljs.buzz/#/register?code=p9tKWlt9), or [TLY]( https://u2263835.tly.sh/2263835)
 
 ## Proxy the Terminal
 
@@ -69,7 +69,7 @@ function proxy_off(){
 
 ### Windows CMD
 
-```cmd
+```shell
 # Set the proxy environment variables
 set http_proxy=http://127.0.0.1:1080
 set https_proxy=http://127.0.0.1:1080
