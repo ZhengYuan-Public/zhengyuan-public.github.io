@@ -24,7 +24,7 @@ tags: [homelab, hardware, gpu-server]
 
 ## GPU
 
-I started choosing components fro this build after I found the trend of upgrading the 2080Ti VRAM to **22GB** for AI image generation with [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release). I chosed the Gigabyte 2080Ti Turbo Edition (the power connetors located at rear) which has [TU102-300A-K1-A1](https://www.techpowerup.com/gpu-specs/nvidia-tu102.g813) and full X+X phase power. 
+I started choosing components for this build after I found the trend of upgrading the 2080Ti VRAM to **22GB** for AI image generation with [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release). I chose the Gigabyte 2080Ti Turbo Edition (the power connectors are located at the rear) which has [TU102-300A-K1-A1](https://www.techpowerup.com/gpu-specs/nvidia-tu102.g813) and full X+X phase power. 
 
 > A comparison of turbo edition 2080Ti from different brands can be found in [this video](https://www.bilibili.com/video/BV1os4y1b7z3).
 
@@ -37,7 +37,7 @@ I started choosing components fro this build after I found the trend of upgradin
 |  **FP16 (half)**  |                         26.90 TFLOPS                         |                         82.58 TFLOPS                         |      107.6 TFLOPS       |
 | **FP32 (float)**  |                         13.45 TFLOPS                         |                         82.58 TFLOPS                         |       53.8 TFLOPS       |
 |   FP64 (double)   |                         420.2 GFLOPS                         |                         1,290 GFLOPS                         |      1680.8 GFLOPS      |
-|     **VRAM**      |                        GDDR6-**22**GB                        |                       GDDR6X-**24**GB                        |     GDDR6-**88**GB      |
+|     **VRAM**      |                          GDDR6-22GB                          |                         GDDR6X-24GB                          |       GDDR6-88GB        |
 | Power Consumption |                             250W                             |                             450W                             |          1000W          |
 |       Price       |                        ¥2500 / ~ $340                        |                       ¥13000 / ~ $1770                       |    ¥10000 / ~ $1500     |
 
@@ -46,7 +46,6 @@ Compared with a single 4090, this build has
 - 130.30% FP16 Performance :+1:
 - 366.67% VRAM size :+1::+1::+1:
 - 76.92% Price :+1:
-
 - 65.15% FP32 Performance :-1:
 - 222.22% Power Consumption :-1:
 
@@ -54,9 +53,9 @@ Compared with a single 4090, this build has
 
 My major reasons for choosing 2080Ti x 4 over 4090 x1 are as follows:
 
-1. The FP32 performance in this build has a huge drop, but [it’s rare that networks need full FP32 accuracy](https://pytorch.org/blog/what-every-user-should-know-about-mixed-precision-training-in-pytorch/#:~:text=It%E2%80%99s%20rare%20that%20networks%20need%20this%20much%20numerical%20accuracy.). Instead, the bottleneck is usually the VRAM size when training large networks.
-1. I really want and like the **88**GB VRAM in this build.
-1. Training with lower precision is still the trend and there are lots of interesting reseach going on in this filed.
+1. The FP32 performance in this build has a huge drop, but [networks rarely need full FP32 accuracy](https://pytorch.org/blog/what-every-user-should-know-about-mixed-precision-training-in-pytorch/#:~:text=It%E2%80%99s%20rare%20that%20networks%20need%20this%20much%20numerical%20accuracy.). Instead, the bottleneck is usually the VRAM size when training large networks.
+1. I want and like the **88**GB VRAM in this build. :heart_eyes_cat:
+1. Training with lower precision is still the trend and lots of interesting research is going on in this field.
 
 >  Some time stamps
 >
@@ -64,15 +63,15 @@ My major reasons for choosing 2080Ti x 4 over 4090 x1 are as follows:
 > - In *2020*, AMP became a core function [*torch.cuda.amp*](https://pytorch.org/docs/stable/amp.html) in PyTorch since version 1.6. 
 > - In *2023*, the latest NVIDIA H100 even added support for FP8
 
-4. Federated learning is one of my research interest. Having multiple GPUs can help me setup a virtual training/benching environment in one machine.
+4. Federated learning is one of my research interests. Having multiple GPUs can help me set up a virtual training/benching environment in one machine.
 
 5. Last but not least, it's cheaper.
 
 ## Motherboard
 
-I needed a motherboard which can support 4 GPUs. It was a little different from my previous experience with build a gaming PC so I'd like to briefly show my research results. In order to have [PCI-e x 16] x 4 or more, you would typically want to serach for workstation / server motherboards. For this build, here is my priorities: `[PCI-e x 16] x4` > `CPU Cores` = `RAM Size` > `NVME Disk Slotes` > `STAT/SAS Ports` = `10Gb Ethernet`
+I needed a motherboard that can support 4 GPUs. It was a little different from my previous experience with building a gaming PC so I'd like to briefly show my research results. To have [PCI-e x 16] x 4 or more, you would typically want to search for workstation / server motherboards. For this build, here is my priorities: `[PCI-e x 16] x4` > `CPU Cores` = `RAM Size` > `NVME Disk Slotes` > `STAT/SAS Ports` = `10Gb Ethernet`
 
-As a novice in building server, server motherboards have some really interesting features, such as Intelligent Platform Management Interface ([IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface)), that I'd like to try. So I decided to go with server motherboard. Due to the budget, I wanted to use a set of retied (but not too old) server motherboard and CPU.
+As a novice in building servers, server motherboards have some really interesting features, such as Intelligent Platform Management Interface ([IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface)), that I'd like to try. So I decided to go with the server motherboard. Due to the budget, I wanted to use a set of retired (but not too old) server motherboards and CPUs.
 
 Here is the list:
 
@@ -92,7 +91,7 @@ Here is the list:
 
 ## Case
 
-The case is a little expensive, but the anodized aluminum with titanium color gives it a premium outlook. It also has durability design which makes it an expensive good deal.
+The case is a little expensive, but the anodized aluminum with titanium color gives it a premium outlook. It also has a durable design which makes it an expensive good deal.
 
 ![Official Image](https://streacom.com/wp-content/uploads/bc1t-v2-overhead.jpg)
 
