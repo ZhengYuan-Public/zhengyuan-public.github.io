@@ -54,18 +54,17 @@ Compared with a single 4090, this build has
 My major reasons for choosing 2080Ti x 4 over 4090 x1 are as follows:
 
 1. The FP32 performance in this build has a huge drop, but [networks rarely need full FP32 accuracy](https://pytorch.org/blog/what-every-user-should-know-about-mixed-precision-training-in-pytorch/#:~:text=It%E2%80%99s%20rare%20that%20networks%20need%20this%20much%20numerical%20accuracy.). Instead, the bottleneck is usually the VRAM size when training large networks.
-1. I want and like the **88**GB VRAM in this build. :heart_eyes_cat:
-1. Training with lower precision is still the trend and lots of interesting research is going on in this field.
-
->  Some time stamps
->
-> - In *2018*, NVIDIA released an extension for PyTorch called [Apex](https://github.com/NVIDIA/apex), which contained *Automatic Mixed Precision* (AMP) 
-> - In *2020*, AMP became a core function [*torch.cuda.amp*](https://pytorch.org/docs/stable/amp.html) in PyTorch since version 1.6. 
-> - In *2023*, the latest NVIDIA H100 even added support for FP8
-
+2. I want and like the **88**GB VRAM in this build. :heart_eyes_cat:
+3. Training with lower precision is still the trend and lots of interesting research is going on in this field.
 4. Federated learning is one of my research interests. Having multiple GPUs can help me set up a virtual training/benching environment in one machine.
-
 5. Last but not least, it's cheaper.
+
+>  Some major time stamps
+>
+>  - In *2018*, NVIDIA released an extension for PyTorch called [Apex](https://github.com/NVIDIA/apex), which contained *Automatic Mixed Precision* (AMP).
+>  - In *2020*, AMP became a core function [torch.cuda.amp](https://pytorch.org/docs/stable/amp.html) in PyTorch since version 1.6. 
+>
+>  - In *2023*, the latest NVIDIA H100 even added support for FP8. [NVIDIA Hopper: H100 And FP8 Support (lambdalabs)](https://lambdalabs.com/blog/nvidia-hopper-h100-and-fp8-support).
 
 ## Motherboard
 
