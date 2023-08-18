@@ -150,7 +150,7 @@ pip -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
 2.0
 ```
 
-## Function - Loops
+## Loops
 
 ### Loop with if
 
@@ -183,7 +183,7 @@ while condition:
 - ***Continue*** will only terminate/skip the current iteration
 - ***Pass*** is typically used as a placeholder for future code
 
-## Function - Normal Arguments
+## Normal Function Arguments
 
 > **Parameters** are **placeholders** in a function definition, while **Arguments** are **actual values** passed during function invocation
 >
@@ -247,12 +247,12 @@ def aio_func(a, b, *args, **kwargs):
 # first_name, last_name are keyword arguments
 ```
 
-## Function - Keyword/Positional-Only Arguments
+## X-Only Function Arguments
 
 ### Why do we need them? 
 
 ```python
-# Q: How to give prefix a default value?
+# Q: In the following function, how to give the prefix a default value?
 def concat(prefix, *args):
     print(f'{prefix}{".".join(args)}')
 
@@ -378,9 +378,9 @@ def f(a, b, c, /, d, e, */, f, g):
 # f, g are keyword-only arguments
 ```
 
-## Function - Decorators
+## Function Decorator
 
-## Function - Lambda
+## Lambda Function
 
 [Lambda expressions in Python](https://note.nkmk.me/en/python-lambda-usage/) :link:
 
@@ -401,7 +401,7 @@ def function_name(param_1, param_2, ...):
 lambda param_1, param_2: do_smth_1 if condition else do_smth_2
 ```
 
-## Function - Annotations			
+## Function Annotations			
 
 [PEP 3107 – Function Annotations](https://peps.python.org/pep-3107/)
 
