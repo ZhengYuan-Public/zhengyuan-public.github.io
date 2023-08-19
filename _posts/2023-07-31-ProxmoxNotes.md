@@ -2,8 +2,10 @@
 comments: true
 title: Proxmox Installation and GPU Passthrough
 date: 2023-08-06 12:00:00
-categories: [homelab, proxmox, server, Linux]
-tags: [homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
+image:
+  path: https://cdn.servermania.com/images/f_webp,q_auto:best/v1681847299/kb/Proxmox/Proxmox.webp?_i=AA
+categories: [home-lab, proxmox, server, Linux]
+tags: [home-lab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
 ---
 
 ## Network Configuration
@@ -14,7 +16,7 @@ tags: [homelab, proxmox, server, Linux, PCI-Passthrough, KVM, Virtualization]
 
 [Network Configuration (Proxmox Documentation)](https://pve.proxmox.com/wiki/Network_Configuration#sysadmin_network_bond)
 
-```bash
+```shell
 # /etc/network/interfaces
 auto lo
 iface lo inet loopback
@@ -75,7 +77,7 @@ bond-mode
 ``````bash
 #--- Check if IOMMU is enabled ---#
 
-dmesg | grep -e DMAR -e IOMMU
+$ dmesg | grep -e DMAR -e IOMMU
 
 [    1.406181] pci 0000:c0:00.2: AMD-Vi: IOMMU performance counters supported
 [    1.413634] pci 0000:80:00.2: AMD-Vi: IOMMU performance counters supported
@@ -89,9 +91,10 @@ dmesg | grep -e DMAR -e IOMMU
 [    1.447905] perf/amd_iommu: Detected AMD IOMMU #1 (2 banks, 4 counters/bank).
 [    1.447916] perf/amd_iommu: Detected AMD IOMMU #2 (2 banks, 4 counters/bank).
 [    1.447927] perf/amd_iommu: Detected AMD IOMMU #3 (2 banks, 4 counters/bank).
-# If you see any output with the words "DMAR" or "IOMMU," then it's likely that your system has IOMMU enabled.
+# If you see any output with the words "DMAR" or "IOMMU," then it's likely that 
+# your system has IOMMU enabled.
 
-cat /proc/cmdline
+$ cat /proc/cmdline
 
 BOOT_IMAGE=/boot/vmlinuz-6.2.16-3-pve root=/dev/mapper/pve-root ro quiet amd_iommu=on
 # If you find iommu=on in the output, it confirms that IOMMU is enabled.
@@ -99,7 +102,7 @@ BOOT_IMAGE=/boot/vmlinuz-6.2.16-3-pve root=/dev/mapper/pve-root ro quiet amd_iom
 
 ``````bash
 #--- Modify GRUB ---#
-nano /etc/default/grub
+$ nano /etc/default/grub
 
 # Change the following line
 GRUB_CMDLINE_LINUX_DEFAULT="quiet" 
@@ -108,14 +111,14 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on" # ===> If you are using Intel 
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"   # ===> If you are using AMD CPUs
 
 # Update grub
-update-grub
+$ update-grub
 ``````
 
 ### Step 2 - VFIO Modules
 
 ``````bash
 #--- Add modules ---#
-nano /etc/modules
+$ nano /etc/modules
 
 # Add the following lines
 vfio
@@ -127,19 +130,20 @@ vfio_virqfd
 ### Step 3: IOMMU Interrupt Remapping
 
 ``````bash
-echo "options vfio_iommu_type1 allow_unsafe_interrupts=1" > /etc/modprobe.d/iommu_unsafe_interrupts.conf
-echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
+$ echo "options vfio_iommu_type1 allow_unsafe_interrupts=1" > \
+	/etc/modprobe.d/iommu_unsafe_interrupts.conf
+$ echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
 ``````
 
 ### Step 4: Blacklisting Drivers
 
 ``````bash
 # Nouveau [noo-voh] adj. newly or recently created, developed, or come to prominence
-echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
+$ echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
 # AMD Drivers
-echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf
+$ echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf
 # Nvidia Drivers
-echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
+$ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
 ``````
 
 \*Reboot the system after this step.
@@ -148,38 +152,38 @@ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
 
 ``````bash
 #--- Find your GPUs ---#\
-lspci | grep NVIDIA
+$ lspci | grep NVIDIA
 
 # Take a note for all IDs
-01:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A] (rev a1)
-01:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller (rev a1)
-01:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller (rev a1)
-01:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller (rev a1)
-41:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A] (rev a1)
-41:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller (rev a1)
-41:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller (rev a1)
-41:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller (rev a1)
-81:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A] (rev a1)
-81:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller (rev a1)
-81:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller (rev a1)
-81:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller (rev a1)
-82:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A] (rev a1)
-82:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller (rev a1)
-82:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller (rev a1)
-82:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller (rev a1)
+01:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+01:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+01:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+01:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
+41:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+41:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+41:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+41:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
+81:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+81:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+81:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+81:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
+82:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+82:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+82:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+82:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
 # IDs for this system are 01:00, 41:00, 81:00, and 82:00.
 ``````
 
 ``````bash
 #--- Find GPU card's Vendor IDs ---#
-lspci -n -s 01:00
+$ lspci -n -s 01:00
 
 01:00.0 0300: 10de:1e07 (rev a1)  
 01:00.1 0403: 10de:10f7 (rev a1)  
 01:00.2 0c03: 10de:1ad6 (rev a1)  
 01:00.3 0c80: 10de:1ad7 (rev a1)  
 
-lspci -n -s 41:00
+$ lspci -n -s 41:00
 01:00.0 0300: 10de:1e07 (rev a1)
 01:00.1 0403: 10de:10f7 (rev a1)
 01:00.2 0c03: 10de:1ad6 (rev a1)
@@ -187,10 +191,11 @@ lspci -n -s 41:00
 # Got the same result because I had 4 identical GPU
 
 # Change ids to your own ids
-echo "options vfio-pci ids=10de:1e07, 10de:10f7, 10de:1ad6, 10de:1ad7, disable_vga=1"> /etc/modprobe.d/vfio.conf
+$ echo "options vfio-pci ids=10de:1e07, 10de:10f7, 10de:1ad6, 10de:1ad7, disable_vga=1"> \
+	/etc/modprobe.d/vfio.conf
 
 # Update initramfs
-update-initramfs -u
+$ update-initramfs -u
 
 # Reboot the system
 ``````
@@ -216,24 +221,27 @@ NVIDIA Driver
 
 ``````bash
 #--- Remove Old Drivers ---#
-sudo apt update
-sudo apt remove --purge nvidia-*
-sudo apt autoremove --purge
-sudo apt clean
-sudo reboot  # Reboot can be necessary before reinstall the driver
+$ sudo apt update
+$ sudo apt remove --purge nvidia-*
+$ sudo apt autoremove --purge
+$ sudo apt clean
+$ sudo reboot  
+# Reboot can be necessary before reinstall the driver
 
 #--- Install New Drivers ---#
-sudo apt search nvidia-driver  # Find available versions
-sudo apt install nvidia-driver-535  # Might need to set a secure boot password
-sudo reboot
+$ sudo apt search nvidia-driver  
+# Find available versions
+$ sudo apt install nvidia-driver-535  
+# Might need to set a secure boot password or disable secure boot if necessary
+$ sudo reboot
 ``````
 
 VNC
 
 ``````bash
 #--- Install Dependencies ---#
-sudo apt install vino
-sudo apt install dconf-editor
+$ sudo apt install vino
+$ sudo apt install dconf-editor
 ``````
 \*Navigate to `/org/gnome/desktop/remote-access` with `dconf-editor` and disable `require-encryption`
 
@@ -244,7 +252,7 @@ Additional CPU Flags
 
 ``````bash
 # /etc/pve/qemu-server/<vmid>.conf
-nano /etc/pve/qemu-server/101.conf
+$ nano /etc/pve/qemu-server/101.conf
 
 # Add the following lines at the end of the file
 machine: q35
@@ -259,8 +267,8 @@ args: -cpu 'host,+kvm_pv_unhalt,+kvm_pv_eoi,hv_vendor_id=NV43FIX,kvm=off'
 Kill non-responding VMs
 
 ```bash
-ps aux | grep "/usr/bin/kvm -id <vmid>"
-kill -9 <PID>
+$ ps aux | grep "/usr/bin/kvm -id <vmid>"
+$ kill -9 <PID>
 ```
 
 ## **Installation Resources** 
