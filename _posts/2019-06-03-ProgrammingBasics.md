@@ -2,6 +2,8 @@
 comments: true
 title: Programming Basics - Generic
 date: 2019-06-03 12:00:00
+image:
+  path: https://codeandhack.b-cdn.net/wp-content/uploads/2021/06/Learn-Programming-In-A-Fun-Way-1152x605.jpg
 categories: [programming, generic]
 tags: [programming, generic]
 ---
