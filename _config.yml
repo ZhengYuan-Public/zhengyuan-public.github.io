@@ -123,6 +123,13 @@ plugins:
   - jekyll-scholar
   - jekyll-latex
 
+scholar:
+  style: apa
+  locale: en
+  sort_by: none
+  order: ascending
+  source: ./_bibliography
+
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
