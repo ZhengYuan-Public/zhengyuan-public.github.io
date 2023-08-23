@@ -2,6 +2,8 @@
 comments: true
 title: Practical Mathematical Optimization
 date: 2023-08-02 12:00:00
+image:
+  https://books.google.co.jp/books/publisher/content?id=oXZZDwAAQBAJ&pg=PR4&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U153g1rLV6GdCJNM2ph9qK-Sz9-nw&w=1280
 math: true
 mermaid: true
 categories: [mathematics, optimization]
