@@ -152,7 +152,7 @@ If the function $ f(x) $ is **smooth**, then the gradient vector $ \nabla f(x) $
 
 ### Hessian Matrix
 
-If $ f(x) $ is twice continuously differentiable at point $ x $, there exists a matrix of second-order partial derivatives or *Hessian matrix*
+If $ f(x) $ is twice continuously differentiable ($ f(x) \in C^2 $) at point $ x $, there exists a matrix of second-order partial derivatives or *Hessian matrix*
 
 $$
 \begin{aligned}
@@ -193,39 +193,67 @@ $$
 
 ### Directional Derivative
 
-The directional derivative of a scalar function $ f(x) $ with respect to a vector $ v $ at a point $ x $:
+The directional derivative of a scalar function $ f(x) $ with respect to a vector $ \vec{v} = \langle v_1, v_2 \rangle $ at a point $ x $ where $ \left| \vec{v} \right| = 1$:
 
 $$
-\nabla _v f(x) = \underset{h \rightarrow 0}{lim} \frac{f(x-h) - f(x)}{h} = \nabla^T f(x) v
+\nabla _v f(x) = \nabla^T f(x) v
 $$
-
-It's typically assumed $ \vert\vert v \vert\vert = 1 $.
 
 ### Minima and Saddle Points
 
-- $ x^* $ is the **global minimum** over the set if:
+#### Global Minimum:
+
+$ x^* $ is the **global minimum** over the set if:
 
 $$
 f(x) \geq f(x^*),\ for\ all\ x\in X \subset \mathbb{R}^n
 $$
 
-- $ x^* $ is a **strong local minimum** if there exists an $ \varepsilon > 0 $ such that:
+#### Strong Local Minimum:
+
+$ x^* $ is a **strong local minimum** if there exists an $ \varepsilon > 0 $ such that:
 
 $$
 f(x) > f(x^*),\ for\ all\ \{x \bigm| \vert\vert x-x^* \vert\vert < \varepsilon \}
 $$
 
-- A ***saddle point*** or ***minimax point*** is a point where the slopes (derivatives) in orthogonal directions are all zeros (a critical point), but not a local extremum.
+The necessary and sufficient conditions:
+
+1. $ f(x^*) = 0 $ 
+2. $ H(x^*) $  is positive-definite
+3. (Implicit) $ x^* $ is an unconstrained minimum interior to $ X $
+
+If $ x^* $ lies on the boundary of $ X $, then:
+$$
+\nabla^Tf(x^*)\vec{v} \geq 0
+$$
+for all allowable directions $ \vec{v} $ such that $ x^* + \lambda \vec{v} \in X $ for $ \lambda > 0 $.
+
+#### Saddle Points
+
+A ***saddle point*** or ***minimax point*** is a point where the slopes (derivatives) in orthogonal directions are all zeros (a critical point), but not a local extremum.
 
 ![SaddlePoints](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Saddle_point.svg/600px-Saddle_point.svg.png)
 
+### Local Behavior of a Multi-variable Function
 
+The truncated second-order Taylor expansion for a multi-variable function:
+$$
+f(x' + \delta) = f(x') + \nabla^T f(x') \delta + \frac{1}{2} \delta^TH(x' + \theta \delta)\delta
+$$
+for some $ \theta \in [0, 1] $
 
+## Line Search Descent Methods for Unconstrained Minimization
 
+(Skipped Temporarily)
 
+## Standard Methods for Constrained Optimization
 
+(Skipped Temporarily)
 
+## Basic Optimization Theorems
 
+(Skipped Temporarily)
 
 
 
