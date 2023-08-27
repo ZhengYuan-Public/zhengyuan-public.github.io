@@ -193,7 +193,7 @@ $$
 
 ### Directional Derivative
 
-The directional derivative of a scalar function $ f(x) $ with respect to a vector $ \vec{v} = \langle v_1, v_2 \rangle $ at a point $ x $ where $ \left| \vec{v} \right| = 1$:
+The directional derivative of a scalar function $ f(x) $ with respect to a vector $ \vec{v} = \langle v_1, v_2 \rangle $ at a point $ x $ where $ \|\vec{v}\| = 1 $:
 
 $$
 \nabla _v f(x) = \nabla^T f(x) v
