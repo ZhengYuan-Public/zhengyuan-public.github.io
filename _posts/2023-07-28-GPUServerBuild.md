@@ -16,12 +16,12 @@ tags: [home-lab, hardware, gpu-server]
 |    MB     | AsRock [EPYC-D8](https://www.asrockrack.com/general/productdetail.jp.asp?Model=EPYCD8#Specifications) |   1    |   ¥1100 CNY / ~$150 USD   |
 |    CPU    | AMD [EPYC-7642](https://www.amd.com/en/products/cpu/amd-epyc-7642) (48C 96T) |   1    |   ¥2900 CNY / ~$400 USD   |
 |    RAM    |              Samsung-32GB-DDR4-RECC-2Rx4-2666V               |   8    |  ¥1600 CNY / ~ $220 USD   |
-|    GPU    |             Gigabyte-NVIDIA-2080Ti-**22**GB-300A             |   4    | ¥10000 CNY / ~ $1500 USD  |
+|    GPU    |             Gigabyte-NVIDIA-2080Ti-**22**GB-300A             |   4    | ¥10000 CNY / ~ $1360 USD  |
 |   Case    |                            BC1 V2                            |   1    |  ¥1100 CNY / ~ $150 USD   |
 |    PSU    |                         EVGA-1600-T2                         |   1    |   ¥800 CNY / ~ $110 USD   |
 |   Disk    |                  Kioxia-RC20-NVME-SSD (2TB)                  |   2    |  ¥1300 CNY / ~ $180 USD   |
 |    NAS    |                QNAP-TVS-951X - 32TB (RAID-5)                 |   1    |             /             |
-|  *Total*  |                                                              |        | ¥18,700 CNY / ~ $2710 USD |
+|  *Total*  |                                                              |        | ¥18,800 CNY / ~ $2570 USD |
 
 \*Currency conversion rate: 1USD = 7.33CNY
 
@@ -44,7 +44,7 @@ I started choosing components for this build after I found the trend of upgradin
 |   FP64 (double)   |                         420.2 GFLOPS                         |                         1,290 GFLOPS                         |      1680.8 GFLOPS      |
 |     **VRAM**      |                          GDDR6-22GB                          |                         GDDR6X-24GB                          |       GDDR6-88GB        |
 | Power Consumption |                             250W                             |                             450W                             |          1000W          |
-|       Price       |                        ¥2500 / ~ $340                        |                       ¥13000 / ~ $1770                       |    ¥10000 / ~ $1500     |
+|       Price       |                        ¥2500 / ~ $340                        |                       ¥13000 / ~ $1770                       |    ¥10000 / ~ $1360     |
 
 Compared with a single 4090, this build has 
 
@@ -77,7 +77,7 @@ Due to the budget, I wanted to use a set of retired (but not too old) server mot
 
 ### Motherboard
 
-I decided to go with the server motherboard because server motherboards have some really interesting features for a novice server builder like me. The most useful one is probably *Intelligent Platform Management Interface* ([IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface)) which allows you to manage your server (including powering on and off) remotely. 
+I decided to go with the server motherboard because server motherboards have some really interesting features for a novice server builder like me. The most useful one is probably the *Intelligent Platform Management Interface* ([IPMI](https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface)), which allows you to remotely manage your server (including powering on and off). 
 
 To have `[PCI-e x 16] x 4` or more, you would typically want to search for workstation/server motherboards. For the motherboard, I prioritized: 
 
@@ -151,10 +151,6 @@ The case is a little expensive, but the anodized aluminum with titanium color gi
 
 ![Official Image](https://streacom.com/wp-content/uploads/bc1t-v2-overhead.jpg)
 
-
-
-
-
 ## Operating System
 
 As for now, I intend to use this build as an All-In-One server for my home lab, including:
@@ -168,7 +164,265 @@ As for now, I intend to use this build as an All-In-One server for my home lab, 
 - Nginx reverse proxy server
 - Some Windows applications (Windows VM)
 
-[***Proxmox***](https://proxmox.com/en/) is a perfect solution for me and my notes can be found in [Proxmox Installation and GPU Passthrough](https://zhengyuan-public.github.io/posts/ProxmoxNotes/).
+After doing some research, ***Proxmox*** is a perfect solution for me.
+
+### Download
+
+[Proxmox](https://proxmox.com/en/downloads) :link: [Rufus](https://rufus.ie/en/) :link: [VirtIO Driver for Windows](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) :link:
+
+### Network Configuration
+
+#### Bonding a.k.a. Link Aggregation
+
+[Understanding and Configuring Linux Network Interfaces](https://www.baeldung.com/linux/network-interface-configure)
+
+[Network Configuration (Proxmox Documentation)](https://pve.proxmox.com/wiki/Network_Configuration#sysadmin_network_bond)
+
+```shell
+# /etc/network/interfaces
+auto lo
+iface lo inet loopback
+
+iface enp66s0f0 inet manual
+iface enp66s0f1 inet manual
+
+auto bond0
+iface bond0 inet static
+        bond-slaves enp66s0f0 enp66s0f1
+        bond-miimon 100
+        bond-mode balance-alb
+        bond-xmit-hash-policy layer2+3
+
+auto vmbr0
+iface vmbr0 inet dhcp
+        address 192.168.1.252/24
+        gateway 192.168.1.1
+        bridge-ports bond0
+        bridge-stp off
+        bridge-fd 0
+        
+# The IP address is given to the bridge, not the bond
+```
+
+bond-mode
+
+- **Round-robin (balance-rr):** Transmit network packets in sequential order from the first available network interface (NIC) slave through the last. This mode provides ***load balancing*** and ***fault tolerance***.
+- **Active-backup (active-backup):** Only one NIC slave in the bond is active. A different slave becomes active if, and only if, the active slave fails. The single logical bonded interface’s MAC address is externally visible on only one NIC (port) to avoid distortion in the network switch. This mode provides ***fault tolerance***.
+- **XOR (balance-xor):** Transmit network packets based on [(source MAC address XOR’d with destination MAC address) modulo NIC slave count]. This selects the same NIC slave for each destination MAC address. This mode provides ***load balancing*** and ***fault tolerance***.
+- **Broadcast (broadcast):** Transmit network packets on all slave network interfaces. This mode provides ***fault tolerance***.
+- **IEEE 802.3ad Dynamic link aggregation (802.3ad)(LACP):** Creates aggregation groups that share the same speed and duplex settings. Utilizes all slave network interfaces in the active aggregator group according to the 802.3ad specification.
+- **Adaptive transmit load balancing (balance-tlb):** Linux bonding driver mode that does not require any special network-switch support. The outgoing network packet traffic is distributed according to the current load (computed relative to the speed) on each network interface slave. Incoming traffic is received by one currently designated slave network interface. If this receiving slave fails, another slave takes over the MAC address of the failed receiving slave.
+- **Adaptive load balancing (balance-alb):** Includes balance-tlb plus receive load balancing (rlb) for IPV4 traffic, and does not require any special network switch support. The receive load balancing is achieved by ARP negotiation. The bonding driver intercepts the ARP Replies sent by the local system on their way out and overwrites the source hardware address with the unique hardware address of one of the NIC slaves in the single logical bonded interface such that different network-peers use different MAC addresses for their network packet traffic.
+
+:page_facing_up: Related Files 
+
+```bash
+/etc/network/interfaces
+/etc/hosts
+/etc/resolv.conf
+```
+
+### GPU Passthrough
+
+#### Reference
+
+[PCI Passthrough (Proxmox Documentation)](https://pve.proxmox.com/wiki/PCI_Passthrough) :link:
+
+[The Ultimate Beginner's Guide to GPU Passthrough (Reddit)](https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/) :link:
+
+[AMD/NVIDIA GPU Passthrough in Windows 11 - Proxmox Guide (YouTube Video)](https://www.youtube.com/watch?v=S6jQx4AJlFw) :link:
+
+#### Step 1 -  Enable IOMMU
+
+> IOMMU = (Input/Output Memory Management Unit)
+
+``````bash
+#--- Check if IOMMU is enabled ---#
+
+$ dmesg | grep -e DMAR -e IOMMU
+
+[    1.406181] pci 0000:c0:00.2: AMD-Vi: IOMMU performance counters supported
+[    1.413634] pci 0000:80:00.2: AMD-Vi: IOMMU performance counters supported
+[    1.424222] pci 0000:40:00.2: AMD-Vi: IOMMU performance counters supported
+[    1.435644] pci 0000:00:00.2: AMD-Vi: IOMMU performance counters supported
+[    1.446665] pci 0000:c0:00.2: AMD-Vi: Found IOMMU cap 0x40
+[    1.446678] pci 0000:80:00.2: AMD-Vi: Found IOMMU cap 0x40
+[    1.446684] pci 0000:40:00.2: AMD-Vi: Found IOMMU cap 0x40
+[    1.446689] pci 0000:00:00.2: AMD-Vi: Found IOMMU cap 0x40
+[    1.447894] perf/amd_iommu: Detected AMD IOMMU #0 (2 banks, 4 counters/bank).
+[    1.447905] perf/amd_iommu: Detected AMD IOMMU #1 (2 banks, 4 counters/bank).
+[    1.447916] perf/amd_iommu: Detected AMD IOMMU #2 (2 banks, 4 counters/bank).
+[    1.447927] perf/amd_iommu: Detected AMD IOMMU #3 (2 banks, 4 counters/bank).
+# If you see any output with the words "DMAR" or "IOMMU," then it's likely that 
+# your system has IOMMU enabled.
+
+$ cat /proc/cmdline
+
+BOOT_IMAGE=/boot/vmlinuz-6.2.16-3-pve root=/dev/mapper/pve-root ro quiet amd_iommu=on
+# If you find iommu=on in the output, it confirms that IOMMU is enabled.
+``````
+
+``````bash
+#--- Modify GRUB ---#
+$ nano /etc/default/grub
+
+# Change the following line
+GRUB_CMDLINE_LINUX_DEFAULT="quiet" 
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on" # ===> If you are using Intel CPUs
+GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on"   # ===> If you are using AMD CPUs
+
+# Update grub
+$ update-grub
+``````
+
+#### Step 2 - VFIO Modules
+
+``````bash
+#--- Add modules ---#
+$ nano /etc/modules
+
+# Add the following lines
+vfio
+vfio_iommu_type1
+vfio_pci
+vfio_virqfd
+``````
+
+#### Step 3: IOMMU Interrupt Remapping
+
+``````bash
+$ echo "options vfio_iommu_type1 allow_unsafe_interrupts=1" > \
+	/etc/modprobe.d/iommu_unsafe_interrupts.conf
+$ echo "options kvm ignore_msrs=1" > /etc/modprobe.d/kvm.conf
+``````
+
+#### Step 4: Blacklisting Drivers
+
+``````bash
+# Nouveau [noo-voh] adj. newly or recently created, developed, or come to prominence
+$ echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
+# AMD Drivers
+$ echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf
+# Nvidia Drivers
+$ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
+``````
+
+\*Reboot the system after this step.
+
+#### Step 5: Adding GPU to VFIO
+
+``````bash
+#--- Find your GPUs ---#\
+$ lspci | grep NVIDIA
+
+# Take a note for all IDs
+01:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+01:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+01:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+01:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
+41:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+41:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+41:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+41:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
+81:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+81:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+81:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+81:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
+82:00.0 VGA compatible controller: NVIDIA Corporation TU102 [GeForce RTX 2080 Ti Rev. A]
+82:00.1 Audio device: NVIDIA Corporation TU102 High Definition Audio Controller
+82:00.2 USB controller: NVIDIA Corporation TU102 USB 3.1 Host Controller
+82:00.3 Serial bus controller: NVIDIA Corporation TU102 USB Type-C UCSI Controller
+# IDs for this system are 01:00, 41:00, 81:00, and 82:00.
+``````
+
+``````bash
+#--- Find GPU card's Vendor IDs ---#
+$ lspci -n -s 01:00
+
+01:00.0 0300: 10de:1e07 (rev a1)  
+01:00.1 0403: 10de:10f7 (rev a1)  
+01:00.2 0c03: 10de:1ad6 (rev a1)  
+01:00.3 0c80: 10de:1ad7 (rev a1)  
+
+$ lspci -n -s 41:00
+01:00.0 0300: 10de:1e07 (rev a1)
+01:00.1 0403: 10de:10f7 (rev a1)
+01:00.2 0c03: 10de:1ad6 (rev a1)
+01:00.3 0c80: 10de:1ad7 (rev a1)
+# Got the same result because I had 4 identical GPU
+
+# Change ids to your own ids
+$ echo "options vfio-pci ids=10de:1e07, 10de:10f7, 10de:1ad6, 10de:1ad7, disable_vga=1"> \
+	/etc/modprobe.d/vfio.conf
+
+# Update initramfs
+$ update-initramfs -u
+
+# Reboot the system
+``````
+
+#### Step6: Create VM
+
+System Settings
+
+- Graphic Card: `Default`
+- Machine:  `q35`
+- BIOS: `OVMF(UEFI)`
+- SCSI Controller: `VirtIO SCSI`
+
+Disk Settings
+
+- [Disk Cache Mode (Proxmox Documentation)](https://pve.proxmox.com/wiki/Performance_Tweaks#Disk_Cache) :link:
+
+#### Additional tips
+
+##### Ubuntu 
+
+NVIDIA Driver
+
+``````bash
+#--- Remove Old Drivers ---#
+$ sudo apt update
+$ sudo apt remove --purge nvidia-*
+$ sudo apt autoremove --purge
+$ sudo apt clean
+$ sudo reboot  
+# Reboot can be necessary before reinstall the driver
+
+#--- Install New Drivers ---#
+$ sudo apt search nvidia-driver  
+# Find available versions
+$ sudo apt install nvidia-driver-535  
+# Might need to set a secure boot password or disable secure boot if necessary
+$ sudo reboot
+``````
+
+VNC
+
+``````bash
+#--- Install Dependencies ---#
+$ sudo apt install vino
+$ sudo apt install dconf-editor
+``````
+\*Navigate to `/org/gnome/desktop/remote-access` with `dconf-editor` and disable `require-encryption`
+
+
+##### Windows
+
+Additional CPU Flags
+
+``````bash
+# /etc/pve/qemu-server/<vmid>.conf
+$ nano /etc/pve/qemu-server/101.conf
+
+# Add the following lines at the end of the file
+machine: q35
+cpu: host,hidden=1,flags=+pcid
+args: -cpu 'host,+kvm_pv_unhalt,+kvm_pv_eoi,hv_vendor_id=NV43FIX,kvm=off'
+``````
+
+*The final config file will update automatically after booting the VM
 
 ##  Benchmark
 
@@ -222,7 +476,8 @@ Training data: Synthetic data
 Initial learning rate: 0.001
 Learning rate decay step: 30
 Used data augmentation: True
-Checkpoint folder: /home/foo/Documents/pytorch-benchmarks-main/model_checkpoints/4_NVIDIAGeForceRTX2080Ti_resnet50_450_lr0001
+Checkpoint folder: /home/foo/Documents/pytorch-benchmarks-main\
+	/model_checkpoints/4_NVIDIAGeForceRTX2080Ti_resnet50_450_lr0001
 Number of workers: 16
 Warm up steps: 10
 Benchmark start : 2023/07/26 18:14:27
@@ -367,7 +622,8 @@ Training data: Synthetic data
 Initial learning rate: 0.001
 Learning rate decay step: 30
 Used data augmentation: True
-Checkpoint folder: /home/foo/Documents/pytorch-benchmarks-main/model_checkpoints/4_NVIDIAGeForceRTX2080Ti_resnet50_250_lr0001
+Checkpoint folder: /home/foo/Documents/pytorch-benchmarks-main\
+	/model_checkpoints/4_NVIDIAGeForceRTX2080Ti_resnet50_250_lr0001
 Number of workers: 16
 Warm up steps: 10
 Benchmark start : 2023/07/26 20:19:28
