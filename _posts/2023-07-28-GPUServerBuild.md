@@ -153,18 +153,9 @@ The case is a little expensive, but the anodized aluminum with titanium color gi
 
 ## Operating System
 
-As for now, I intend to use this build as an All-In-One server for my home lab, including:
+As for now, I intend to use this build as an All-In-One server for my home lab. After doing some research, ***Proxmox*** is a perfect solution for me. 
 
-- GPU Server for Machine Learning (Primary) (Linux VM)
-- NAS (TrueNAS VM)
-  - Second copy of important files (Can't afford a 3rd copy yet...)
-  - Hosting my media files with [Plex](https://www.plex.tv/)
-  - PT Download
-- Soft Routing
-- Nginx reverse proxy server
-- Some Windows applications (Windows VM)
-
-After doing some research, ***Proxmox*** is a perfect solution for me.
+A GitHub repository for self-hosted applications: [Awesome-Self-hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) :link:
 
 ### Download
 
