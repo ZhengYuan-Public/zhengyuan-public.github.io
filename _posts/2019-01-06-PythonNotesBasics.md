@@ -347,7 +347,7 @@ def compare(a, b, *, key=None):
 
 [Python 3.8: Cool New Features for You to Try](https://realpython.com/python38-new-features/#positional-only-arguments) :link:
 
-The bare variable argument parameter `/` indicates that parameters ***before*** it are positional-only (cannot be passed by keyword) and parameters ***after*** it are regular arguments which can be passed either by position or by keyword.
+The bare variable argument parameter `/` indicates that parameters ***before*** it are positional-only (cannot be passed by keyword) and parameters ***after*** it are regular arguments that can be passed either by position or keyword.
 
 ```python
 # Python 3.8
@@ -380,7 +380,59 @@ def f(a, b, c, /, d, e, */, f, g):
 # f, g are keyword-only arguments
 ```
 
-## Function Decorator
+## Metaprogramming
+
+> Metaprogramming is about creating functions and classes whose main goal is to manipulate code.
+
+### Decorators
+
+[Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/) :link:
+
+[PEP 318 – Decorators for Functions and Methods](https://peps.python.org/pep-0318/) :link:
+
+> Decorators wrap a function, modifying its behavior.
+
+```python
+def my_decorator(func):
+    def wrapper_func(*args, **kwargs):
+        do_smth
+        result = func(*args, **kwargs)
+        do_smth
+        return result
+    return wrapper_func
+    
+def foo_func():
+    do_smth
+    
+# 1. The complicated way
+result = my_decorator(foo_func(my_args, my_kwargs))
+
+# 2. The easy way
+@my_decorator
+def foo_func():
+    do_smth
+    
+results = foo_func(my_args, my_kwargs)
+```
+
+Problem: Important metadata such as the name, doc string, annotations, and calling signatures are lost. Workarounds >>> 
+
+```python
+from functools import wraps
+
+def my_decorator(func):
+    @wraps
+    def wrapper_func(*args, **kwargs):
+        do_smth
+        result = func(*args, **kwargs)
+        do_smth
+        return result
+    return wrapper_func
+```
+
+### Class Decorators
+
+### Meta Classes
 
 ## Lambda Function
 
