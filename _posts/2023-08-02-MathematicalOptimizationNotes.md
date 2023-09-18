@@ -201,7 +201,7 @@ $$
 
 ### Minima and Saddle Points
 
-#### Global Minimum:
+#### Global Minimum
 
 $ x^* $ is the **global minimum** over the set if:
 
@@ -209,7 +209,7 @@ $$
 f(x) \geq f(x^*),\ for\ all\ x\in X \subset \mathbb{R}^n
 $$
 
-#### Strong Local Minimum:
+#### Strong Local Minimum
 
 $ x^* $ is a **strong local minimum** if there exists an $ \varepsilon > 0 $ such that:
 

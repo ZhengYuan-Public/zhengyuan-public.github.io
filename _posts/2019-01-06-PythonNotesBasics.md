@@ -268,8 +268,8 @@ def concat(prefix='-> ', *args):
 
 >>> concat('a', 'b', 'c')
 ab.c
-# This won't work because prefix is a positional argument, so when invoking the function 
-# call, 'a' will replace the default value '-> '. 
+# This won't work because prefix is a positional argument, so when invoking
+# the function call, 'a' will replace the default value '-> '. 
 # Actually, the default value can never be reached.
 
 # 2. Try-2
@@ -278,7 +278,8 @@ ab.c
     concat(prefix='//', 'a', 'b', 'c')
                                      ^
 SyntaxError: positional argument follows keyword argument
-# This also won't work, because python requires keyword arguments after positional arguments
+# This also won't work, because python requires keyword arguments after 
+# positional arguments
 
 # 3. Try-3
 >>> concat('a', 'b', 'c', prefix='... ')
