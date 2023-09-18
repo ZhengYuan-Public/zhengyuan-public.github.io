@@ -29,7 +29,7 @@ tags: [home-lab, hardware, gpu-server]
 
 ## GPU
 
-I started choosing components for this build after I found the trend of upgrading the 2080Ti VRAM to **22GB** for AI image generation with [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release). I chose the Gigabyte 2080Ti Turbo Edition (the power connectors are located at the rear) which has [TU102-300A-K1-A1](https://www.techpowerup.com/gpu-specs/nvidia-tu102.g813) and full X+X phase power. 
+I started choosing components for this build after I found the trend of upgrading the 2080Ti VRAM to **22GB** for AI image generation with [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release). I chose the Gigabyte 2080Ti Turbo Edition (the power connectors are located at the rear) which has [TU102-300A-K1-A1](https://www.techpowerup.com/gpu-specs/nvidia-tu102.g813) and 13+3 power phase. 
 
 > A comparison of turbo edition 2080Ti from different brands can be found in [this video](https://www.bilibili.com/video/BV1os4y1b7z3).
 
@@ -344,7 +344,7 @@ $ lspci -n -s 41:00
 # Got the same result because I had 4 identical GPU
 
 # Change ids to your own ids
-$ echo "options vfio-pci ids=10de:1e07, 10de:10f7, 10de:1ad6, 10de:1ad7, disable_vga=1"> \
+$ echo "options vfio-pci ids=10de:1e07, 10de:10f7, 10de:1ad6, 10de:1ad7, disable_vga=1">\
 	/etc/modprobe.d/vfio.conf
 
 # Update initramfs
