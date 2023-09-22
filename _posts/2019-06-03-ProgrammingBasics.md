@@ -4,6 +4,7 @@ title: Programming Basics - Generic
 date: 2019-06-03 12:00:00
 image:
   path: https://codeandhack.b-cdn.net/wp-content/uploads/2021/06/Learn-Programming-In-A-Fun-Way-1152x605.jpg
+math: true
 categories: [programming, generic]
 tags: [programming, generic]
 ---
@@ -28,7 +29,48 @@ For example, naming two variables first name and last name
 - C++ - [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) :link: 
 - PHP - [PSR-12: Extended Coding Style](https://www.php-fig.org/psr/psr-12/) :link: 
 
-## Major Types of Programming Languages
+## Floating-point Numbers
 
-> A programming language defines a set of instructions that are compiled together to perform a specific task by the CPU.
+### FP32
 
+$$
+12345 = \underbrace{1.2345}_{significand} \times {\underbrace{10}_{base}}\!\!\!\!\!\!\!^{\overbrace{4}^{exponent}}
+$$
+
+- IEEE754 Single-Precision Format 
+- Sign bit: 1 bit {0: +; 1: -}
+- Exponent: 8 bits $ [-126, +127] $ (with an offset of 127, -127 (all zeros), and +128 (all ones) are reserved for special numbers).
+- Significand: 24 bits (the 1st bit is always 1, and the rest 23 bits are explicitly stored)
+
+This gives from 6 to 9 significant decimal digits precision.
+
+### FP32 to Decimal
+
+![FP32](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Float_example.svg/1180px-Float_example.svg.png)
+
+$$
+value = (-1)^{b_{31}} \times 2^{(b_{30}b_{29}...b_{23})_2 - 127} \times (1.b_{22}b_{21}...b_{0})_2
+$$
+
+1. $ sign = b_{31} = 0 $
+2. $ (-1)^{sign} = (-1)^0 = +1 \in \{-1, +1\} $
+3. $ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
+4. $ 2^{E-127} = 2^{-3} \in \{ 2^{-126}, ..., 2^{127} \} $
+5. $ (1.b_{22}b_{21}...b_{0})_2 = 1 + \sum_{i=1}^{23} b_{23 - i}2^{-i} = 1.25 $
+6. $ value = (+1) \times 2^{-3} \times 1.25 = + 0.15625 $
+
+### Decimal to FP32
+
+$$
+- 10.75 = - (1.01011)_{2} \times 2^3
+$$
+
+1. $ sign = b_{31} = 1 $
+2. $ (3 + 127)_{10} = (10000010)_2 = (b_{30}b_{29}...b_{23})_2 $
+3. $ (1.b_{22}b_{21}...b_{0})_2 = (1.01011 \underbrace{0...0}_{18})_2 $
+4. $ values = 1\ 10000010\ 01011 \underbrace{0...0}_{18}$
+
+#### Reference
+
+- [FP64, FP32, FP16, BFLOAT16, TF32, and other members of the ZOO](https://moocaholic.medium.com/fp64-fp32-fp16-bfloat16-tf32-and-other-members-of-the-zoo-a1ca7897d407)
+- [Single-precision floating-point format](https://en.wikipedia.org/wiki/Single-precision_floating-point_format)
