@@ -102,7 +102,7 @@ $$
 When both the objective function and all the constraints are linear functions.
 
 $$
-\underset{x}{min} f(x) = c^Tx, \\such\ that\ Ax \leq b; x \geq 0
+\underset{x}{min} f(x) = c^Tx, such\ that\ Ax \leq b; x \geq 0
 $$
 
 where $ c $ is a real $ n \times 1 $ vector, b is a real $ m \times 1 $ vector and $ A $ is a $ m \times n $ matrix.
@@ -112,7 +112,7 @@ where $ c $ is a real $ n \times 1 $ vector, b is a real $ m \times 1 $ vector a
 A line through the points $ x_1 $ and $ x_2 $ is the set:
 
 $$
-L = \{ x| x = x_1 + \lambda (x_2 - x_1),\ for\ all\ \lambda \in \mathbb{R}^n \}
+L = \{ x \ |\  x = x_1 + \lambda (x_2 - x_1),\ for\ all\ \lambda \in \mathbb{R}^n \}
 $$
 
 
