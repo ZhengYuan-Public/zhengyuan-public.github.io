@@ -37,10 +37,10 @@ $$
 - $ t $: threshold
 
 $$
-\begin{aligned}
+\begin{align}
 	IoU &> t \rightarrow correct\\
 	IoU &< t \rightarrow incorrect
-\end{aligned}
+\end{align}
 $$
 
 ### Truth Table
@@ -175,11 +175,11 @@ $$
 #### From KL Divergence to Cross Entropy
 
 $$
-\begin{aligned}
+\begin{align}
 D_{KL}(P^*(y|x_i)\ ||\ P(y|x_i; \Theta)) &= \sum_{y} P^*(y|x_i) log \frac{P^*(y|x_i)}{P(y|x_i; \Theta)} \\
 			&= \sum_{y} P^*(y|x_i)[logP^*(y|x_i) - logP(y|x_i; \Theta)] \\
 			&= \underbrace{\sum_{y} P^*(y|x_i)logP^*(y|x_i)}_{\text{Does not depend on } \Theta} \ \underbrace{ - \sum_{y} P^*(y|x_i)logP(y|x_i; \Theta)}_{Cross \ Entropy}
-\end{aligned}
+\end{align}
 $$
 
 ## Two-Stage Algorithms
@@ -260,10 +260,10 @@ Project the **corner point of a RoI** onto a **pixel in the feature maps** such 
 #### Multitask Loss
 
 $$
-\begin{aligned}
+\begin{align}
 p &= (p_0, ..., p_K), t^k = (t_x^k, t_y^k, t_w^k, t_h^k,) \\
 L(p, u, t^u, v) &= L_{cls}(p, u) + \lambda[u \geq 1]L_{loc}(t^u, v)
-\end{aligned}
+\end{align}
 $$
 
 #### Large FC layer acceleration with truncated SVD
@@ -518,34 +518,312 @@ $$
 
 ### Mask R-CNN {% cite he2017mask --file papers_cv %}
 
+#### Intuition
+
+Preserve exact spatial locations
+
+#### Model Architecture
+
+- RPN
+- Three prediction tasks in parallel
+  - Classification
+  - Bbox regression
+  - Binary mask $ \longleftarrow  $ A small FCN
+
+#### Training
+
+Loss function
+$$
+L = L_{cls} + L_{box} + L_{mask}
+$$
+
+
+$ L_{mask} $
+
+- Generate masks for every class ***without*** competition among classes 
+- Per-pixel softmax and multinomial cross-entropy loss
+- Per-pixel sigmoid and average binary cross-entropy loss
+
+#### RoI Align
+
+Misalignment due to RoI Pooling
+
+- Quantization (Approximation): rounding and dividing into bins
+- This may not impact classification which is robust to small translations
+- This has a large negative effect on predicting pixel-accurate masks
+
+<img src="/assets/img/images_cv/Mask-R-CNN-1.png" alt="RoI-Align" style="zoom:50%;" />
+
+- Dash grid: feature map
+- Solid lines: an RoI with $ 2 \times 2 $ bins
+- 4 Dots within each bin: Sampling points
+- Avoid quantization by using *Bilinear Interpolation*
+
 ---
 
 ### RoI Transformer {% cite ding2019learning --file papers_cv %}
+
+*CV on Aerial Images
+
+#### Intuitions
+
+- Horizontal proposals $ \longrightarrow $ mismatches between the RoI and objects
+- Learn the **Spatial Transformation Parameters** under the supervision of oriented bbox annotation
+- Aerial Images $ \longrightarrow $ more **rotations** and **scale** variations, but hardly nonrigid deformation
+
+#### RoI Transformer
+
+RRoI-based methods
+
+- Rotated RoI Warping
+  - extract features from a RRoI
+  - regress position offsets relative to the RRoI
+- Rotated Anchor in RPN
+  - Increase the number of anchors dramatically
+  - Match Oriented bbox (OBBs) is harder than Horizontal bbox (HBBs)
+
+<img src="/assets/img/images_cv/RoI-Transformer-1.png" alt="RoI-Transformer" style="zoom:50%;" />
+
+RoI Transformer
+
+- RRoI Learner $ \longleftarrow $ learn the parameters of RRoIs from HRoI feature maps
+  - It's a PS RoI Align followed by an FC layer of 5-d. The output FC-5 is the parameters of RRoIs, i.e., $ (t_x, t_y, t_w, t_h, t_{\theta}) $
+- RRoI Warping $ \longleftarrow $ extract **rotation-invariant** features
+  - Rotated Position-Sensitive RoI Align (RPS RoI Align)
+- IoU for RRoIs
+  - Performed within polygons
 
 ---
 
 ### ReDet {% cite han2021redet --file papers_cv %}
 
+*CV on Aerial Images
+
+#### Intuition
+
+- Use rotation-equivariant feature extractor networks $ \longrightarrow $ ReCNN
+
+- Rotatioan-invariant RoI Align (Ri RoI Aligh)
+
+#### ReCNN {% cite veeling2018rotation --file papers_cv %}
+
+[Rotation Equivariant Convolutional Neural Network](https://medium.com/intel-student-ambassadors/rotation-equivariant-convolutional-neural-network-16e279924fa4)
+
+GroupConvolution results for an input and rotated version of the input
+
+![ReDet-ReCNN-1](/assets/img/images_cv/ReDet-ReCNN-1.png)
+
+Data Flow
+
+![ReDet-ReCNN-2](/assets/img/images_cv/ReDet-ReCNN-2.png)
+
+#### RiRoI Align
+
+RiRoI has an extra orientation dimension
+
+![ReDet-RiRoI](/assets/img/images_cv/ReDet-RiRoI.png)
+
 ---
 
 ### Point R-CNN {% cite zhou2022point --file papers_cv %}
+
+*CV on Aerial Images
+
+#### Intuitions
+
+- Angle-based detectors can suffer from long-standing boundary problem
+- Angle-free method $ \longrightarrow $ Point RPN and Point Regression
+
+#### Model Architecture
+
+![Point-R-CNN-Architecture](/assets/img/images_cv/Point-R-CNN-Architecture.png)
+
+- MiniAreaRect from OpenCV
+
+#### Point RPN
+
+![Point-R-CNN-Point-RPN](/assets/img/images_cv/Point-R-CNN-Point-RPN.png)
 
 ---
 
 ### Vision Transformer {% cite dosovitskiy2020image --file papers_cv %}
 
+####  Model Architecture
+
+![ViT-Architecture](/assets/img/images_cv/ViT-Architecture.png)
+
+- 2D-image $ \longrightarrow $ 2D-image patches $ \longrightarrow $ flatten each path into 1-d vector
+- Positional embedding is calculated patch-wise (i.e., each patch is treated as a ”token”)
+- Additional class token similar to BERT’s
+- MLP contains two layers with a GELU
+
+#### Multihead Self-Attention
+
+Standard **qkv** self-attention $ (SA_{qkv}) $
+
+$$
+\begin{align}
+	[q,k,v] &= z U_{qkv}  \\
+	SA_{qkv}(z) &= softmax(\frac{QK^T}{\sqrt{d_k}})V
+\end{align}
+$$
+
+#### Multihead Self-Attention (MSA)
+
+$$
+MSA(z) = [SA_1(z), SA_2(z), \dots, SA_k(z)]U_{msa}
+$$
+
+- Run $ k \times SA_{qkv} $ (each is a head) in parallel and project their concatenated output ($ D_h = D/k $ for consistent output size)
+- Global attention (for the entire image)
+
+#### Gaussian Error Linear Units (GELU)
+
+<img src="/assets/img/images_cv/ViT-GELU.png" alt="GELU" style="zoom:50%;" />
+
+GELU is a smooth approximation of the rectifier
+$$
+\begin{align}
+f(x) &=x \cdot \Phi (x) \\
+\Phi (x) &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-t^2/2} dt
+\end{align}
+$$
+
+- $ \Phi (x) $ is the CDF of standard normal distribution
+- non-monotonic "bump" when $ x < 0 $
+
+A similar approximation is monotonic
+
+$$
+f(x) = x \cdot \Phi (x) + \frac{1}{\sqrt{2\pi}} + e^{-x^2/2} dt
+$$
+
+
 ---
 
 ### Swin Transformer {% cite liu2021swin --file papers_cv %}
+
+#### Intuitions
+
+Challenges from NLP to CV
+
+- Large Variation in *Scale*
+- Much higher *Resolution*
+
+#### Model Architecture
+
+![Swin-Transformer-Architecture-1](/assets/img/images_cv/Swin-Transformer-Architecture-1.png)
+
+-  Patch size $ 4 \times 4 $ $ \longrightarrow $ Feature dimension $ 4 \times 4 \times 3 =48 $ 
+-  **Swin Transformer Block** maintains the number of tokens in each stage
+-  The number of tokens is reduced by **Path Merging Layers**
+
+### Swin Transformer Block
+<img src="/assets/img/images_cv/Swin-Transformer-Architecture-2.png" alt="Swin-Transformer-Architecture-2" style="zoom:50%;" />
+
+### W MSA and SW MSA
+Window Multihead Self-Attention (W MSA)
+- Local self-attention (for each window)
+- Linear time complexity to patch number $ hw $
+
+Shifted Window Multihead Self-Attention (SW MSA)
+- Introduce cross-window connections
+- Displacing the windows by $ ( \lfloor \frac{M}{2} \rfloor, \lfloor \frac{M}{2} \rfloor ) $
+- Cyclic-shifting toward the top-left direction (efficient batch computation)
+
+<img src="/assets/img/images_cv/Swin-Transformer-W-SW-MSA.png" alt="Swin-Transformer-W-SW-MSA" style="zoom: 67%;" />
+
+### Relative Position Bias
+Positional Embedding is included in calculating $ MSA_{qkv-b} $
+
+$$
+  MSA_{qkv-b} = softmax(\frac{QK^T}{\sqrt{d_k}} + B)V
+$$
+
+- Significant improvements over counterparts without this bias term or that use absolute position embedding.
+- Further adding absolute position embedding to the input drops performance slightly.
+
+### Patch Merging
+<img src="/assets/img/images_cv/Swin-Transformer-PatchMergingLayer.png" alt="Swin-Transformer-PatchMergingLayer" style="zoom:50%;" />
 
 ---
 
 ### RST-CNN {% cite gao2021deformation --file papers_cv %} 
 
----
+#### Model Definition
+
+Input: $ x^{(0)}(u, \lambda) $
+- $ x^{(0)} $ is the intensity of the RGB channel $ \lambda \in {1, 2, 3} $ at pixel location $ u \in  \mathbb{R}^2 $
+
+RST Transformation
+
+$$
+[D_{\eta, \beta, v}^{(0)}x^{(0)}](u, \lambda) = x^{(0)}(R_{-\eta}2^{-\beta}(u-v), \lambda)
+$$
+
+- RST-action (representation) $ D_g^{(0)} = D_{\eta, \beta, v}^{(0)} $ acting on the input $ x^{(0)}(u, \lambda) $
+- $ \eta $: rotation
+  - $ R_{\eta}u $ is a counterclockwise rotation around the origin by an angle $ \eta $ applied to a point $ u \in \mathbb{R}^2 $
+- $ 2^{\beta} $: scaling
+$ v $: translation
+
+#### Equivariant Architecture
+
+> The composition of equivariant map remain equivariant.
+
+Specify $ \mathcal{RST} $-action $ D_{\eta, \beta, v}^{(l)} $ on each feature space $ \mathcal{X}^{(l)}, 0 \leq l \leq L $, and layer-wise mapping equivariant is required:
+
+$$
+x^{(l)}[D_{\eta, \beta, v}^{(l-1)}x^{(l-1)}](u, \lambda) = D_{\eta, \beta, v}^{(l)}\underline{ x^{(l)}[x^{(l-1)}] }
+$$
+
+- $ x^{l}[x^{(l-1)}]  $ is abused to indicate the output ($ x^{(l)} $) of $ l_{th} $ layer, given the $ (l-1)_{th} $ layer features ($ x^{(l-1)} $)
+
+$$
+\begin{align}
+&[D_{\eta, \beta, v}^{(0)}x^{(0)}](u, \lambda) = x^{(0)}(R_{-\eta}2^{-\beta}(u-v), \lambda), l=0 \\
+		&[D_{\eta, \beta, v}^{(l)}x^{(l)}](u, \theta, \alpha, \lambda') = x^{(l)}(R_{-\eta}2^{-\beta}(u-v), \theta - \eta, \lambda'), 1 \leq l \leq L
+\end{align}
+$$
+
+- $ \lambda' $ corresponds to the unstructured channels in hidden layer, just like the RGB channels.
+
 
 ### ConvNeXt {% cite liu2022convnet --file papers_cv %} 
 
+#### CV vs. NLP
+
+CV
+
+- VGGNet, Inceptions, ResNe(X)t, DenseNet, MobileNet, EfficientNet, RegNet
+- Focused on different aspects of accuracy, efficiency, and scalability, popularize many design principles
+
+NLP
+
+- Transformers replaced RNN to become the domain backbone architecture
+
+#### Performance
+
+<img src="/assets/img/images_cv/ConvNeXt-performance.png" alt="ConvNeXt-performance" style="zoom:80%;" />
+
+#### Macro Design
+
+##### Stage Compute Ratio
+
+- The heavy 4-stage was meant to be compatible with downstream tasks
+- ResNet-50 ratio: $ 3:4:6:3 \longrightarrow (3:4:6:3) $
+- Swin-Transformer ratio: $ 1:1:3:1 \longrightarrow (3:3:9:3) $
+- The distribution of computation and a more optimal design are likely to exist
+
+##### Stem $ \longrightarrow $ Patchify
+
+> Inherent redundancy in natural images $ \longrightarrow $ Aggressive downsampling
+
+- ResNet-style Stem Cell: $ (7 \times 7)_{conv}^{s=2}  +  (3 \times 3)_{max \ pool}^{s=2} $ (4× downsampling)
+- Patchify Layer: $ (4 × 4)_{conv}^{s=4} $
+
+#### Model Details
+![ConvNeXt-ModelDetails](/assets/img/images_cv/ConvNeXt-ModelDetails.png)
 ## One-Stage Algorithms
 
 ## Reference

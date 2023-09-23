@@ -126,7 +126,7 @@ plugins:
 scholar:
   style: apa
   locale: en
-  sort_by: none
+  sort_by: author
   order: ascending
   source: ./_bibliography
 
