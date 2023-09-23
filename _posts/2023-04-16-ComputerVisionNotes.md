@@ -718,10 +718,10 @@ Challenges from NLP to CV
 -  **Swin Transformer Block** maintains the number of tokens in each stage
 -  The number of tokens is reduced by **Path Merging Layers**
 
-### Swin Transformer Block
+#### Swin Transformer Block
 <img src="/assets/img/images_cv/Swin-Transformer-Architecture-2.png" alt="Swin-Transformer-Architecture-2" style="zoom:50%;" />
 
-### W MSA and SW MSA
+#### W MSA and SW MSA
 Window Multihead Self-Attention (W MSA)
 - Local self-attention (for each window)
 - Linear time complexity to patch number $ hw $
@@ -733,7 +733,7 @@ Shifted Window Multihead Self-Attention (SW MSA)
 
 <img src="/assets/img/images_cv/Swin-Transformer-W-SW-MSA.png" alt="Swin-Transformer-W-SW-MSA" style="zoom: 67%;" />
 
-### Relative Position Bias
+#### Relative Position Bias
 Positional Embedding is included in calculating $ MSA_{qkv-b} $
 
 $$
@@ -743,7 +743,7 @@ $$
 - Significant improvements over counterparts without this bias term or that use absolute position embedding.
 - Further adding absolute position embedding to the input drops performance slightly.
 
-### Patch Merging
+#### Patch Merging
 <img src="/assets/img/images_cv/Swin-Transformer-PatchMergingLayer.png" alt="Swin-Transformer-PatchMergingLayer" style="zoom:50%;" />
 
 ---
