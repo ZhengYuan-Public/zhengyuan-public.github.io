@@ -10,7 +10,7 @@ tags: [machine-learning, computer-vision]
 ---
 
 ## MathJax Problem
-### No.1 - I fond a unuseful fix
+### No.1 - I found a unuseful fix
 ### When two inline equations are in the same line
 
 For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $3
