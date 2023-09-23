@@ -93,7 +93,7 @@ $$
 
 ### Receptive Field in CNN
 
-<img src="/assets/img/images_cv/CNN_ReceptiveField.png" alt="RF" style="zoom: 30%;" />
+<img src="https://theaisummer.com/static/490be17ee7f19b78003c3fdf5a6bbafc/83b75/receptive-field-in-convolutional-networks.png" alt="RF" style="zoom: 60%;" />
 
 The green area on layer 1 is the RF of the green pixel on layer 2
 
@@ -178,12 +178,9 @@ $$
 \begin{aligned}
 D_{KL}(P^*(y|x_i)\ ||\ P(y|x_i; \Theta)) &= \sum_{y} P^*(y|x_i) log \frac{P^*(y|x_i)}{P(y|x_i; \Theta)} \\
 			&= \sum_{y} P^*(y|x_i)[logP^*(y|x_i) - logP(y|x_i; \Theta)] \\
-			&= \sum_{y} P^*(y|x_i)logP^*(y|x_i) - \underbrace{\sum_{y} P^*(y|x_i)logP(y|x_i; \Theta)}_{Cross \ Entropy}
+			&= \underbrace{\sum_{y} P^*(y|x_i)logP^*(y|x_i)}_{\text{Does not depend on } \Theta} \ \underbrace{ - \sum_{y} P^*(y|x_i)logP(y|x_i; \Theta)}_{Cross \ Entropy}
 \end{aligned}
 $$
-
-- The first term $ \sum_{y} P^*(y \| x_i)logP^*(y \| x_i) $ does not depend on $ \Theta $ 
-- The second term $ - \sum_{y} P^*(y \| x_i)logP(y \| x_i; \Theta) $ is the cross entropy
 
 ## Two-Stage Algorithms
 
@@ -217,7 +214,7 @@ $$
 
 ---
 
-### SPP-net {% cite he2015spatial --file papers_cv %}
+### SPP-Net {% cite he2015spatial --file papers_cv %}
 
 #### Problems Addressed
 
@@ -300,7 +297,7 @@ $$
 
 #### RPN
 
-<img src="/assets/img/images_cv/Faster-R-CNN-2.png" alt="ModelArchitecture" style="zoom:30%;" />
+<img src="/assets/img/images_cv/Faster-R-CNN-2.png" alt="ModelArchitecture" style="zoom:50%;" />
 
 Share Computation $ \Longleftrightarrow $ Sharing Conv Layers with Fast R-CNN 
 
@@ -358,21 +355,164 @@ $$
 
 - Intuition: The **location** of some feature might be **invariant** (eg. the location of the right eye can be used to locate the face)
 - Common feature maps $ \longrightarrow $ Region-based feature maps
-- (Zheng Yuan): Explicitly integrate a feature which is invariant (position in this case) into FCN
+- (Zheng YUAN): Explicitly integrate a feature which is invariant (position in this case) into FCN
+
+<img src="/assets/img/images_cv/R-FCN-3.png" alt="ModelArchitecture" style="zoom:60%;" />
 
 <img src="/assets/img/images_cv/R-FCN-1.png" alt="ModelArchitecture" style="zoom:40%;" />
 
+#### Model Architecture
+
 <img src="/assets/img/images_cv/R-FCN-2.png" alt="ModelArchitecture" style="zoom:40%;" />
 
-<img src="/assets/img/images_cv/R-FCN-3.png" alt="ModelArchitecture" style="zoom:40%;" />
+- Backbone: ResNet101. The last conv layer output $ 2048 $-d $ \longrightarrow $ A randomly initialized $ 1024 $-d $1 \times 1$ conv layer (Dimension Reduction) $ \longrightarrow $  $k^2(C + 1)$ conv layers (+1 for background) (Position-Sensitive Score Maps)
+- PRN: from Faster R-CNN
+- BBox Regression: a sibling $ 4K^2 $-d conv layer
+
+#### PS RoI Pooling
+
+Position-Sensitive RoI Pooling $ \longleftarrow $ Average Pooling
+
+$$
+r_c(i, j | \Theta) = \sum_{(x, y) \in bin(i, j)} z_{i, j, c} (x+x_0, y+y_0 | \Theta) \frac{1}{n}
+$$
+
+- $ r_c(i, j) $: pooled response in $ bin(i, j) $ for the $ c $-th category
+- $ \Theta $: all learnable parameters
+- $ z_{i, j, c} $: one out of $ k^2(C+1) $ PS score maps
+- $ (x_0, y_0) $: top left corner of an RoI
+- $ bin(i, j) $: $ \lfloor i \frac{w}{k} \rfloor \le x < \lceil (i+1)\frac{w}{k} \rceil$ and $ \lfloor i \frac{h}{k} \rfloor \le y < \lceil (i+1)\frac{h}{k} \rceil$
 
 ---
 
 ### FPN {% cite lin2017feature --file papers_cv %}
 
+[Understanding Feature Pyramid Networks for Object Detection](https://jonathan-hui.medium.com/understanding-feature-pyramid-networks-for-object-detection-fpn-45b227b9106c)
+
+#### Intuitions
+
+<img src="/assets/img/images_cv/FPN-1.png" alt="FPN-1" style="zoom:50%;" />
+
+- Use a pyramid of the same image at different scales to detect objects ○ Very demanding Time and Memory
+- Conventional CNN which only use the last feature map (thick blue rectangular, which has **strong semantics**)
+- Reuse the pyramidal feature hierarchy, but bottom layers have **weak semantics** (here semantics can be the location of an object)
+- Proposed FPN, a top-down hierarchy with *lateral* connections (not from a biological perspective) to compose middle layers with strong semantics
+
+#### FPN Architecture
+
+<img src="/assets/img/images_cv/FPN-2.png" alt="FPN-2" style="zoom:50%;" />
+
+- The output of residual blocks of ResNet's each stage $ \\{C_2, C_3, C_4, C_5 \\} $ and their associated strides $ \\{ 4, 8, 16, 32 \\} $ ($ C_1 $ is left over due to a large memory footprint)
+- $2 \times $ up $ \longrightarrow $ nearest neighbor upsampling 
+
+#### Data Flow
+
+<img src="/assets/img/images_cv/FPN-5.jpeg" alt="FPN-5" style="zoom:60%;" />
+
+RRN **head**: 3x3 and 1x1 conv layers *after* scale levels ($ \\{ P_2, P_3, P_4, P_5, P_6 \\} $)
+
+#### RPN and RoI Pooling with FPN
+
+- RPN with FPN
+
+  - Single-scale feature maps $ \longrightarrow $ FPN
+  - Assign anchors of a single scale to all levels
+  - Areas for anchors on $ \\{ P_2, P_3, P_4, P_5, P_6 \\} $ are $ \\{ 32^2, 64^2, 128^2, 256^2, 512^2 \\} $
+  - Anchor aspect ratios are $ \\{ 1:2, 1:1, 2:1 \\} $
+  - Assign training labels to anchors based on their $ IoU $ with ground-truth bbox (same as Faster R-CNN)
+
+#### RoI Pooling with FPN
+
+![FPN-3](/assets/img/images_cv/FPN-3.jpg)
+
+_RoI Pooling (Fast/Faster R-CNN)_
+
+![FPN-4](/assets/img/images_cv/FPN-4.jpeg)
+
+__RoI Pooling (FPN)_
+
+- View the PRN feature pyramid as if it were produced from an image pyramid
+- $ k = \lfloor k_0 + log_2(\sqrt{wh}/224) \rfloor $
+  - 224: ImageNet pre-training size
+  - $ k_0 = 4 $: target level which an RoI of size $ w \times h = 224^2 $
+
+
 ---
 
 ### Deformable-CNN {% cite dai2017deformable --file papers_cv %}
+
+#### Intuitions
+
+- CNNs are inherently limited by the fixed rectangular kernel shapes
+- Augmenting the spatial sampling locations
+  - adding offsets
+  - learn offsets from task
+
+#### Deformable Convolution
+
+![D-CNN-1](/assets/img/images_cv/D-CNN-1.png)
+
+- (a) Original sampling kernel (green dots)
+- (b) Deformed sampling kernel (blue dots) and 2D-offsets (green arrow)
+- (c) and (d) are special cases
+
+#### Comparison with CNN
+
+##### CNN
+
+$$
+y(p_0) = \sum_{p_n \in G} w(p_n) \cdot x(p_0 + p_n)
+$$
+
+- Input feature map: $ x $
+- Output feature map: $ y $
+- $ p_0 $ is an arbitrary location on the output feature map y
+- Sampling grid: $ G $
+- $ p_n $ enumerates $ G $
+
+##### Deformable CNN (add offsets $ \Delta p_n $)
+
+$$
+y(p_0) = \sum_{p_n \in G} w(p_n) \cdot x(p_0 + p_n + \Delta p_n)
+$$
+
+- $ x(p) = x(p_0 + p_n + \Delta p_n) $ is calculated with bilinear interpolation because $ \Delta p_n $ is typically fractional.
+
+$$
+x(p) = \sum_{q} I(q, p) \cdot x(q)
+$$
+
+- $ q $ enumerates the input feature map $ x $
+- $ I $ is the bilinear interpolation kernel $ I(q, p) = i(q_x, p_y) \cdot i(q_y, p_y) $
+- $ i(a, b) = max(0, 1- \| a - b \|) $
+
+#### Model Architecture
+
+- Feature Extractor
+  - ResNet101
+  - Inception-ResNet
+- Semantic Segmentation
+  - DeepLab
+  - Category-Aware RPN
+- Detector
+  - Faster R-CNN $ \longleftarrow $ Optionally, RoI Pooling can be changed to Deformable RoI Pooling
+  - R-FCN $ \longleftarrow $ Optionally, PS RoI Pooling can be changed to Deformable PS RoI Pooling
+
+#### Deformable RoI Pooling
+
+$$
+y(i, j) = \sum_{p \in bin(i, j)} \frac{1}{n_{ij}} x(p_0 + p_n + \Delta p_n)
+$$
+
+#### Deformable PS RoI Pooling
+
+$$
+y(i, j) = \sum_{p \in bin(i, j)} \frac{1}{n_{ij}} x_{i, j} (p_0 + p_n + \Delta p_n)
+$$
+
+- Feature map $ x $ is replaced by a score map $ x_{i, j} $
+- For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets 
+- $ \Delta p_{i, j} $
 
 ---
 
