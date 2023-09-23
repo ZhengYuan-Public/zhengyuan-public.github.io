@@ -3,7 +3,7 @@ comments: true
 title: Programming Basics - Generic
 date: 2019-06-03 12:00:00
 image:
-  path: https://codeandhack.b-cdn.net/wp-content/uploads/2021/06/Learn-Programming-In-A-Fun-Way-1152x605.jpg
+  path: https://cdn-media-1.freecodecamp.org/images/0*ngXgBNNdx6iiWP8q.png
 math: true
 categories: [programming, generic]
 tags: [programming, generic]
@@ -53,7 +53,7 @@ value = (-1)^{b_{31}} \times 2^{(b_{30}b_{29} \dots b_{23})_2 - 127} \times (1.b
 $$
 
 1. $ sign = b_{31} = 0 $
-2. $ (-1)^{sign} = (-1)^0 = +1 \in \{-1, +1\} $
+2. $ (-1)^{sign} = (-1)^0 = +1 \in \{ -1, +1 \} $
 3. $ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
 4. $ 2^{E-127} = 2^{-3} \in \{ 2^{-126}, \dots, 2^{127} \} $
 5. $ (1.b_{22}b_{21} \dots b_{0})_2 = 1 + \sum_{i=1}^{23} b_{23 - i}2^{-i} = 1.25 $
