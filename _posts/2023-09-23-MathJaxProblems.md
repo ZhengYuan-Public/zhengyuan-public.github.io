@@ -13,7 +13,7 @@ tags: [machine-learning, computer-vision]
 ### No.1 - I found an unuseful fix
 ### When two inline equations are in the same line
 
-For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $3
+For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $
 
 ### When moving the 2nd to a new line
 
