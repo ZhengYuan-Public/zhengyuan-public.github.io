@@ -199,7 +199,7 @@ $$
 
 - Region proposal: selective search (about 2k)
 
-- Feature extractor: 4096-dimensional feature vector from **AlexNet**
+- Feature extractor: 4096-dimensional feature vector from AlexNet
 
 - Classifier: class-specific linear SVM
 
@@ -230,7 +230,7 @@ $$
 
 - Replace the last pooling layer with an SPP layer
 - (Max) Pool the responses of each filter
-- For each feature map, pool it into shape $ [4, 4], [2, 2], [1] $, flatten them into 1-d and concatenate them into a fixed-length vector
+- For each feature map, pool it into shapes $ [4, 4], [2, 2], [1] $, flatten them into 1-d, and concatenate them into a fixed-length vector
 - For a feature map of size [a, a] and a desired output shape [n, n]: the size of sliding window $ L = \lceil \frac{a}{n} \rceil $ and the size of the stride $ S = \lfloor \frac{a}{n} \rfloor $
 
 #### Mapping RoI to Feature Maps (RoI Projection)
@@ -250,9 +250,9 @@ Project the **corner point of a RoI** onto a **pixel in the feature maps** such 
 
 #### RoI Pooling
 
-- Region of Interest Pooling (RoI Polling) layer is a special case of SPP layer (only one level in RoI Pooling)
+- The *Region of Interest Pooling* (RoI Polling) layer is a special case of the SPP layer (only one level in RoI Pooling)
 - Transformations of Pre-trained networks
-  - Last pooling layer $ \longrightarrow $ RoI polling layer
+  - The last pooling layer $ \longrightarrow $ RoI pooling layer
   - Last FC and $ softmax_K $ $ \rightarrow $ FC (for bbox regression) and $ softmax_{K+1} $ (+1 for catch-all "background" class)
   - Take two data inputs: a list of images and a list of RoIs in them
   
@@ -285,7 +285,7 @@ $$
 
 - Problem: **Region Proposal** is a bottleneck for SSP-net and Fast R-CNN
 
-- Cost-free Region Proposals: Region Proposal Network (**RPN**) is a Fully Convolutional Network (**FCN**) that simultaneously predicts bounding boxes and object class which **shares full-image convolutional features** with the detection network.
+- Cost-free Region Proposals: A Region Proposal Network (**RPN**) is a Fully Convolutional Network (**FCN**) that simultaneously predicts bounding boxes and object class which **shares full-image convolutional features** with the detection network.
 
 #### Model Architecture
 
@@ -301,8 +301,8 @@ $$
 
 Share Computation $ \Longleftrightarrow $ Sharing Conv Layers with Fast R-CNN 
 
-- Take an image (**any size**) as input and output a set of **rectangular object proposals** with "objectness" score (belongs to an object class vs. background $ \longrightarrow $ binary label)
-- Slide a window over feature maps of last conv layer. Each sliding window is mapped to a lower-dimensional feature (eg., 256-d). This feature is fed to 1) bbox regression layer and 2) bbox classification layer
+- Take an image (**any size**) as input and output a set of **rectangular object proposals** with an "object score" (belongs to an object class vs. background $ \longrightarrow $ binary label)
+- Slide a window over feature maps of the last conv layer. Each sliding window is mapped to a lower-dimensional feature (eg., 256-d). This feature is fed to 1) the bbox regression layer and 2) the bbox classification layer
 - Anchors
   - Center coordinates, Scale, and Aspect Ratio
   - Translation Invariant
@@ -330,19 +330,19 @@ $$
   - Train RPN $ \longrightarrow $ PoI Proposals $ \longrightarrow $ Train Fast R-CNN $ \longrightarrow $ Initialize RPN
 - Approximate Joint Training
   - Merge RPN and Fast R-CNN into one network
-  - Close results & reduce traininng time by $ 25-50 \% $
+  - Close results & reduce training time by $ 25-50 \% $
 - Non-approximate Training
   - Differentiable RoI layer $ w.r.t. $ the bbox coordinates
 - 4-Step Alternating Training
-  - Train RPN $ \longleftarrow $ Initialized with an ImageNet-pre-trained and finetuned end-to-end for the region proposal task
-  - Train a separate detector network with Fast R-CNN using proposals from last step
-  - Initialize RPN with the detector network from last step
+  - Train RPN $ \longleftarrow $ Initialized with an ImageNet pre-trained and finetuned end-to-end for the region proposal task
+  - Train a separate detector network with Fast R-CNN using proposals from the last step
+  - Initialize RPN with the detector network from the last step
   - Fix shared conv layers and only fine-tune layers unique to RPN
 
 #### Recall-to-IoU
 
 - Recall-to-IoU is *loosely* related to the ultimate detection accuracy
-- More of a **diagnostic** than evaluative metric
+- More of a **diagnostic** than an evaluative metric
 
 
 ---
@@ -380,7 +380,7 @@ $$
 - $ r_c(i, j) $: pooled response in $ bin(i, j) $ for the $ c $-th category
 - $ \Theta $: all learnable parameters
 - $ z_{i, j, c} $: one out of $ k^2(C+1) $ PS score maps
-- $ (x_0, y_0) $: top left corner of an RoI
+- $ (x_0, y_0) $: top left corner of a RoI
 - $ bin(i, j) $: $ \lfloor i \frac{w}{k} \rfloor \le x < \lceil (i+1)\frac{w}{k} \rceil$ and $ \lfloor i \frac{h}{k} \rfloor \le y < \lceil (i+1)\frac{h}{k} \rceil$
 
 ---
@@ -394,8 +394,8 @@ $$
 <img src="/assets/img/images_cv/FPN-1.png" alt="FPN-1" style="zoom:50%;" />
 
 - Use a pyramid of the same image at different scales to detect objects ○ Very demanding Time and Memory
-- Conventional CNN which only use the last feature map (thick blue rectangular, which has **strong semantics**)
-- Reuse the pyramidal feature hierarchy, but bottom layers have **weak semantics** (here semantics can be the location of an object)
+- Conventional CNN only uses the last feature map (thick blue rectangular, which has **strong semantics**)
+- Reuse the pyramidal feature hierarchy, but the bottom layers have **weak semantics** (here semantics can be the location of an object)
 - Proposed FPN, a top-down hierarchy with *lateral* connections (not from a biological perspective) to compose middle layers with strong semantics
 
 #### FPN Architecture
@@ -446,7 +446,7 @@ __RoI Pooling (FPN)_
 - CNNs are inherently limited by the fixed rectangular kernel shapes
 - Augmenting the spatial sampling locations
   - adding offsets
-  - learn offsets from task
+  - learn offsets from the task
 
 #### Deformable Convolution
 
@@ -511,8 +511,7 @@ y(i, j) = \sum_{p \in bin(i, j)} \frac{1}{n_{ij}} x_{i, j} (p_0 + p_n + \Delta p
 $$
 
 - Feature map $ x $ is replaced by a score map $ x_{i, j} $
-- For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets 
-- $ \Delta p_{i, j} $
+- For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $
 
 ---
 
@@ -576,7 +575,7 @@ Misalignment due to RoI Pooling
 RRoI-based methods
 
 - Rotated RoI Warping
-  - extract features from a RRoI
+  - extract features from an RRoI
   - regress position offsets relative to the RRoI
 - Rotated Anchor in RPN
   - Increase the number of anchors dramatically
@@ -603,7 +602,7 @@ RoI Transformer
 
 - Use rotation-equivariant feature extractor networks $ \longrightarrow $ ReCNN
 
-- Rotatioan-invariant RoI Align (Ri RoI Aligh)
+- Rotation-invariant RoI Align (Ri RoI Align)
 
 #### ReCNN {% cite veeling2018rotation --file papers_cv %}
 
@@ -682,6 +681,7 @@ $$
 <img src="/assets/img/images_cv/ViT-GELU.png" alt="GELU" style="zoom:50%;" />
 
 GELU is a smooth approximation of the rectifier
+
 $$
 \begin{align}
 f(x) &=x \cdot \Phi (x) \\
@@ -769,7 +769,7 @@ $ v $: translation
 
 #### Equivariant Architecture
 
-> The composition of equivariant map remain equivariant.
+> The composition of the equivariant map remains equivariant.
 
 Specify $ \mathcal{RST} $-action $ D_{\eta, \beta, v}^{(l)} $ on each feature space $ \mathcal{X}^{(l)}, 0 \leq l \leq L $, and layer-wise mapping equivariant is required:
 
@@ -786,7 +786,7 @@ $$
 \end{align}
 $$
 
-- $ \lambda' $ corresponds to the unstructured channels in hidden layer, just like the RGB channels.
+- $ \lambda' $ corresponds to the unstructured channels in the hidden layer, just like the RGB channels.
 
 
 ### ConvNeXt {% cite liu2022convnet --file papers_cv %} 
