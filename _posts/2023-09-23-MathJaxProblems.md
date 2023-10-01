@@ -1,16 +1,21 @@
 ---
 comments: true
-title: MathJax Problems
+title: MathJax Problems with Jekyll [To be solved]
 math: true
 image:
   path: https://images.ctfassets.net/3viuren4us1n/1Ghw96A2tcYRfRezOwtmjx/e646778f3f53e50ea3e857e9cdb23120/Computer_vision.jpg?fm=webp&w=1920
 date: 2023-09-20 12:00:00
-categories: [machine-learning, computer-vision]
-tags: [machine-learning, computer-vision]
+categories: [debug]
+tags: [debug]
 ---
 
-## MathJax Problem
-### No.1 - I found an unuseful fix
+## MathJax Problem with Jekyll
+
+> The problem has been identified as being caused by the Jekyll markdown engine. I'm still looking for a solution. Discussion about this problem can be found on GitHub [here](https://github.com/mathjax/MathJax/issues/3103).
+{: .prompt-info }
+
+
+### No.1
 ### When two inline equations are in the same line
 
 For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $
@@ -21,9 +26,9 @@ For each RoI (also for each class), PS RoI pooling is applied to obtain *normali
 
 $ \Delta p_{i, j} $
 
-### No.2 - Still can't fix them
+### No.2
 
-$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
+$ E = (b\\_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
 
 $ (1.b_{22}b_{21} \dots b_{0})_2 = 1 + \sum_{i=1}^{23} b_{23 - i}2^{-i} = 1.25 $
 
@@ -32,7 +37,7 @@ $ (3 + 127)_{10} = (10000010)_2 = (b_{30}b_{29} \dots b_{23})_2 $
 $ (1.b_{22}b_{21} \dots b_{0})_2 = (1.01011 \underbrace{0 \dots 0}_{18})_2 $
 
 
-### No.3 - Found a fix, but shouldn't MathJax have consistent behavior?
+### No.3
 
 Problem with `|` `{` `}`
 
