@@ -169,7 +169,7 @@ To add a reference at the end of the post, put the following lines at the end of
 
 ---
 
-{% bibliography --file papers_cv %}
+{% bibliography --cited --file papers_cv %}
 ```
 {% endraw %}
 
@@ -181,14 +181,12 @@ To cite the above-mentioned two papers within the post, use the following syntax
 ```
 {% endraw %}
 
----
-
 ## $$ \LaTeX $$ Math Equations in Jekyll
 
 For Jekyll, the procedures to render $$ \LaTeX $$ math equations are:
 
 $$
-\text{Markdown} \xrightarrow[]{kramdown} \text{HTML} \xrightarrow[]{MathJax} \text{Math Equations Images}
+\text{Markdown} \xrightarrow[]{kramdown} \text{HTML} \xrightarrow[]{MathJax} \text{Math Equation Images}
 $$
 
 Where kramdown is the markdown engine used by Jekyll (and GitHub) for translating markdown into HTML, and MathJax is a JavaScript that renders the HTML as images shown on the website. It should be noticed that kramdown has a slightly different syntax compared to standard markdown. More details for kramdown syntax can be found [here](https://kramdown.gettalong.org/syntax.html). I encountered several problems with inline math rendering (see details [here](https://github.com/mathjax/MathJax/issues/3103)) and here I'd like to summarize my findings on how to avoid those problems.
@@ -469,3 +467,8 @@ In Jekyll (with the default markdown engine kramdown),
 - **inline math (normal)** should be added with `$$ math $$` *without* any blank lines before or after `$$`
 - **inline math (in lists)** should be added with `\$$ math $$`
 
+## Reference Demo For Jekyll-Scholar
+
+---
+
+{% bibliography --cited --file papers_cv %}
