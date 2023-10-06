@@ -37,7 +37,9 @@ Ruby was designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in
 ```bash
 $ which ruby
 /usr/bin/ruby
-# This means you are using the ruby preinstalled by MacOS, which is often outdated. "Scripting language runtimes such as Python, Ruby, and Perl are included in macOS for compatibility with legacy software. 
+# This means you are using the ruby preinstalled by MacOS, which is often outdated.
+# Scripting language runtimes such as Python, Ruby, and Perl are included in macOS 
+# by default for compatibility with legacy software. 
 ```
 
 ### Install Ruby on macOS with Homebrew
@@ -50,7 +52,8 @@ $ which ruby
 Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple's operating system, macOS, as well as Linux. It's also written in Ruby.
 
 ```bash
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ /bin/bash -c "$(curl -fsSL \
+https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 #### Install [rbenv](https://github.com/rbenv/rbenv)
@@ -97,7 +100,7 @@ If you also just want something that can be used out of the box, I'd recommend y
 - [jekyllthemes.io](https://jekyllthemes.io/)
 - [jekyll-themes.com](https://jekyll-themes.com/)
 
-The one I'm using for now is called [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy). I'm happy with most of it, but I have encountered some problems with inline math rendering, as shown at the end of this post.
+The one I'm using for now is called [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy).
 
 ## Jekyll Plugins
 
@@ -106,7 +109,7 @@ To add plugins to your Jekyll site, just add a new section in your `_config.yml`
 ```yaml
 # _config.yml
 plugins:
-  - jemoji # Add support for emojis
+  - jemoji
   - jekyll-pdf-embed
   - jekyll-admin
   - jekyll-scholar
@@ -391,7 +394,7 @@ Example 2 shows that inline math is fairly complicated with kramdown.
 Example 3
 
 ```markdown
-Situation 1 - Use `$ math $` as list inline math
+Situation 1 - Use `$ math $` as inline math in lists
 
 - $ sign = b_{31} = 0 $
 1. $ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
@@ -401,7 +404,7 @@ End of situation 1
 
 ---
 
-Situation 2 - Use `$$ math $$` as list inline math
+Situation 2 - Use `$$ math $$` as inline math in lists
 
 - $$ sign = b_{31} = 0 $$
 1. $$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $$
@@ -411,7 +414,7 @@ End of situation 2
 
 ---
 
-Situation 3 - Use `\$$ math $$` as list inline math
+Situation 3 - Use `\$$ math $$` as inline math in lists
 
 - \$$ sign = b_{31} = 0 $$
 1. \$$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $$
@@ -423,7 +426,7 @@ End of situation 3
 
 ```
 
-Situation 1 - Use `$ math $` as list inline math
+Situation 1 - Use `$ math $` as inline math in lists
 
 - $ sign = b_{31} = 0 $
 1. $ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
@@ -433,7 +436,7 @@ End of situation 1
 
 ---
 
-Situation 2 - Use `$$ math $$` as list inline math
+Situation 2 - Use `$$ math $$` as inline math in lists
 
 - $$ sign = b_{31} = 0 $$
 1. $$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $$
@@ -443,7 +446,7 @@ End of situation 2
 
 ---
 
-Situation 3 - Use `\$$ math $$` as list inline math
+Situation 3 - Use `\$$ math $$` as inline math in lists
 
 - \$$ sign = b_{31} = 0 $$
 1. \$$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $$
