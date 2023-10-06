@@ -18,23 +18,21 @@ tags: [debug]
 ### No.1
 ### When two inline equations are in the same line
 
-For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $
+For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $$ \Delta \hat{p}_{i, j} $$ and then transformed to the real offsets $$ \Delta p_{i, j} $$
 
 ### When moving the 2nd to a new line
 
-For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets 
-
-$ \Delta p_{i, j} $
+For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $
 
 ### No.2
 
-$ E = (b\\_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
+- \$$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $$
 
-$ (1.b_{22}b_{21} \dots b_{0})_2 = 1 + \sum_{i=1}^{23} b_{23 - i}2^{-i} = 1.25 $
+- \$$ (1.b_{22}b_{21} \dots b_{0})_2 = 1 + \sum_{i=1}^{23} b_{23 - i}2^{-i} = 1.25 $$
 
-$ (3 + 127)_{10} = (10000010)_2 = (b_{30}b_{29} \dots b_{23})_2 $
+- \$$ (3 + 127)_{10} = (10000010)_2 = (b_{30}b_{29} \dots b_{23})_2 $$
 
-$ (1.b_{22}b_{21} \dots b_{0})_2 = (1.01011 \underbrace{0 \dots 0}_{18})_2 $
+- \$$ (1.b_{22}b_{21} \dots b_{0})_2 = (1.01011 \underbrace{0 \dots 0}_{18})_2 $$
 
 
 ### No.3

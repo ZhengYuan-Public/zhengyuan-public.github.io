@@ -170,7 +170,7 @@ $$
 
 - Ground Truth Distribution: $ P^* $, Model Distribution: $ P $
 - Input $ \longrightarrow $ Model Distribution $ \longrightarrow $ Ground Truth Distribution
-- $ x_i \longrightarrow P(y \| x_i; \Theta) \longrightarrow P^*(y \| x_i) $
+- $ x_i \longrightarrow P(y \vert x_i; \Theta) \longrightarrow P^*(y \vert x_i) $
 
 #### From KL Divergence to Cross Entropy
 
@@ -484,7 +484,7 @@ $$
 
 - $ q $ enumerates the input feature map $ x $
 - $ I $ is the bilinear interpolation kernel $ I(q, p) = i(q_x, p_y) \cdot i(q_y, p_y) $
-- $ i(a, b) = max(0, 1- \| a - b \|) $
+- $ i(a, b) = max(0, 1- \vert a - b \vert) $
 
 #### Model Architecture
 
@@ -511,7 +511,7 @@ y(i, j) = \sum_{p \in bin(i, j)} \frac{1}{n_{ij}} x_{i, j} (p_0 + p_n + \Delta p
 $$
 
 - Feature map $ x $ is replaced by a score map $ x_{i, j} $
-- For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $ \Delta \hat{p}_{i, j} $ and then transformed to the real offsets $ \Delta p_{i, j} $
+- For each RoI (also for each class), PS RoI pooling is applied to obtain *normalized* offsets $$ \Delta \hat{p}_{i, j} $$ and then transformed to the real offsets $$ \Delta p_{i, j} $$
 
 ---
 
@@ -819,7 +819,7 @@ NLP
 
 > Inherent redundancy in natural images $ \longrightarrow $ Aggressive downsampling
 
-- ResNet-style Stem Cell: $ (7 \times 7)_{conv}^{s=2}  +  (3 \times 3)_{max \ pool}^{s=2} $ (4× downsampling)
+- ResNet-style Stem Cell: $$ (7 \times 7)_{conv}^{s=2}  +  (3 \times 3)_{max \ pool}^{s=2} $$ (4× downsampling)
 - Patchify Layer: $ (4 × 4)_{conv}^{s=4} $
 
 #### Model Details
