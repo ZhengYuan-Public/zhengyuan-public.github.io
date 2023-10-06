@@ -38,8 +38,8 @@ $$
 $$
 
 - IEEE754 Single-Precision Format 
-- Sign bit: 1 bit {0: +; 1: -}
-- Exponent: 8 bits $ [-126, +127] $ (with an offset of 127, -127 (all zeros), and +128 (all ones) are reserved for special numbers).
+- Sign bit: 1 bit $$ \{ 0: +; 1: - \} $$
+- Exponent: 8 bits $$ [-126, +127] $$ (with an offset of 127, -127 (all zeros), and +128 (all ones) are reserved for special numbers)
 - Significand: 24 bits (the 1st bit is always 1, and the rest 23 bits are explicitly stored)
 
 This gives from 6 to 9 significant decimal digits precision.
@@ -52,12 +52,12 @@ $$
 value = (-1)^{b_{31}} \times 2^{(b_{30}b_{29} \dots b_{23})_2 - 127} \times (1.b_{22}b_{21} \dots b_{0})_2
 $$
 
-1. $ sign = b_{31} = 0 $
-2. $ (-1)^{sign} = (-1)^0 = +1 \in \{ -1, +1 \} $
-3. $ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $
-4. $ 2^{E-127} = 2^{-3} \in \{ 2^{-126}, \dots, 2^{127} \} $
-5. $ (1.b_{22}b_{21} \dots b_{0})_2 = 1 + \sum_{i=1}^{23} b_{23 - i}2^{-i} = 1.25 $
-6. $ value = (+1) \times 2^{-3} \times 1.25 = + 0.15625 $
+1. \$$ sign = b_{31} = 0 $$
+2. \$$ (-1)^{sign} = (-1)^0 = +1 \in \{ -1, +1 \} $$
+3. \$$ E = (b_{30}b_{29}...b_{23})_2 = (01111100)_2 = (124)_{10} \in \{1, ..., (2^8-1) - 1 \} = \{1, ..., 254\} $$
+4. \$$ 2^{E-127} = 2^{-3} \in \{ 2^{-126}, \dots, 2^{127} \} $$
+5. \$$ (1.b_{22}b_{21} \dots b_{0})_2 = 1 + \sum_{i=1}^{23} b_{23 - i}2^{-i} = 1.25 $$
+6. \$$ value = (+1) \times 2^{-3} \times 1.25 = + 0.15625 $$
 
 ### Decimal to FP32
 
@@ -65,10 +65,10 @@ $$
 - 10.75 = - (1.01011)_{2} \times 2^3
 $$
 
-1. $ sign = b_{31} = 1 $
-2. $ (3 + 127)_{10} = (10000010)_2 = (b_{30}b_{29} \dots b_{23})_2 $
-3. $ (1.b_{22}b_{21} \dots b_{0})_2 = (1.01011 \underbrace{0 \dots 0}_{18})_2 $
-4. $ value = 1\ 10000010\ 01011 \underbrace{0 \dots 0}_{18}$
+1. \$$ sign = b_{31} = 1 $$
+2. \$$ (3 + 127)_{10} = (10000010)_2 = (b_{30}b_{29} \dots b_{23})_2 $$
+3. \$$ (1.b_{22}b_{21} \dots b_{0})_2 = (1.01011 \underbrace{0 \dots 0}_{18})_2 $$
+4. \$$ value = 1\ 10000010\ 01011 \underbrace{0 \dots 0}_{18} $$
 
 #### Reference
 
