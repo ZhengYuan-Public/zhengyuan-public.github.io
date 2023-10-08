@@ -5,7 +5,7 @@ date: 2019-06-03 12:00:00
 image:
   path: https://cdn-media-1.freecodecamp.org/images/0*ngXgBNNdx6iiWP8q.png
 math: true
-categories: [programming, generic]
+categories: [Programming, Generic]
 tags: [programming, generic]
 ---
 

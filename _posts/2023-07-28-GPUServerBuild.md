@@ -5,8 +5,8 @@ image:
   path: https://s2.loli.net/2023/08/19/fNc4ZPkUX7RlMH6.png
   alt: EPYC-7642 + [NVIDIA-2080Ti-22GB]x4
 date: 2023-07-28 12:00:00
-categories: [home-lab, hardware, gpu-server]
-tags: [home-lab, hardware, gpu-server]
+categories: [DIY, Hardware]
+tags: [diy, hardware, home-lab, gpu-server]
 ---
 
 ## Specification Sheet

@@ -5,22 +5,22 @@ date: 2019-01-06 12:00:00
 image:
   path: https://media.wired.jp/photos/61ce70261e56be923700d6cf/master/w_1920,c_limit/f6d1a88011b53357eae7da902be0a0ec.jpg
 mermaid: true
-categories: [programming, python]
+categories: [Programming, Python]
 tags: [programming, python]
 ---
 
 ## Quick Introduction
 
-Python is an ***interpreted*** programming language where codes go through a program called *interpreter*, which reads and execute the code line by line. 
+Python is an ***interpreted*** programming language where codes go through a program called *interpreter*, which reads and executes the code line by line. 
 
 - Flexible
 - Platform independent
 
 Python is popular for 
 
-- Machine Learning (PyTorch, tensorflow)
+- Machine Learning (PyTorch, TensorFlow)
 - Data Science (numpy, pandas, matplotlib, scikit-learn) 
-- Large-scale web application (django).
+- Large-scale web application (Django).
 
 ## Install Python
 

@@ -4,7 +4,7 @@ title: Use Forward Proxy in Terminal
 date: 2019-06-03 12:00:00
 image:
   https://research.aimultiple.com/wp-content/webp-express/webp-images/uploads/2022/11/forward-proxy-1.png.webp
-categories: [network, proxy, terminal]
+categories: [Network, Proxy]
 tags: [network, proxy, terminal]
 ---
 

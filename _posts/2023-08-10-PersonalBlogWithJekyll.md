@@ -5,15 +5,13 @@ date: 2023-08-10 12:00:00
 image:
   https://indii.org/assets/jekyll.png
 math: true
-categories: [website, jekyll]
+categories: [Website, Jekyll]
 tags: [website, jekyll]
 ---
 
 ## A Brief Introduction to Jekyll
 
-Jekyll is a static site generator, also called a site builder, that transforms plain text files into static HTML and CSS files. It was written in **Ruby**, and it is open-source and free to use. Jekyll is a popular choice for creating websites and blogs because it is easy to use and it produces fast-loading, lightweight websites. Jekyll websites are also easy to deploy and host on any web server.
-
-Apparently,the  I'm using this Jekyll website to store my notes.
+Jekyll is a static site generator, also called a site builder, that transforms plain text files into static HTML and CSS files. It was written in **Ruby**, and it is open-source and free to use. Jekyll is a popular choice for creating websites and blogs because it is easy to use and produces fast-loading, lightweight websites. Jekyll websites are also easy to deploy and host on any web server.
 
 ### A Brief Introduction to Ruby
 Ruby was designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan. Ruby is known for its elegant syntax, which makes it easy to read and write. Here are some key features of **Ruby**:
@@ -472,6 +470,17 @@ In Jekyll (with the default markdown engine kramdown),
 
 > The above solutions have only been tested with [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy).
 {: .prompt-warning }
+
+## Miscellaneous
+
+### Categories vs Tags
+
+[Categories vs Tags – SEO Best Practices for Sorting Your Content](https://www.wpbeginner.com/beginners-guide/categories-vs-tags-seo-best-practices-which-one-is-better/) :link:
+
+- Categories are meant to **broadly group** your posts. Categories are **hierarchical**, which means you can create **subcategories**.
+- Tags are meant to **describe specific details** of your posts. Tags are **not hierarchical**.
+
+There’s no specific number of categories that you should have. In most cases, you will want somewhere between 5 and 10 in order to properly categorize your posts and make your site easy to browse. Categories are meant to encompass a large group of posts. You can use subcategories and tags to split your posts into smaller groups. If you are just starting a blog, then don’t worry about trying to come up with a perfect list of categories. Just choose 3-5 broad categories and add more as time goes by. 
 
 ## Reference Demo For Jekyll-Scholar
 
