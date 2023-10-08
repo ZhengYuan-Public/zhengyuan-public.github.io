@@ -20,7 +20,7 @@ timezone: Asia/Shanghai
 
 title: Zheng Yuan # the main title
 
-tagline: Elegance is an attitude. # it will display as the sub-title
+tagline: Temet Nosce # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A static website for study notes, blogs, and life.

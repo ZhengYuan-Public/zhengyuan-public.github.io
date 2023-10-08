@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Python Notes - Basics
+title: Python Notes
 date: 2019-01-06 12:00:00
 image:
   path: https://media.wired.jp/photos/61ce70261e56be923700d6cf/master/w_1920,c_limit/f6d1a88011b53357eae7da902be0a0ec.jpg
