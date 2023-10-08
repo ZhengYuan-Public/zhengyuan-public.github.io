@@ -192,13 +192,13 @@ $$
 \text{Markdown} \xrightarrow[]{kramdown} \text{HTML} \xrightarrow[]{MathJax} \text{Math Equation Images}
 $$
 
-Where kramdown is the markdown engine used by Jekyll (and GitHub) for translating markdown into HTML, and MathJax is a JavaScript that renders the HTML as images shown on the website. It should be noticed that kramdown has a slightly different syntax compared to standard markdown. More details for kramdown syntax can be found [here](https://kramdown.gettalong.org/syntax.html). I encountered several problems with inline math rendering (see details [here](https://github.com/mathjax/MathJax/issues/3103)) and here I'd like to summarize my findings on how to avoid those problems.
+Where kramdown is the markdown engine used by Jekyll (and GitHub) for translating markdown into HTML, and MathJax is a JavaScript that renders the HTML as images shown on the website. It should be noticed that kramdown has a slightly different syntax compared to standard markdown (see details [here](https://kramdown.gettalong.org/syntax.html#math-blocks)).  I encountered several problems with inline math rendering (see examples [here](https://github.com/mathjax/MathJax/issues/3103)) and here I'd like to summarize my findings on how to avoid those problems.
 
 I usually start writing my notes on Jekyll with Typora (which has its private markdown engine and it works better than kramdown in my humble opinion) and then revise it until it's ready for publication on GitHub. However, the rendered outputs on Jekyll are not always the same as in Typora because of their differences in the markdown engine.
 
-In standard markdown syntax, you should start inline math with `$ math $` and block math with `$$ math $$`. However, the situation is a little complicated in kramdown. If you are not interested in the examples, just go to the [summary](#summary).
+In standard markdown syntax, you should add inline math with `$ math $` and block math with `$$ math $$`. However, the situation is a little complicated in kramdown. If you are not interested in the examples, just jump to the [summary](#summary).
 
-> Here are just the temporary solutions I've found. I believe I found a bug in kramdown, so I'll start an issue and update this part accordingly.
+> Here are just the temporary solutions I've found. I believe this is a bug in kramdown, so I'll start an issue and update this part accordingly.
 {: .prompt-warning }
 
 ### Block math
@@ -469,6 +469,9 @@ In Jekyll (with the default markdown engine kramdown),
 - **block math** should be added with `$$ math $$` *with* a blank line both before and after `$$`
 - **inline math (normal)** should be added with `$$ math $$` *without* any blank lines before or after `$$`
 - **inline math (in lists)** should be added with `\$$ math $$`
+
+> The above solutions have only been tested with [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy).
+{: .prompt-warning }
 
 ## Reference Demo For Jekyll-Scholar
 
