@@ -12,7 +12,7 @@ tags: [network, proxy, terminal]
 
 - [Clash for Windows - Release](https://github.com/Fndroid/clash_for_windows_pkg/releases)
 
-## Forward Proxy the Terminal
+## Terminal
 
 ### macOS and Linux
 
@@ -79,3 +79,5 @@ set https_proxy=http://127.0.0.1:7890
 set http_proxy=
 set https_proxy=
 ```
+
+## Anaconda / Miniconda
