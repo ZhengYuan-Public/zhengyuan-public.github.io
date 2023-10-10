@@ -3,7 +3,7 @@ comments: true
 title: Personal Blog with Jekyll
 date: 2023-08-10 12:00:00
 image:
-  https://indii.org/assets/jekyll.png
+  https://repository-images.githubusercontent.com/65252/f2b7c780-70b6-11e9-85d2-f4bda8708a2d
 math: true
 categories: [Website, Jekyll]
 tags: [website, jekyll]

@@ -3,7 +3,7 @@ comments: true
 title: Django & Django REST Framework Notes
 date: 2023-04-12 12:00:00
 image:
-    https://www.django-rest-framework.org/img/logo.png
+    https://miro.medium.com/v2/resize:fit:4800/format:webp/1*lAMsvtB6afHwTQYCNM1xvw.png
 categories: [Website, Django, Python]
 tags: [website, django, python, programming, django-rest-framework]
 ---

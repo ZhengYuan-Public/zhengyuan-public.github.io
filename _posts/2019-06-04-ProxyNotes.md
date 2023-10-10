@@ -1,17 +1,16 @@
 ---
 comments: true
-title: Use Forward Proxy in Terminal
+title: Proxy Notes
 date: 2019-06-03 12:00:00
 image:
-  https://research.aimultiple.com/wp-content/webp-express/webp-images/uploads/2022/11/forward-proxy-1.png.webp
+  /assets/img/images_network/proxy.png
 categories: [Network, Proxy]
 tags: [network, proxy, terminal]
 ---
 
-## VPN Software and Provider
+## VPN Software
 
 - [Clash for Windows - Release](https://github.com/Fndroid/clash_for_windows_pkg/releases)
-- Your VPN Provider, [QQWLJS](https://qqwljs.buzz/#/register?code=p9tKWlt9), or [TLY]( https://u2263835.tly.sh/2263835)
 
 ## Forward Proxy the Terminal
 
@@ -69,7 +68,7 @@ function proxy_off(){
 }
 ```
 
-### Windows CMD
+### Windows
 
 ```shell
 # Set the proxy environment variables
