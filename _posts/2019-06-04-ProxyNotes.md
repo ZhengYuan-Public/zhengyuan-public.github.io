@@ -79,5 +79,3 @@ set https_proxy=http://127.0.0.1:7890
 set http_proxy=
 set https_proxy=
 ```
-
-## Anaconda / Miniconda
