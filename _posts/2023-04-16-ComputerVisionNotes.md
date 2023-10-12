@@ -3,7 +3,7 @@ comments: true
 title: Computer Vision Notes
 math: true
 image:
-  path: https://images.ctfassets.net/3viuren4us1n/1Ghw96A2tcYRfRezOwtmjx/e646778f3f53e50ea3e857e9cdb23120/Computer_vision.jpg?fm=webp&w=1920
+    path: /assets/img/images_preview/ComputerVisionPreview.jpg
 date: 2023-04-16 12:00:00
 categories: [Machine Learning, Computer Vision]
 tags: [machine-learning, computer-vision]

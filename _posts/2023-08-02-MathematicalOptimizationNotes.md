@@ -3,7 +3,7 @@ comments: true
 title: Practical Mathematical Optimization
 date: 2023-08-02 12:00:00
 image:
-  /assets/img/images_preview/MathematicalOptimizationPreview.jpg
+    path: /assets/img/images_preview/MathematicalOptimizationPreview.jpg
 math: true
 mermaid: true
 categories: [Mathematics, Optimization]

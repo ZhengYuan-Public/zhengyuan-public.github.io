@@ -3,7 +3,7 @@ comments: true
 title: Programming Notes - Generic
 date: 2019-06-03 12:00:00
 image:
-  path: https://cdn-media-1.freecodecamp.org/images/0*ngXgBNNdx6iiWP8q.png
+    path: /assets/img/images_preview/PythonNotesPreview.png
 math: true
 categories: [Programming, Generic]
 tags: [programming, generic]
