@@ -1,12 +1,12 @@
 ---
 comments: true
-title: Science Research Writing
+title: Science Research Writing - General
 date: 2023-10-01 12:00:00
 image:
   /assets/img/images_writing/srw_preview.png
 mermaid: true
-categories: [Website, Jekyll]
-tags: [website, jekyll]
+categories: [Writing, Science Research Writing]
+tags: [writing, science-research-writing]
 ---
 
 ## Overall Structure of a Paper or Thesis
