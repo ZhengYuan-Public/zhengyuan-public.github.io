@@ -63,7 +63,7 @@ When writing an Introduction, ask yourself the following questions:
   - **different approaches/theories/models**
   - **general/specific**: Start with general and gradually move to research that is closer to your own
 
-### Miscellaneous
+#### Miscellaneous
 
 How to find out what the author is doing in a sentence, rather than what s/he is saying? Here are some methods:
 
@@ -72,13 +72,11 @@ How to find out what the author is doing in a sentence, rather than what s/he is
   - What's the tense and what is that tense normally used for?
   - Why did the author change the tense?
 
-The author includes references in the background for several reasons. Here are some of them:
+Include references wherever it is useful, even in a sentence whose function is primarily to provide a transition. Here are some of the reasons:
 
 - Plagiarism is unprofessional.
 - Give readers a chance to find and read the study mentioned.
 - Indicate the writer is familiar with the field.
-
-Include references wherever it is useful, even in a sentence whose function is primarily to provide a transition.
 
 ## Grammar and Skills
 
@@ -93,7 +91,7 @@ Include references wherever it is useful, even in a sentence whose function is p
 
 #### Past Simple / Present Perfect
 
-- The **Present Perfect** tense is considered more relevant to the situation now than the **Past Simple** tense.
+- The **Present Perfect** tense is considered **more relevant to the situation now** than the Past Simple tense.
 
 > *For example, Penney et al. **showed** that PLA composites could be prepared using blending techniques, and more recently, Hillier **established** the toughness of such composites. However, although the effect of the rubber particles on the mechanical properties of copolymer systems **was demonstrated** over two years ago, little attention **has been paid** to the selection of an appropriate rubber component.*
 
@@ -106,7 +104,7 @@ Include references wherever it is useful, even in a sentence whose function is p
 
 ### Signaling Language
 
-One of the most common errors in writing is **failing to connect one sentence or idea to the next**. The space between a full stop and the next capital letter is a dangerous space for the writer and the readers. One of the tasks of a writer is to make sure the gap is closed so that the reader is carried carefully from one piece of information to the next.
+One of the most common errors in writing is **failing to connect one sentence or idea to the next**. The space between a full stop and the next capital letter is dangerous for the writer and readers. One of the tasks of a writer is to make sure the gap is closed so that the reader is carried carefully from one piece of information to the next.
 
 Here are several ways to fill the gap:
 
