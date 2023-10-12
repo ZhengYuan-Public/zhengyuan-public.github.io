@@ -3,7 +3,7 @@ comments: true
 title: Python Notes
 date: 2019-01-06 12:00:00
 image:
-  path: /assets/img/images_preview/PythonNotesPreview.png
+    path: /assets/img/images_preview/PythonNotesPreview.png
 mermaid: true
 categories: [Programming, Python]
 tags: [programming, python]

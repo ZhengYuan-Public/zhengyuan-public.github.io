@@ -3,7 +3,7 @@ comments: true
 title: Science Research Writing - General
 date: 2023-10-01 12:00:00
 image:
-  /assets/img/images_writing/srw_preview.png
+    path: /assets/img/images_preview/SRWPreview.png
 mermaid: true
 categories: [Writing, Science Research Writing]
 tags: [writing, science-research-writing]

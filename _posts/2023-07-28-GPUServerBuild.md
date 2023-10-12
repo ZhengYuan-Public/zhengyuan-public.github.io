@@ -2,8 +2,7 @@
 comments: true
 title: Home Lab GPU Server Build
 image:
-  path: https://s2.loli.net/2023/08/19/fNc4ZPkUX7RlMH6.png
-  alt: EPYC-7642 + [NVIDIA-2080Ti-22GB]x4
+    path: https://s2.loli.net/2023/08/19/fNc4ZPkUX7RlMH6.png
 date: 2023-07-28 12:00:00
 categories: [DIY, Home Lab]
 tags: [diy, home-lab, hardware, gpu-server]

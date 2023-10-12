@@ -3,7 +3,7 @@ comments: true
 title: Proxy Notes
 date: 2019-06-03 12:00:00
 image:
-  path: /assets/img/images_preview/ProxyPreview.png
+    path: /assets/img/images_preview/ProxyPreview.png
 categories: [Network, Proxy]
 tags: [network, proxy, terminal]
 ---
