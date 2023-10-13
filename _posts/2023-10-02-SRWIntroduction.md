@@ -30,21 +30,21 @@ It's probably true that your science writing has focused on **describing what yo
 
 ### Four Basic Components
 
-| Goals                                                        |
-| :----------------------------------------------------------- |
-| **Part I**                                                   |
-| Establish the importance of your field                       |
+|                            Goals                             |
+| :----------------------------------------------------------: |
+|                          **Part I**                          |
+|            Establish the importance of your field            |
 | Provide background facts/information (possibly from research) |
-| Define the terminology in the title/keywords                 |
-| Present the problem area/current research focus              |
-| **Part II**                                                  |
-| Previous and/or current research, and contributions          |
-| **Part III**                                                 |
-| Locate a gap in the research                                 |
-| Describe the problem you will address                        |
-| Present a prediction to be tested                            |
-| **Part IV**                                                  |
-| Describe the present paper                                   |
+|         Define the terminology in the title/keywords         |
+|       Present the problem area/current research focus        |
+|                         **Part II**                          |
+|     Previous and/or current research, and contributions      |
+|                         **Part III**                         |
+|                 Locate a gap in the research                 |
+|            Describe the problem you will address             |
+|              Present a prediction to be tested               |
+|                         **Part IV**                          |
+|                  Describe the present paper                  |
 
 ### Train of Thoughts
 
@@ -60,7 +60,7 @@ When writing an Introduction, ask yourself the following questions:
 - Which ones should be part of the **background** and which ones should go in the **literature review** which comes later?
 - In what **order** should I mention them? There are several options:
   - **chronological**
-  - **different approaches/theories/models**
+  - **different approaches/theories/models**; begin each sentence with *However* or *On the other hand*
   - **general/specific**: Start with general and gradually move to research that is closer to your own
 
 #### Miscellaneous
@@ -77,6 +77,11 @@ Include references wherever it is useful, even in a sentence whose function is p
 - Plagiarism is unprofessional.
 - Give readers a chance to find and read the study mentioned.
 - Indicate the writer is familiar with the field.
+
+Tense for Part IV
+
+- Use the **Present Simple** tense to **describe the work itself** and the **Past Simple** tense to talk about the **aim** of the work.
+  - It is also possible to state the **aim** in the **Present Simple** tense. This is especially true in cases where **the aim is only partially achieved** in the paper you are submitting and the rest of the work will be done and reported on at a later stage.
 
 ## Grammar and Skills
 
