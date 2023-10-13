@@ -3,7 +3,7 @@ comments: true
 title: Programming Notes - Generic
 date: 2019-06-03 12:00:00
 image:
-    path: /assets/img/images_preview/PythonNotesPreview.png
+    path: /assets/img/images_preview/ProgrammingPreview.png
 math: true
 categories: [Programming, Generic]
 tags: [programming, generic]
