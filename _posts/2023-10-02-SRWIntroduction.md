@@ -24,7 +24,7 @@ It's probably true that your science writing has focused on **describing what yo
 
 ## A Model for Introduction
 
-> A **useful** model can be transferred to other Introductions, but don't expect a perfect model. 
+> A **useful** writing model can be transferred, but don't expect a perfect model. 
 > > **All models are wrong, but some are useful.**  The famous quote about statistical models by George E.P. Box also applies to writing models.
 {: .prompt-tip }
 
@@ -63,7 +63,7 @@ When writing an Introduction, ask yourself the following questions:
   - **different approaches/theories/models**; begin each sentence with *However* or *On the other hand*
   - **general/specific**: Start with general and gradually move to research that is closer to your own
 
-#### Miscellaneous
+### Miscellaneous
 
 How to find out what the author is doing in a sentence, rather than what s/he is saying? Here are some methods:
 
