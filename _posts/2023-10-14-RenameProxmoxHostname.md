@@ -71,7 +71,7 @@ $ ls /etc/pve/nodes/
 PVE NewPVE
 
 # Backup old config files in case something went wrong
-$ cp -R /etc/pve/nodes/PVE ~/config_backup
+$ cp -r /etc/pve/nodes/PVE ~/config_backup
 # Move VM config files
 $ cp /etc/pve/nodes/PVE/qemu-server/* /etc/pve/nodes/NewPVE/qemu-server
 # Move Linux Container config files
