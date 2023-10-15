@@ -15,7 +15,7 @@ tags: [writing, science-research-writing]
 
 ### Information Flow
 
-<img src="/assets/img/images_writing/srw_introduction.png" alt="srw_introduction" style="zoom:30%;" />
+![srw_introduction](/assets/img/images_writing/srw_introduction.png){: style="max-width: 400px; height: auto;"}
 
 It's probably true that your science writing has focused on **describing what you did and what you found**, which will help you write the central report section. However, **writing an Introduction is a new task**. In the introduction, you start by being fairly general and gradually narrowing your focus, whereas the opposite is true in the Discussion/Conclusion.
 

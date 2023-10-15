@@ -15,7 +15,7 @@ tags: [writing, science-research-writing]
 
 ### Information Flow
 
-<img src="/assets/img/images_writing/srw_methodology.png" alt="srw_introduction" style="zoom:30%;" />
+![srw_methodology](/assets/img/images_writing/srw_methodology.png){: style="max-width: 400px; height: auto;"}
 
 ## A Model for Methodology
 
@@ -98,7 +98,7 @@ There are several ways to make sure that the previously mentioned differences ar
 - Use a dummy subject, such as **This study/experiment/model**.
 - When a reference is needed for standard procedures, use phrases such as **as in**.
 
-### Use of "A/An" and "The"
+### The Use of A and The
 
 #### General Rules
 
@@ -200,24 +200,26 @@ If you are still left with ambiguous adverb clusters, break the sentence into un
 
 ### General Introduction and Source of Information
 
-|                        General Verbs                         | Specify Procedures 1 |     Specify Procedures 2     | Specific Research Filed |
-| :----------------------------------------------------------: | :------------------: | :--------------------------: | ----------------------- |
-|                           attempt                            |         all          | (be) commercially  available |                         |
-|                           consider                           |         both         |        (be) acquired         |                         |
-|                           conduct                            |         each         |       (be) carried out       |                         |
-|                          determine                           |         many         |         (be) chosen          |                         |
-|                         investigate                          |         most         |        (be) conducted        |                         |
-|                            report                            |       majority       |        (be) collected        |                         |
-|                           suggest                            |                      |         (be) devised         |                         |
-|                            verify                            |        tests         |          (be) found          |                         |
-|                             ...                              |       samples        |        (be) generated        |                         |
-| [Introduction Vocabulary](https://zhengyuan-public.github.io/posts/SRWIntroduction/#vocabulary) |        trials        |        (be) modified         |                         |
-|                                                              |     experiments      |        (be) obtained         |                         |
-|                                                              |      chemicals       |        (be) performed        |                         |
-|                                                              |        models        |        (be) provided         |                         |
-|                                                              |     instruments      |        (be) purchased        |                         |
-|                                                              |      materials       |        (be) supplied         |                         |
-|                                                              |                      |      (be) investigated       |                         |
+|                        General Verbs                         | Specify Procedures 1 |     Specify Procedures 2     |
+| :----------------------------------------------------------: | :------------------: | :--------------------------: |
+|                           attempt                            |         all          | (be) commercially  available |
+|                           consider                           |         both         |        (be) acquired         |
+|                           conduct                            |         each         |       (be) carried out       |
+|                          determine                           |         many         |         (be) chosen          |
+|                         investigate                          |         most         |        (be) conducted        |
+|                            report                            |       majority       |        (be) collected        |
+|                           suggest                            |                      |         (be) devised         |
+|                            verify                            |        tests         |          (be) found          |
+|                             ...                              |       samples        |        (be) generated        |
+| [Introduction Vocabulary](https://zhengyuan-public.github.io/posts/SRWIntroduction/#vocabulary) |        trials        |        (be) modified         |
+|                                                              |     experiments      |        (be) obtained         |
+|                                                              |      chemicals       |        (be) performed        |
+|                                                              |        models        |        (be) provided         |
+|                                                              |     instruments      |        (be) purchased        |
+|                                                              |      materials       |        (be) supplied         |
+|                                                              |                      |      (be) investigated       |
+
+\*There is also a vocabulary list for each research filed which should be built by yourself.
 
 ### Essential Background Information
 
@@ -365,42 +367,42 @@ If you are still left with ambiguous adverb clusters, break the sentence into un
 |  more or less identical  |    with some changes    |              |
 |    slightly modified     | with some modifications |              |
 
-\*For vocabulary in Col 3, it may NOT be necessary to state the differences.
+\*For words in Col 3, it may **NOT** be necessary to state the differences.
 
 #### Significantly Different
 
-| Col 1              | Col 2                         | Col 3       |
-| ------------------ | ----------------------------- | ----------- |
+|       Col 1        |             Col 2             |    Col 3    |
+| :----------------: | :---------------------------: | :---------: |
 | a novel step was … | although in many ways similar | (to) adapt  |
-| adapted from       | although in some ways similar | (to) adjust |
-| based on           | although in essence similar   | (to) alter  |
-| in line with       | with the following            | (to) change |
-| loosely based on   | modifi cations/changes:       | (to) refine |
+|    adapted from    | although in some ways similar | (to) adjust |
+|      based on      |  although in essence similar  | (to) alter  |
+|    in line with    |      with the following       | (to) change |
+|  loosely based on  |    modifi cations/changes:    | (to) refine |
 | partially based on |                               | (to) revise |
-| partly based on    |                               | (to) vary   |
+|  partly based on   |                               |  (to) vary  |
 |                    |                               | (to) modify |
 
-\*For vocabulary in Col 3, it **IS** necessary to state the differences.
+\*For words in Col 3, it **is** necessary to state the differences.
 
 ### Indicate Problems
 
-| Minimize Problem        | Minimize Responsibility | Maximize Good Aspects    |
-| ----------------------- | ----------------------- | ------------------------ |
-| did not align precisely | limited by              | acceptable               |
-| only approximate        | inevitably              | fairly well              |
-| it is recognized  that  | necessarily             | quite good               |
-| less than ideal         | impractical             | reasonably robust        |
-| not perfect             | as far as possible      | however                  |
-| not identical           | (it was) hard to        | nevertheless             |
-| slightly problematic    | (it was) difficult to   |                          |
-| rather time-consuming   | unavoidable             |                          |
-| minor deficit           | impossible              |                          |
-| slightly disappointing  | not possible            |                          |
-| negligible              |                         | **Talk about Solutions** |
-| unimportant             |                         | future work should ...   |
-| immaterial              |                         | future work will ...     |
-| a preliminary attempt   |                         | currently in progress    |
-| not significant         |                         | currently underway       |
+|    Minimize Problem     | Minimize Responsibility |  Maximize Good Aspects   |
+| :---------------------: | :---------------------: | :----------------------: |
+| did not align precisely |       limited by        |        acceptable        |
+|    only approximate     |       inevitably        |       fairly well        |
+| it is recognized  that  |       necessarily       |        quite good        |
+|     less than ideal     |       impractical       |    reasonably robust     |
+|       not perfect       |   as far as possible    |         however          |
+|      not identical      |    (it was) hard to     |       nevertheless       |
+|  slightly problematic   |  (it was) difficult to  |                          |
+|  rather time-consuming  |       unavoidable       | **Talk about Solutions** |
+|      minor deficit      |       impossible        |  future work should ...  |
+| slightly disappointing  |      not possible       |   future work will ...   |
+|       negligible        |                         |  currently in progress   |
+|       unimportant       |                         |    currently underway    |
+|       immaterial        |                         |                          |
+|  a preliminary attempt  |                         |                          |
+|     not significant     |                         |                          |
 
 ### Countably Used Uncountable Nouns
 
@@ -420,8 +422,6 @@ If you are still left with ambiguous adverb clusters, break the sentence into un
 |   cancer    | environment |  light   |   science    |   water    |
 |  capacity   |  existence  |   loss   |   silence    |    wind    |
 |  childhood  | experience  |   oil    |    space     |            |
-
-
 
 ## Reference
 
