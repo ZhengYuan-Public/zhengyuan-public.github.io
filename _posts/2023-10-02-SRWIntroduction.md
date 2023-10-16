@@ -92,7 +92,7 @@ Tense for Part IV
 -  In science writing, the **Present Simple** tense is used to state **accepted facts and truth**, but it's the writer's decision to decide what qualifies as facts and truth.
 - Using the **Present Simple** tense means that you believe your findings and deductions are strong enough to be considered facts or truth.
 
-> *One way to toughen polymers **is** to incorporate a layer of rubber particles5 and there has been extensive research regarding the rubber modification of PLA.*
+> *One way to toughen polymers **is** to incorporate a layer of rubber particles and there has been extensive research regarding the rubber modification of PLA.*
 
 #### Past Simple / Present Perfect
 
@@ -211,7 +211,7 @@ Here are several ways to fill the gap:
    evaluate the content.
 3. Check the **date**, and use it to help you assess the content.
 4. Read the **abstract** to find out what the researchers did and/or what they found.
-5. at **the first paragraph**, without trying to understand all the words.
+5. Read **the first paragraph**, without trying to understand all the words.
 6. Glance at **the first sentence of each paragraph**, without trying to understand all the words.
 7. Glance at **each figure/table** and read its **title**, to try and find out what type of visual data is included.
 8. Read **the last paragraph**, especially if it has a subtitle like "Summary" or "Conclusion".
