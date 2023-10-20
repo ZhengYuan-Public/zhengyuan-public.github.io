@@ -25,7 +25,7 @@ tags: [writing, science-research-writing]
 
 ### Four Basic Components
 
-|                            Goals                             |
+|                       Model Components                       |
 | :----------------------------------------------------------: |
 |                          **Part I**                          |
 | Provide a general introduction/overview of the materials/methods |
@@ -76,7 +76,7 @@ A good writing model for the Methodology/Experiments section should answer the f
   - suggests a solution
 
 
-## Grammar and Skills
+## Grammar and Writing Skills
 
 ### Passive and Tense Pairs
 

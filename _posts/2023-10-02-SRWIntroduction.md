@@ -30,7 +30,7 @@ It's probably true that your science writing has focused on **describing what yo
 
 ### Four Basic Components
 
-|                            Goals                             |
+|                       Model Components                       |
 | :----------------------------------------------------------: |
 |                          **Part I**                          |
 |            Establish the importance of your field            |
@@ -83,7 +83,7 @@ Tense for Part IV
 - Use the **Present Simple** tense to **describe the work itself** and the **Past Simple** tense to talk about the **aim** of the work.
   - It is also possible to state the **aim** in the **Present Simple** tense. This is especially true in cases where **the aim is only partially achieved** in the paper you are submitting and the rest of the work will be done and reported on at a later stage.
 
-## Grammar and Skills
+## Grammar and Writing Skills
 
 ### Tenses
 
