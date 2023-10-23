@@ -127,9 +127,7 @@ Use **a** the first time you talk about something, and use **the** when referrin
 In the following examples, the context made both the speaker and listener know about the thing they are talking about.
 
 > - *I arrived at Heathrow Airport but **the** check-in was closed.*
->
 > - *I bought **a** new computer but **the** keyboard was faulty.*
->
 > - *He lit **a** match but **the** flame went out.*
 > - *Did she get **the** job? (the job we both know she wanted)*
 > - *I’ll meet you in **the** library later. (the library we normally use)*
@@ -184,9 +182,8 @@ Adverbs needing prepositions can be ambiguous.
 
 Be careful where you put your adverb, and be especially careful if you are using **more than one adverb** in a sentence.
 
-> - *The patient was discharged from the hospital after being shot in the back with a 9 mm gun.* (Did the doctors shoot her?)
->
-> - *He gave a lecture about liver cancer at the hospital last January.* (Did the lecture refer to cancer cases occurring in January or did the lecture itself occur in January?)
+> *The patient was discharged from the hospital after being shot in the back with a 9 mm gun.* (Did the doctors shoot her?)
+> *He gave a lecture about liver cancer at the hospital last January.* (Did the lecture refer to cancer cases occurring in January or did the lecture itself occur in January?)
 
 Consider putting adverbs that relate to the whole sentence at the front of the sentence.
 
