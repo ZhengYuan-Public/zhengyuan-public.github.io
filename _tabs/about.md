@@ -3,7 +3,7 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 4
-pdf_file: "/assets/about_cv/ZhengYuan_CV.pdf"
+pdf_file: "/assets/about_cv/ZhengYuan_CV_20231025.pdf"
 ---
 
 > This is my CV. Thanks for your attention! :heart:
