@@ -482,7 +482,7 @@ In Jekyll (with the default markdown engine kramdown),
 
 There’s no specific number of categories that you should have. In most cases, you will want somewhere between 5 and 10 in order to properly categorize your posts and make your site easy to browse. Categories are meant to encompass a large group of posts. You can use subcategories and tags to split your posts into smaller groups. If you are just starting a blog, then don’t worry about trying to come up with a perfect list of categories. Just choose 3-5 broad categories and add more as time goes by. 
 
-## Reference Demo For Jekyll-Scholar
+## Jekyll-Scholar Reference Demo
 
 ---
 
