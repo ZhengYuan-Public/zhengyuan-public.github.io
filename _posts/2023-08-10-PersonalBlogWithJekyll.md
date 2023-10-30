@@ -477,10 +477,30 @@ In Jekyll (with the default markdown engine kramdown),
 
 [Categories vs Tags – SEO Best Practices for Sorting Your Content](https://www.wpbeginner.com/beginners-guide/categories-vs-tags-seo-best-practices-which-one-is-better/) :link:
 
-- Categories are meant to **broadly group** your posts. Categories are **hierarchical**, which means you can create **subcategories**.
+- Categories are meant to **group your posts broadly**. Categories are **hierarchical**, which means you can create **subcategories**.
 - Tags are meant to **describe specific details** of your posts. Tags are **not hierarchical**.
 
 There’s no specific number of categories that you should have. In most cases, you will want somewhere between 5 and 10 in order to properly categorize your posts and make your site easy to browse. Categories are meant to encompass a large group of posts. You can use subcategories and tags to split your posts into smaller groups. If you are just starting a blog, then don’t worry about trying to come up with a perfect list of categories. Just choose 3-5 broad categories and add more as time goes by. 
+
+### Linking Posts
+
+[URLs and links in Jekyll](https://mademistakes.com/mastering-jekyll/how-to-link/) :link:
+
+1. Reference the post’s full root-relative URL.
+2. Use the {% raw %} `{% post_url %}` {% endraw %} tag. This tag will automatically generate the correct root-relative URL to the post, regardless of your permalink structure. **(Recommended)**
+3. Use {% raw %} `{% link %}` {% endraw %}. This tag is more general and can be used to link to any file or directory on your site, including posts, pages, collections, and static assets.
+
+Examples:
+
+{% raw %}
+
+```markdown
+[How to make pizza](/2021/01/01/how-to-make-pizza.html)
+[How to make pizza]({% post_url 2021-01-01-how-to-make-pizza %})
+[How to make pizza]({% link _posts/2021-01-01-how-to-make-pizza.md %})
+```
+
+{% endraw %}
 
 ## Jekyll-Scholar Reference Demo
 
