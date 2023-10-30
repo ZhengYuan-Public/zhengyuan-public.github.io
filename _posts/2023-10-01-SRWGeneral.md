@@ -44,64 +44,64 @@ This series of notes are based on *Science Research Writing for Non-Native Speak
 
 ### Prefix
 
-| Meaning       | Prefix     | Examples                      |
-| ------------- | ---------- | ----------------------------- |
-| above/more    | *hyper*-   | hyperactive, hypoallergenic   |
-|               | *super*-   | supernatural, supersonic      |
-| after         | *post*-    | postgraduate, postwar         |
-| again         | *re*-      | rebuild, rewrite              |
-| against       | *anti*-    | antioxidant, antiseptic       |
-|               | *contra*-  | contradict, contradiction     |
-|               | *counter*- | counteract, counterpoint      |
-| part/away     | *dis*-     | disarmament, disintegrate     |
-|               | *de*-      | decompose, dehydrate          |
-| around        | *circum*-  | circumference, circumnavigate |
-| backwards     | *retro*-   | retroactive, retrovirus       |
-| bad/badly     | *mal*-     | malformed, malfunction        |
-|               | *ill*-     | ill-defined, ill-judged       |
-| before        | *pre*-     | preexisting, pretest          |
-|               | *fore*-    | forecast, foresee             |
-|               | *ante*-    | antechamber, antenatal        |
-| between       | *inter*-   | interact, interface           |
-| change        | *meta*-    | metamorphosis, metastasis     |
-| color         | *chrom*-   | chromaticity, chromosome      |
-| different     | *hetero*-  | heterogeneous, heterosexual   |
-| equal         | *iso*-     | isometric, isosceles          |
-|               | *equi*-    | equidistant, equilateral      |
-| first         | *prim*-    | primitive, primordial         |
-|               | *proto*-   | protoplasm, prototype         |
-| half          | *semi*-    | semi-automatic, semicircle    |
-| hundred/th    | *cent*-    | centigrade, centimeter        |
-| into/inside   | *intr*-    | intravenous, introduction     |
-| large/million | *mega*-    | megabyte, megaphone           |
-| many          | *poly*-    | polysaccharide, polyvalent    |
-|               | *multi*-   | multicolored, multicellular   |
-| new           | *neo*-     | neonatal, neo-Darwinism       |
-| not           | *ir*-      | irrelevant, irreversible      |
-|               | *im*-      | imprecise, impure             |
-|               | *in*-      | inaccurate, inconsistent      |
-|               | *un*-      | unbend, uncouple              |
-|               | *dis*-     | dissatisfied, dissimilar      |
-|               | *non*-     | nonexistent, non-standard     |
-|               | *a*-       | asymmetrical, atypical        |
-|               | *an*-      | anaerobic, anhydrous          |
-| one/single    | *uni*-     | unicellular, uniform          |
-|               | *mono*-    | monomer, monotone             |
-| same          | *homo*-    | homogeneous, homosexual       |
-| self          | *auto*-    | autonomous, autopilot         |
-| similar       | *para*-    | paramedic, parapsychology     |
-| thousand      | *kilo*-    | kilogram, kilowatt            |
-| thousandth    | *milli*-   | millisecond, millimeter       |
-| time          | *chron*-   | chronological, chronometer    |
-| too           | *over*-    | overheat, oversimplify        |
-| two           | *di*-      | dichloride, dioxide           |
-|               | *bi*-      | bicarbonate, bisect           |
-| far/distant   | *tele*-    | telemetry, telescope          |
-| under         | *sub*-     | subset, subtitle              |
-|               | *hypo*-    | hypoallergenic, hypothermia   |
-|               | *infra*-   | infrared, infrastructure      |
-| with/together | *co*-      | coauthor, coordinate          |
-| wrong         | *mis*-     | misjudge, misread             |
+|    Meaning    |   Prefix   |           Examples            |
+| :-----------: | :--------: | :---------------------------: |
+|  above/more   |  *hyper*-  |  hyperactive, hypoallergenic  |
+|               |  *super*-  |   supernatural, supersonic    |
+|     after     |  *post*-   |     postgraduate, postwar     |
+|     again     |   *re*-    |       rebuild, rewrite        |
+|    against    |  *anti*-   |    antioxidant, antiseptic    |
+|               | *contra*-  |   contradict, contradiction   |
+|               | *counter*- |   counteract, counterpoint    |
+|   part/away   |   *dis*-   |   disarmament, disintegrate   |
+|               |   *de*-    |     decompose, dehydrate      |
+|    around     | *circum*-  | circumference, circumnavigate |
+|   backwards   |  *retro*-  |    retroactive, retrovirus    |
+|   bad/badly   |   *mal*-   |    malformed, malfunction     |
+|               |   *ill*-   |    ill-defined, ill-judged    |
+|    before     |   *pre*-   |     preexisting, pretest      |
+|               |  *fore*-   |       forecast, foresee       |
+|               |  *ante*-   |    antechamber, antenatal     |
+|    between    |  *inter*-  |      interact, interface      |
+|    change     |  *meta*-   |   metamorphosis, metastasis   |
+|     color     |  *chrom*-  |   chromaticity, chromosome    |
+|   different   | *hetero*-  |  heterogeneous, heterosexual  |
+|     equal     |   *iso*-   |     isometric, isosceles      |
+|               |  *equi*-   |   equidistant, equilateral    |
+|     first     |  *prim*-   |     primitive, primordial     |
+|               |  *proto*-  |     protoplasm, prototype     |
+|     half      |  *semi*-   |  semi-automatic, semicircle   |
+|  hundred/th   |  *cent*-   |    centigrade, centimeter     |
+|  into/inside  |  *intr*-   |   intravenous, introduction   |
+| large/million |  *mega*-   |      megabyte, megaphone      |
+|     many      |  *poly*-   |  polysaccharide, polyvalent   |
+|               |  *multi*-  |  multicolored, multicellular  |
+|      new      |   *neo*-   |    neonatal, neo-Darwinism    |
+|      not      |   *ir*-    |   irrelevant, irreversible    |
+|               |   *im*-    |       imprecise, impure       |
+|               |   *in*-    |   inaccurate, inconsistent    |
+|               |   *un*-    |       unbend, uncouple        |
+|               |   *dis*-   |   dissatisfied, dissimilar    |
+|               |   *non*-   |   nonexistent, non-standard   |
+|               |    *a*-    |    asymmetrical, atypical     |
+|               |   *an*-    |     anaerobic, anhydrous      |
+|  one/single   |   *uni*-   |     unicellular, uniform      |
+|               |  *mono*-   |       monomer, monotone       |
+|     same      |  *homo*-   |    homogeneous, homosexual    |
+|     self      |  *auto*-   |     autonomous, autopilot     |
+|    similar    |  *para*-   |   paramedic, parapsychology   |
+|   thousand    |  *kilo*-   |      kilogram, kilowatt       |
+|  thousandth   |  *milli*-  |    millisecond, millimeter    |
+|     time      |  *chron*-  |  chronological, chronometer   |
+|      too      |  *over*-   |    overheat, oversimplify     |
+|      two      |   *di*-    |      dichloride, dioxide      |
+|               |   *bi*-    |      bicarbonate, bisect      |
+|  far/distant  |  *tele*-   |     telemetry, telescope      |
+|     under     |   *sub*-   |       subset, subtitle        |
+|               |  *hypo*-   |  hypoallergenic, hypothermia  |
+|               |  *infra*-  |   infrared, infrastructure    |
+| with/together |   *co*-    |     coauthor, coordinate      |
+|     wrong     |   *mis*-   |       misjudge, misread       |
 
 ## Reference
 
