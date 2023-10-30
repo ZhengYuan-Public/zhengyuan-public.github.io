@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Science Research Writing - Discussion / Conclusion
+title: Science Research Writing - Discussion/Conclusion
 date: 2023-10-23 12:00:00
 image:
     path: /assets/img/images_preview/SRWPreview.png
