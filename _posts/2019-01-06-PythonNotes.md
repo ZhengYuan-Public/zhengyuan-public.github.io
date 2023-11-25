@@ -80,7 +80,7 @@ https://repo.huaweicloud.com/repository/pypi/simple/
 # -----------------------------------------------------#
 
 # Example
-pip -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
 ```
 
 ## Variables
