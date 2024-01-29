@@ -100,7 +100,14 @@ If you also just want something that can be used out of the box, I'd recommend y
 
 The one I'm using for now is called [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy).
 
-## Jekyll Plugins
+### Server Jekyll on Local Machine
+
+```bash
+$ bundle exec jekyll serve --host=0.0.0.0
+# By using --host=0.0.0.0, you can access your jekyll site with http://host_machine_ip:4000/
+```
+
+### Jekyll Plugins
 
 To add plugins to your Jekyll site, just add a new section in your `_config.yml` and gems in `Gemfile`. Here are the plugins I'm using:
 
@@ -125,7 +132,7 @@ group :jekyll_plugins do
 end
 ```
 
-### Jekyll-Scholar for Academic Scholars
+#### Jekyll-Scholar for Academic Scholars
 
 Create a new folder `_bibliography` at the project root, and add your [configuration](https://github.com/inukshuk/jekyll-scholar#configuration) in `_config.yml`
 

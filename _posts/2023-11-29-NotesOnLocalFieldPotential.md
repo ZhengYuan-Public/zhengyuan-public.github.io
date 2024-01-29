@@ -2,6 +2,8 @@
 comments: true
 title: Notes on Local Field Potential
 date: 2023-11-29 12:00:00
+image:
+    path: /assets/img/images_lfp/electrical_measurements_of_brain_activity.png
 math: true
 categories: [Computational Neuroscience, Local Field Potential]
 tags: [computational-neuroscience, local-field-potential, lfp]
