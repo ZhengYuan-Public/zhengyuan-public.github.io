@@ -2,10 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "jekyll-theme-chirpy", "=6.2.2"
+gem "jekyll-theme-chirpy", "~> 6.4", ">= 6.4.2"
 
 group :test do
-  gem "html-proofer", "~> 3.18"
+  gem "html-proofer", "~> 4.4"
 end
 
 group :jekyll_plugins do
@@ -30,7 +30,6 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-# Lock jekyll-sass-converter to 2.x on Linux-musl
-if RUBY_PLATFORM =~ /linux-musl/
-  gem "jekyll-sass-converter", "~> 2.0"
-end
+gem "webrick", "~> 1.8"
+gem 'rack'
+gem 'rackup'
