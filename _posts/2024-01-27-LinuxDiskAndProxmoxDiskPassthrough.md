@@ -204,7 +204,7 @@ $ tree
 |      **Scalability**       |        Limited to processes on <br />the same machine        |      Scales across networks and <br />multiple machines      |
 |       **Use cases**        | Inter-process communication<br /> Command chaining<br /> Temporary data exchange | Web servers, <br />Database connections, <br />Remote procedure calls, <br />Distributed applications |
 
-## `/dev & /media & /mnt`
+### `/dev & /media & /mnt`
 
 | Directory |               Purpose               |                       Use Cases                       |
 | :-------: | :---------------------------------: | :---------------------------------------------------: |

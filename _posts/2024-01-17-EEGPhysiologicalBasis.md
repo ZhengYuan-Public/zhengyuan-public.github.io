@@ -8,7 +8,7 @@ math: true
 categories: [EEG, Basis]
 tags: [eeg]
 ---
-
+:notebook:EEG-fMRI: Physiological Basis, Technique, and Applications {% cite mulert2023eeg --file eeg_physiological %}
 ## EEG - Origin and Measurement
 
 The EEG consists of the **summed** electrical activities of **populations of neurons**, with a **modest contribution** from glial cells. The neurons are **excitable** cells with **characteristic intrinsic electrical properties**, and their activity produces **electrical and magnetic fields**.
@@ -34,10 +34,10 @@ The EEG consists of the **summed** electrical activities of **populations of neu
 
 - Active **source** is generated in the extracellular medium at the level of an **inhibitory** synapse. **Distributed passive sinks** along the soma-dendritic membrane.
 
-- The flows of these compensating extracellularly currents depend on the **electrical properties** of the local tissue. Glial cells occupy an important part of the space between neurons and are coupled to one another by **<u>gap junctions</u>** (the conductivity is sensitive to changes in $$ pH $$, extracellular $$ K^+ $$ and $$ Ca^{2+} $$, and physiological and pathological conditions).
+- The flows of these compensating extracellularly currents depend on the **electrical properties** of the local tissue. Glial cells occupy an important part of the space between neurons and are coupled to one another by **<u>gap junctions</u>** (the conductivity is sensitive to changes in $$ pH $$, extracellular $$ K^+ $$ and $$ Ca^{2+} $$, and physiological/pathological conditions).
 
 
 
 ## Reference
 
-{% bibliography --cited --file eng_words %}
+{% bibliography --cited --file eeg_physiological %}

@@ -78,14 +78,22 @@ $ rbenv install -l
 $ rbenv install -L
 
 # Install a Ruby version:
-$ rbenv install 3.2.2
+$ rbenv install 3.2.3
 
 # Set the default Ruby version for this machine
-rbenv global 3.2.2
+$ rbenv global 3.2.3
 
 # Set the Ruby version for this directory
-cd ProjectFolder
-rbenv local 3.2.2
+$ cd ProjectFolder
+$ rbenv local 3.2.3
+
+# Check ruby, gem, and bundle
+$ which ruby
+/Users/zheng/.rbenv/shims/ruby
+$ which gem
+/Users/zheng/.rbenv/shims/gem
+$ which bundle
+/Users/zheng/.rbenv/shims/bundle
 ```
 
 ## Start a Jekyll Site
@@ -94,7 +102,7 @@ If you also just want something that can be used out of the box, I'd recommend y
 
 - [GitHub.com #jekyll-theme repos](https://github.com/topics/jekyll-theme)
 - [jamstackthemes.dev](https://jamstackthemes.dev/ssg/jekyll/)
-- [jekyllthemes.org](http://jekyllthemes.org/)
+- [jekyllthemes.org](https://jekyllthemes.org/)
 - [jekyllthemes.io](https://jekyllthemes.io/)
 - [jekyll-themes.com](https://jekyll-themes.com/)
 

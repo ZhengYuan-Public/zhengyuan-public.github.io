@@ -107,7 +107,7 @@ Size of multi-walled carbon nanotube: $$ 10-40nm, 5-20 \mu m $$ {% cite Abdallah
 
 ### Endocytosis Size Limit
 
-/{% cite Rejman2004Jan --file reference_statistics %} max 500nm spheres in diameter - energy-dependent process
+{% cite Rejman2004Jan --file reference_statistics %} max 500nm spheres in diameter - energy-dependent process
 
 ## Some Calculations
 

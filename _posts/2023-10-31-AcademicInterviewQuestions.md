@@ -93,111 +93,16 @@ Prepare two versions of an answer for each category: a 30-second version and a t
 
      - Are you able to *work hard* and *persevere* in the face of challenges?
 
-### Common Questions and Demo Answers
+### Common Questions
 
 1. Tell us about yourself.
 2. Why do you want to pursue a PhD?
 3. What are your strengths and weaknesses?
-4. 
-5. Why do you think you are the right candidate for this PhD program?
-6. Do you have any questions for me (interviewer)?
-
-
-
-1. Describe a challenge you faced and how you overcame it. 
-2. What will you do if the research does not work as expected? 
-3. 
 4. Why do you think you are the right candidate for this PhD program?
-5. What do you plan to do after you have completed your PhD?
-6. Why did you choose this particular PhD program?
-7. Do you have any other offers?
-
-#### 
-
-1. Why did you change your major?
-
-
-
-1. Tell us about yourself.
-    > Tips:
-    >
-    > - Start by introducing yourself and your academic background. Mention your most relevant research experience and publications.
-    >   - It is a good idea to mention your English name in a PhD interview if your name is in another language and is difficult to pronounce. This will help the interviewer to remember your name and to address you correctly.
-    >
-    > - Briefly discuss your research interests and why you are interested in the PhD program.
-    > - Highlight your skills and qualities that make you a good fit for the program, such as your critical thinking skills, your ability to work independently, and your passion for research.
-    > - Be sure to connect your answers back to the PhD program and the faculty. For example, you could mention a specific research project that you are interested in working on with a particular faculty member.
-    {: .prompt-tip}
-
-    > **[Background]** Good morning/afternoon everyone, my name is Zheng Yuan. It is a little difficult to pronounce in English, so please call me Michael. I hold a Master of Science degree in Cognitive and Computational Neuroscience from the University of Sheffield and I'm currently working as a research assistant in the Health Informatics Lab of Jilin University.
-    >
-    > **[Research Interest and Hard Skills]** I've been fascinated by the human brain for a very long time and I'm excited to do research in Computational Neuroscience. With the recent advancement of Machine Learning, availability of data, and computational power, I'm interested in developing machine learning models as tools for
-    >
-    > My research experiences include mathematical modeling, deep learning, and bioinformatics. I'm a proficient programmer in MATLAB and Python, and I have experience in IT infrastructure administration, gained by DIY my home lab and maintenance of two lab servers. As a research assistant, I have also taught mathematics and programming to newcomers to the lab and my friends from other disciplines.
-    >
-    > **[Personality and Soft Skills]** I'm a curious person and I really enjoy doing research. I love solving problems and learning new skills during that process. For example, in my last bioinformatics research, I learned a lot about the state-of-the-art understanding of cancers, including their initiation, progression, and metastasis. I also learned how to efficiently pre-process and analyze bioinformatics datasets. I can still remember the joy I got when my program was running at least 30 times faster by using concurrency and other optimization methods.
-    >
-    > **[Being a Good collaborator]** Working in a team consisting of experts from different disciplines was also interesting and exciting. On the one hand, I had the chance to learn and observe the discrepancies in the way they think; on the other hand, the demand to communicate technical ideas using daily language was challenging, but this process has also deepened my understanding of those technical ideas. 
-    >
-    > **[Conclusion]** I am confident that my background and skills make me a strong fit for this PhD position.
-
-2. Why did you change your major?
-  > Tips:
-  > - Be honest and upfront about your reasons for changing your major. Don't try to sugarcoat things or make excuses.
-  > - Focus on the positive aspects of your decision. Explain how changing your major helped you to discover your true passion or to develop the skills and knowledge that you need to achieve your career goals.
-  > - Be specific and provide examples. Don't just say that you changed your major because you were "more interested" in another field. Explain what specifically drew you to your new major and what you hope to achieve by studying it.
-  > - Show that you are still passionate about your current field of study. Even if you changed your major because you realized that it was not a good fit for you, you should still be able to articulate why you are interested in pursuing a Ph.D. in your current field.
-
-  > I was born and raised in a small town and I had few chances to explore my interest before going to university. I originally started out majoring in Civil Engineering because I thought it was a practical choice. I was deeply fascinated by the human brain after reading the book Cybernetics by Norbert Wiener while exploring my interest
-  >
-  > Changing my major was one of the best and hardest decisions I have ever made. I am now much more engaged in my studies and I am excited about the future. I am particularly interested in pursuing a Ph.D. in psychology so that I can study the cognitive processes involved in decision-making.
-
-3. 
-
-4. Do you have any questions for me (interviewer)?
-5. Describe a challenge you faced and how you overcame it. 
-6. What will you do if the research does not work as expected? 
-
-7. What are your strengths and weaknesses?
-8. Tell us about yourself.
-9. Why did you change your major?
-10. Why do you think you are the right candidate for this Ph.D. program?
-11. Why do you wish to pursue a Ph.D.?
-12. What do you plan to do after you have completed your Ph.D.?
-13. Why did you choose this particular Ph.D. program?
-14. Do you have any other offers?
-15. 
-
-
-
----
-
-#### Why do you want to do a PhD?
-
-> - Passion
-> - Commitment
-> - Academic Career
-
-There are several reasons why I want to pursuit a Doctor's degree. 
-
-First of all, I was deeply fascinated by the human brain after watching a TED talk from Dr. Ramachandran on several peculiar neurological syndromes. I was particularly intrigued by the connection between abstract thinkings and the phenomenon of synestheisa. This sparked my interest in learning more about how the human brain and I gradually developed a ken interest in computational neuroscience.
-
-Secondly, I'm really interested in the intersection between artificial intelligence and computational neuroscience. With the recent development in machine learning, data availability, and computational power, I believe machine learning algorithms are powerful tools in facilitating researches and applications of computational neuroscience, and actually vice versa. For example, machine learning is being used to develop new methods for analyzing neuroimaging data. I believe that this intersection between AI and computational neuroscience has the potential to revolutionize our understanding of the human brain and lead to novel applications.
-
-So, after getting my master's degree in computational neuronscience, I joined the Health Informatics Lab as a teaching assistant for almost a year and half now to learn more about machine learning. I've been working on research projects in the lab regarding identification of novel biomarkers in thyroid cancer and objects detection on aerial images. This experience has gave me the skills and knowledge to be a strong fit of this PhD position.
-
-Last but not least, doing a PhD is an imporant part of my career path. I want to become a leading researcher in the field of computational neuroscience and develop new technologies to help people with neurological disorders.
-
-#### Why this particular program/university/group?
-
-> - Reputation
-> - Specific reasons associated with the program/university/group
-
-> SFB1315
-
-BCCN Berlin
-
-> Funding
->
-> - 2004-2016: Federal Ministry of Education and Research (BMBF)
-> - 2016-Now: Charité, Humboldt-Universität zu Berlin, and Technische Universität Berlin (Part of [Bernstein Network Computational Neuroscience](http://www.nncn.de/) )
+5. Do you have any questions for me (interviewer)?
+6. Describe a challenge you faced and how you overcame it. 
+7. What will you do if the research does not work as expected? 
+8. Why do you think you are the right candidate for this PhD program?
+9. What do you plan to do after you have completed your PhD?
+10. Why did you choose this particular PhD program?
+11. Do you have any other offers?
