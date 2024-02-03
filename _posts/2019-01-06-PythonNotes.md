@@ -87,7 +87,7 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ numpy
 
 ### Python Variable Names
 
-[Naming Conventions]():link:
+[Naming Conventions](https://zhengyuan-public.github.io/posts/ProgrammingNotes/#style-guides):link:
 
 - Must start with a letter `[A-z]` or `_`
 - Can NOT start with a number`[0-9]`
