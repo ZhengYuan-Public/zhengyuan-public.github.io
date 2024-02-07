@@ -5,8 +5,8 @@ date: 2024-1-10 12:00:00
 image:
     path: /assets/img/images_preview_default/Cat1.jpeg
 math: true
-categories: [Temporary]
-tags: [temporary]
+categories: [Computational Neuroscience, Physiology]
+tags: [neuron-physics]
 ---
 
 ## Some Neuron Statistics
@@ -74,11 +74,11 @@ tags: [temporary]
 
 #### Axonal Conduction Velocity 
 
-{% cite DeMaegd2017Mar --file reference_statistics %} 0.1m/s (unmyelinated) to 200m/s (myelinated)
+{% cite demaegd2017axonal --file reference_statistics %} 0.1m/s (unmyelinated) to 200m/s (myelinated)
 
 ## EEG 
 
-{% cite Louis2016 --file reference_statistics %}
+{% cite britton2016electroencephalography --file reference_statistics %}
 
 ### Differential amplification
 
