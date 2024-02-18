@@ -1,15 +1,22 @@
 ---
 comments: true
-title: EEG Physiological Basis
-date: 2024-1-17 12:00:00
+title: Basis of Electroencephalogram (EEG)
+date: 2024-1-10 12:00:00
 image:
-    path: /assets/img/images_eeg/CorticalPyramidalCell-EPSP-IPSP.png
+    path: /assets/img/images_neuroscience/cortical_pyramidal_cell-EPSP-IPSP.png
 math: true
-categories: [EEG, Basis]
-tags: [eeg]
+categories: [Neuroscience, Electrical Measurements, Electroencephalogram]
+tags: [neuroscience, electroencephalogram, eeg]
 ---
-:notebook:EEG-fMRI: Physiological Basis, Technique, and Applications {% cite mulert2023eeg --file eeg_physiological %}
+## Introduction
+
+Reference: [Introduction to EEG](https://www.ebme.co.uk/articles/clinical-engineering/introduction-to-eeg)
+
+Standard Sensitivity: 7 µV/mm - 0.007 V/m
+
 ## EEG - Origin and Measurement
+
+:notebook:EEG-fMRI: Physiological Basis, Technique, and Applications {% cite mulert2023eeg --file basis_eeg %}
 
 The EEG consists of the **summed** electrical activities of **populations of neurons**, with a **modest contribution** from glial cells. The neurons are **excitable** cells with **characteristic intrinsic electrical properties**, and their activity produces **electrical and magnetic fields**.
 
@@ -25,7 +32,7 @@ The EEG consists of the **summed** electrical activities of **populations of neu
 
 ### Sink-Source Configuration
 
-![electrical_measurements_of_brain_activity](/assets/img/images_eeg/CorticalPyramidalCell-EPSP-IPSP.png){: style="max-width: 600px; height: auto;"}
+![electrical_measurements_of_brain_activity](/assets/img/images_neuroscience/cortical_pyramidal_cell-EPSP-IPSP.png){: style="max-width: 600px; height: auto;"}
 
 > There is **no accumulation of charge** anywhere in the medium, the transmembrane currents that flow in or out of the neuron at the active synaptic sites are **compensated** by currents that flow in the opposite direction elsewhere along the neuronal membrane.
 {: .prompt-tip }
@@ -36,8 +43,6 @@ The EEG consists of the **summed** electrical activities of **populations of neu
 
 - The flows of these compensating extracellularly currents depend on the **electrical properties** of the local tissue. Glial cells occupy an important part of the space between neurons and are coupled to one another by **<u>gap junctions</u>** (the conductivity is sensitive to changes in $$ pH $$, extracellular $$ K^+ $$ and $$ Ca^{2+} $$, and physiological/pathological conditions).
 
-
-
 ## Reference
 
-{% bibliography --cited --file eeg_physiological %}
+{% bibliography --cited --file basis_eeg %}

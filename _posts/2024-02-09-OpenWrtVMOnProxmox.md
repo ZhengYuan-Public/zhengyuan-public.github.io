@@ -4,9 +4,9 @@ title: OpenWrt VM on Proxmox
 date: 2024-02-09 12:00:00
 image:
     path: /assets/img/images_preview/OpenWrtPreview.png
-categories: [Network, OpenWrt]
+categories: [Network, OpenWrt, Proxmox]
 math: true
-tags: [network, openwrt-vm]
+tags: [network, openwrt-vm, proxmox]
 ---
 
 ## Installation
@@ -146,4 +146,3 @@ $ reboot
 
 - [OpenClash](https://github.com/vernesong/OpenClash)
   - You might need to uninstall `dnsmasq` with `opkg remove dnsmasq` and let OpenClash to install the full version.
-- 
