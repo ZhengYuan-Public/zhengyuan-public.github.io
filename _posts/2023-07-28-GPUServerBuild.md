@@ -4,7 +4,7 @@ title: Home Lab GPU Server Build
 image:
     path: /assets/img/images_preview/ProxmoxPreview.png
 date: 2023-07-28 12:00:00
-categories: [Server, GPU Server]
+categories: [Server, GPU Server, Proxmox]
 tags: [server, hardware, gpu-server, proxmox]
 ---
 

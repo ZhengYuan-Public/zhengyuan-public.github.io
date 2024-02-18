@@ -4,7 +4,7 @@ title: Enable vGPU on Consumer Cards (Proxmox 8.0)
 image:
     path: /assets/img/images_preview/ProxmoxPreview.png
 date: 2023-11-18 12:00:00
-categories: [Server, GPU Server]
+categories: [Server, GPU Server, Proxmox]
 tags: [server, hardware, gpu-server, proxmox, vGPU]
 ---
 

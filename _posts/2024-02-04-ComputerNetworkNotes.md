@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Network Notes
+title: Computer Network Notes
 date: 2024-02-04 12:00:00
 image:
     path: /assets/img/images_preview/NetworkPreview.jpg
