@@ -142,10 +142,10 @@ $$
 \end{align}
 $$
 
-For optic nerve fiber, the averaged maximum time resolution needed is about
+For optic nerve fiber, the maximum time resolution (assume the smallest axon diameter is $$ MEAN - SD $$) needed is about
 
 $$
-\Delta t_2 = \frac{MEAN - STD}{d_{lim}} \times \Delta t = \frac{(0.863-0.369)}{0.1} \times \Delta t = 1.0362 \times 10^{-15} s
+\Delta t_2 = \frac{MEAN - SD}{d_{lim}} \times \Delta t = \frac{(0.863-0.369)}{0.1} \times \Delta t = 1.0362 \times 10^{-15} s
 $$
 
 ### Atomic Clock Accuracy
