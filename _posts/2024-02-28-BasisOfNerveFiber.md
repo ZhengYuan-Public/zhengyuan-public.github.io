@@ -1,7 +1,7 @@
 ---
 comments: true
-title: Basis of Neural System Scales
-date: 2024-1-17 12:00:00
+title: Basis of Nerve Fiber
+date: 2024-02-28 12:00:00
 image:
     path: /assets/img/images_neuroscience/optic_nerve_cross_section.jpg
 math: true
@@ -9,11 +9,26 @@ categories: [Neuroscience, Physical Scales]
 tags: [neuroscience, physical-scales]
 ---
 
-## Some Neuron Statistics
+## Types of Nerve Fiber
 
-### Spinal Cord Nerve Fibers
+|      Classification       | Type |   Subtype    |                           Example                            | Relative Diameter |    Myelination     |
+| :-----------------------: | :--: | :----------: | :----------------------------------------------------------: | :---------------: | :----------------: |
+| Sensory<br />&<br />Motor |  A   | $$ \alpha $$ |                  $$ \alpha $$ motor neurons                  |       Large       | Heavily myelinated |
+|                           |      | $$ \beta $$  |                       touch, pressure                        |      Medium       | Heavily myelinated |
+|                           |      | $$ \gamma $$ |                      intrafusal fibers                       |      Medium       | Heavily myelinated |
+|                           |      | $$ \delta $$ |        touch, pressure,<br /> temperature, fast pain         |       Small       | Heavily myelinated |
+|                           |  B   |              |                                                              |       Small       | Lightly myelinated |
+|                           |  C   |              |                                                              |       Small       |    Unmyelinated    |
+|          Sensory          |  I   |      a       |                   Muscle spindle afferents                   |       Large       |     Myelinated     |
+|                           |      |      b       |              Golgi tendon organ<br /> afferents              |       Large       |     Myelinated     |
+|                           |  II  |              | secondary afferents of <br />muscle spindles;<br />touch, pressure |      Medium       |     Myelinated     |
+|                           | III  |              |        touch, pressure, fast <br />pain, temperature         |       Small       |     Myelinated     |
+|                           |  IV  |              |              pain, temperature,<br />olfactory               |       Small       |    Unmyelinated    |
 
-Table adapted from {% cite Liu2015Jul --file basis_NeuralSystemScales%}.
+## Spinal Cord Nerve Fiber
+
+![peripheral_nerve_histologic_structure](/assets/img/images_neuroscience/peripheral_nerve_histologic_structure.png){: style="max-width: 500px; height: auto;"}
+_Schematic of the histologic structure of a peripheral nerve. Adapted from {% cite schmitd2021nerve --file basis_NerveFiber%}_
 
 |         |       Diameter(mm)        |                            |  Number of nerve fibers   |                            |
 | :-----: | :-----------------------: | :------------------------: | :-----------------------: | :------------------------: |
@@ -49,27 +64,31 @@ Table adapted from {% cite Liu2015Jul --file basis_NeuralSystemScales%}.
 |   S4    |         0.34±0.03         |         0.52±0.17          |         1356±193          |          3402±304          |
 |   S5    |         0.14±0.02         |         0.27±0.13          |          906±111          |          2206±197          |
 
-![dermatomes_and_cutaneous_nerves](/assets/img/images_neuroscience/dermatomes_and_cutaneous_nerves.png){: style="max-width: 800px; height: auto;"}
+*Table adapted from {% cite Liu2015Jul --file basis_NerveFiber%}.
+
+![dermatomes_and_cutaneous_nerves](/assets/img/images_neuroscience/dermatomes_and_cutaneous_nerves.png){: style="max-width: 700px; height: auto;"}
 _Dermatomes and Cutaneous Nerves (Wikipedia)_
 
-### Optic Nerve Fiber
+## Optic Nerve Fibers
 
 ![optic_nerve_cross_section](/assets/img/images_neuroscience/optic_nerve_cross_section.jpg){: style="max-width: 600px; height: auto;"}
-_Image adapted from {% cite bose2005relative --file basis_NeuralSystemScales%}_
+_Image adapted from {% cite bose2005relative --file basis_NerveFiber%}_
 
 - Axon diameter: Mean=$$ 0.683 \mu m $$, SD=$$ 0.369 \mu m $$, SEM=$$ 0.026 \mu m $$​
 - Fig A: Normal human left optic never fiber cross-section (about 1million retinal ganglion cell axons).
 - Fig B: Transverse section.
 
-### Lower Bound of the Axon Diameter
+## Miscellaneous
 
-Axon diameters are pushed toward the channel-noise limit of $$ 0.1 \mu m $$ (mature neurons) due to **Spontaneous Action Potentials (SAPs)** {% cite Faisal2005Jun --file basis_NeuralSystemScales%}.
+### Lower Bound of Axon Diameter
 
-#### Thickness of the Cell Membrane
+Axon diameters are pushed toward the channel-noise limit of $$ 0.1 \mu m $$​ (mature neurons) due to **Spontaneous Action Potentials (SAPs)** {% cite Faisal2005Jun --file basis_NerveFiber%}.
 
-$$ 7.5 - 10 nm $$ {% cite Elert2023Nov --file basis_NeuralSystemScales%}.
+### Thickness of the Cell Membrane
 
-#### Depolarisation and Hyperpolarization Voltage
+$$ 7.5 - 10 nm $$ {% cite Elert2023Nov --file basis_NerveFiber%}.
+
+### Depolarisation and Hyperpolarization Voltage
 
 ![student submitted image, transcription available below](https://media.cheggcdn.com/media/23d/23df78fc-a854-4027-a1f1-3ebff49ff7e0/phphko3eU)
 
@@ -80,15 +99,19 @@ $$ 7.5 - 10 nm $$ {% cite Elert2023Nov --file basis_NeuralSystemScales%}.
 | Hyperpolarization |   5mv   |   1ms    |
 | Refractory Period |    /    |  2~3ms   |
 
-#### Firing Rate
+### Firing Rate
 
 From $$ <1Hz $$ to $$ 200Hz $$ (minimum $$ 5ms/spike $$).
 
-#### Axonal Conduction Velocity 
+### Axonal Conduction Velocity 
 
-From $$ 0.1m/s $$ (unmyelinated) to $$ 200m/s $$ (myelinated) {% cite demaegd2017axonal --file basis_NeuralSystemScales%}.
+From $$ 0.1m/s $$ (unmyelinated) to $$ 200m/s $$ (myelinated) {% cite demaegd2017axonal --file basis_NerveFiber%}.
 
-### 3nm Process
+### Endocytosis Size Limit
+
+Max 500nm spheres in diameter - energy-dependent process {% cite Rejman2004Jan --file basis_NerveFiber%}.
+
+#### 3nm Process
 
 |                              | Samsung | TSMC                                    |
 | :--------------------------- | :------ | :-------------------------------------- |
@@ -105,15 +128,11 @@ The number of transistors that can be fitted into the cross-section: 154 (upper 
 
 Minimum transistor thickness: 0.34 nm ([reference](https://spectrum.ieee.org/smallest-transistor-one-carbon-atom))
 
-Size of multi-walled carbon nanotube: $$ 10-40nm, 5-20 \mu m $$ {% cite Abdallah2020Jan --file basis_NeuralSystemScales%}.
+Size of multi-walled carbon nanotube: $$ 10-40nm, 5-20 \mu m $$ {% cite Abdallah2020Jan --file basis_NerveFiber%}.
 
-### Endocytosis Size Limit
+## Some Thinking & Calculations
 
-Max 500nm spheres in diameter - energy-dependent process {% cite Rejman2004Jan --file basis_NeuralSystemScales%}.
-
-## Some Calculations
-
-Time resolution needed to capture the diameter of a matured neuron (with magnetic filed):
+Time resolution needed to capture the diameter of a matured neuron (with magnetic filed)
 
 $$
 \begin{align}
@@ -123,9 +142,10 @@ $$
 \end{align}
 $$
 
-For optic nerve fiber, the maximum time resolution needed is about:
+For optic nerve fiber, the averaged maximum time resolution needed is about
+
 $$
-\Delta t_2 = (0.863-0.369)/0.1 \times \Delta t = 1.0362 \times 10^{-15} s
+\Delta t_2 = \frac{MEAN - STD}{d_{lim}} \times \Delta t = \frac{(0.863-0.369)}{0.1} \times \Delta t = 1.0362 \times 10^{-15} s
 $$
 
 ### Atomic Clock Accuracy
@@ -154,4 +174,4 @@ $$
 
 ## Reference
 
-{% bibliography --cited --file basis_NeuralSystemScales%}
+{% bibliography --cited --file basis_NerveFiber%}
