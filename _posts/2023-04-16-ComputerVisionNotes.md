@@ -105,6 +105,8 @@ It has some special properties that it can be used for:
 - efficient low-dimensional embeddings
 - applying non-linearity after convolutions
 
+![1x1_conv](/assets/img/images_cv/1x1_conv.png){: style="max-width: 800px; height: auto;"}
+
 It maps an input pixel with all its channels to an output pixel which can be squeezed to a desired output depth $ \longrightarrow $ A Multi-Layer Perceptron (MLP) looks at a particular pixel
 
 ### Backbones, Neck, and Head
