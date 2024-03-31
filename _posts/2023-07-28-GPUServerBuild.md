@@ -764,3 +764,17 @@ Benchmark end: 2023/07/26 20:36:59
 
 With batch size set to 250, the VRAM usage was at`[21.9/22]=99.55%`.
 The benchmark took `1051` seconds to finish and about `87` GB of RAM was used. 
+
+## Gallary
+
+![001](/assets/img/images_proxmox/001.png){: style="max-width: auto; height: auto;"}
+
+![002](/assets/img/images_proxmox/002.png){: style="max-width: auto; height: auto;"}
+
+![003](/assets/img/images_proxmox/003.png){: style="max-width: auto; height: auto;"}
+
+![004](/assets/img/images_proxmox/004.png){: style="max-width: auto; height: auto;"}
+
+![005](/assets/img/images_proxmox/005.png){: style="max-width: auto; height: auto;"}
+
+![006](/assets/img/images_proxmox/006.png){: style="max-width: auto; height: auto;"}
