@@ -130,48 +130,6 @@ Minimum transistor thickness: 0.34 nm ([reference](https://spectrum.ieee.org/sma
 
 Size of multi-walled carbon nanotube: $$ 10-40nm, 5-20 \mu m $$ {% cite Abdallah2020Jan --file basis_NerveFiber%}.
 
-## Some Thinking & Calculations
-
-Time resolution needed to capture the diameter of a matured neuron (with magnetic filed)
-
-$$
-\begin{align}
-	& c \approx 3.0 \times 10^8 m/s \\
-	& d = 0.1 \mu m = 1 \times 10^{-7} m \\
-	&\Delta t = \frac{d}{c} = 3.3 \times 10^{-16} s \\
-\end{align}
-$$
-
-For optic nerve fiber, the maximum time resolution (assume the smallest axon diameter is $$ MEAN - SD $$) needed is about
-
-$$
-\Delta t_2 = \frac{MEAN - SD}{d_{lim}} \times \Delta t = \frac{(0.863-0.369)}{0.1} \times \Delta t = 1.0362 \times 10^{-15} s
-$$
-
-### Atomic Clock Accuracy
-
-Reference: [NIST-F1 Cesium Fountain Clock](https://www.nist.gov/news-events/news/1999/12/nist-f1-cesium-fountain-clock)
-
-1989 — The Nobel Prize in Physics is awarded to three researchers—Norman Ramsey of Harvard University, Hans Dehmelt of the University of Washington and Wolfgang Paul of the University of Bonn—for their work in the development of atomic clocks. NIST's work is cited as advancing their earlier research.
-
-At 2013, the uncertainty of NIST-F1 was about $$ 3.1 \times 10^{-16} $$.
-
-### Size of Data
-
-For **n** sensors in **T** second, if the reading is **N** bits, the data needed to be captured is at least:
-$$
-\begin{align}
-	Data &= n \times \frac{T}{\Delta t_2} \times N \\
-		 &= \{n=3 \text{ sensors}, T=1s, N=8_{(bit)}\} \\
-		 &= (3 \times 0.965 \times 10^{15} \times 8)_{(bit)} \\
-		 &= (2.316 \times 10^{16})_{(bit)} = (2696.18)_{(GB)} = (0.8776)_{TB/s} \text{(per sensor)}
-\end{align}
-$$
-
-- NVIDIA H100 has a memory bandwidth of 3 terabytes per second (TB/s). 
-- The H100 PCIe has HBM2e running at 2TB/s.
-- If $$ N = 16_{(bit)} $$, the data requires 1.755 TB/s which is still within the performance limit of HBM2e.
-
 ## Reference
 
 {% bibliography --cited --file basis_NerveFiber%}
