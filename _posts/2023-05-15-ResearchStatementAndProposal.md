@@ -4,8 +4,8 @@ title: Research Statement/Proposal
 image:
     path: /assets/img/images_preview/ResearchStatementProposalPreview.png
 date: 2023-05-15 12:00:00
-categories: [Writing, Science Research Writing]
-tags: [writing, science-research-writing]
+categories: [Career Skills, Science Research Writing]
+tags: [career-skills, science-research-writing, research-statement, research-proposal]
 ---
 ## Research Statement/Proposal
 

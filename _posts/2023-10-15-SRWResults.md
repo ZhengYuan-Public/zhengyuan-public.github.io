@@ -5,11 +5,11 @@ date: 2023-10-15 12:00:00
 image:
     path: /assets/img/images_preview/SRWPreview.png
 math: true
-categories: [Writing, Science Research Writing]
-tags: [writing, science-research-writing]
+categories: [Career Skills, Science Research Writing]
+tags: [career-skills, science-research-writing]
 ---
 
-*Science Research Writing for Non-Native Speakers of English* by {% cite glasman2009science --file books%} takes all the credit for images and examples.
+*Science Research Writing for Non-Native Speakers of English* by {% cite glasman2009science --file books_aio%} takes all the credit for images and examples.
 
 ## Structure
 
@@ -287,5 +287,5 @@ They can used together, but be careful; if you use too many, the sentence may no
 
 ---
 
-{% bibliography --cited --file books %}
+{% bibliography --cited --file books_aio %}
 

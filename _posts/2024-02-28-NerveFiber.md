@@ -1,12 +1,12 @@
 ---
 comments: true
-title: Basis of Nerve Fiber
+title: Nerve Fiber
 date: 2024-02-28 12:00:00
 image:
     path: /assets/img/images_neuroscience/optic_nerve_cross_section.jpg
 math: true
-categories: [Neuroscience, Physical Scales]
-tags: [neuroscience, physical-scales]
+categories: [Neuroscience, Nerve Fiber]
+tags: [neuroscience, nerve-fiber]
 ---
 
 ## Types of Nerve Fiber
@@ -28,7 +28,7 @@ tags: [neuroscience, physical-scales]
 ## Spinal Cord Nerve Fiber
 
 ![peripheral_nerve_histologic_structure](/assets/img/images_neuroscience/peripheral_nerve_histologic_structure.png){: style="max-width: 500px; height: auto;"}
-_Schematic of the histologic structure of a peripheral nerve. Adapted from {% cite schmitd2021nerve --file basis_NerveFiber%}_
+_Schematic of the histologic structure of a peripheral nerve. Adapted from {% cite schmitd2021nerve --file papers_aio%}_
 
 |         |       Diameter(mm)        |                            |  Number of nerve fibers   |                            |
 | :-----: | :-----------------------: | :------------------------: | :-----------------------: | :------------------------: |
@@ -64,7 +64,7 @@ _Schematic of the histologic structure of a peripheral nerve. Adapted from {% ci
 |   S4    |         0.34±0.03         |         0.52±0.17          |         1356±193          |          3402±304          |
 |   S5    |         0.14±0.02         |         0.27±0.13          |          906±111          |          2206±197          |
 
-*Table adapted from {% cite Liu2015Jul --file basis_NerveFiber%}.
+*Table adapted from {% cite Liu2015Jul --file papers_aio%}.
 
 ![dermatomes_and_cutaneous_nerves](/assets/img/images_neuroscience/dermatomes_and_cutaneous_nerves.png){: style="max-width: 700px; height: auto;"}
 _Dermatomes and Cutaneous Nerves (Wikipedia)_
@@ -72,7 +72,7 @@ _Dermatomes and Cutaneous Nerves (Wikipedia)_
 ## Optic Nerve Fibers
 
 ![optic_nerve_cross_section](/assets/img/images_neuroscience/optic_nerve_cross_section.jpg){: style="max-width: 600px; height: auto;"}
-_Image adapted from {% cite bose2005relative --file basis_NerveFiber%}_
+_Image adapted from {% cite bose2005relative --file papers_aio%}_
 
 - Axon diameter: Mean=$$ 0.683 \mu m $$, SD=$$ 0.369 \mu m $$, SEM=$$ 0.026 \mu m $$​
 - Fig A: Normal human left optic never fiber cross-section (about 1million retinal ganglion cell axons).
@@ -82,11 +82,11 @@ _Image adapted from {% cite bose2005relative --file basis_NerveFiber%}_
 
 ### Lower Bound of Axon Diameter
 
-Axon diameters are pushed toward the channel-noise limit of $$ 0.1 \mu m $$​ (mature neurons) due to **Spontaneous Action Potentials (SAPs)** {% cite Faisal2005Jun --file basis_NerveFiber%}.
+Axon diameters are pushed toward the channel-noise limit of $$ 0.1 \mu m $$​ (mature neurons) due to **Spontaneous Action Potentials (SAPs)** {% cite Faisal2005Jun --file papers_aio%}.
 
 ### Thickness of the Cell Membrane
 
-$$ 7.5 - 10 nm $$ {% cite Elert2023Nov --file basis_NerveFiber%}.
+$$ 7.5 - 10 nm $$ {% cite Elert2023Nov --file papers_aio%}.
 
 ### Depolarisation and Hyperpolarization Voltage
 
@@ -105,11 +105,11 @@ From $$ <1Hz $$ to $$ 200Hz $$ (minimum $$ 5ms/spike $$).
 
 ### Axonal Conduction Velocity 
 
-From $$ 0.1m/s $$ (unmyelinated) to $$ 200m/s $$ (myelinated) {% cite demaegd2017axonal --file basis_NerveFiber%}.
+From $$ 0.1m/s $$ (unmyelinated) to $$ 200m/s $$ (myelinated) {% cite demaegd2017axonal --file papers_aio%}.
 
 ### Endocytosis Size Limit
 
-Max 500nm spheres in diameter - energy-dependent process {% cite Rejman2004Jan --file basis_NerveFiber%}.
+Max 500nm spheres in diameter - energy-dependent process {% cite Rejman2004Jan --file papers_aio%}.
 
 #### 3nm Process
 
@@ -128,8 +128,8 @@ The number of transistors that can be fitted into the cross-section: 154 (upper 
 
 Minimum transistor thickness: 0.34 nm ([reference](https://spectrum.ieee.org/smallest-transistor-one-carbon-atom))
 
-Size of multi-walled carbon nanotube: $$ 10-40nm, 5-20 \mu m $$ {% cite Abdallah2020Jan --file basis_NerveFiber%}.
+Size of multi-walled carbon nanotube: $$ 10-40nm, 5-20 \mu m $$ {% cite Abdallah2020Jan --file papers_aio%}.
 
 ## Reference
 
-{% bibliography --cited --file basis_NerveFiber%}
+{% bibliography --cited --file papers_aio %}

@@ -1,12 +1,12 @@
 ---
 comments: true
-title: Computer Network Notes
+title: Computer Networking Principles
 date: 2024-02-04 12:00:00
 image:
     path: /assets/img/images_preview/NetworkPreview.jpg
-categories: [Network, Basics]
 math: true
-tags: [network, network-basics]
+categories: [Programming and Development, Networking Principles]
+tags: [networking, principle]
 ---
 
 ## IP Address

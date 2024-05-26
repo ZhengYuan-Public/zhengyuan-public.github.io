@@ -5,8 +5,8 @@ date: 2023-10-31 12:00:00
 image:
     path: /assets/img/images_preview/InterviewQuestionsPreview.png
 math: true
-categories: [Interview, Interview Questions]
-tags: [interview, common-interview-questions]
+categories: [Career Skills, Academic Interview]
+tags: [career-skills, academic-interview]
 ---
 
 ## Train of Thoughts

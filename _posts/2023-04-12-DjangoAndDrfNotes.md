@@ -4,8 +4,8 @@ title: Django & Django REST Framework Notes
 date: 2023-04-12 12:00:00
 image:
     path: /assets/img/images_preview/DjangoDRFPreview.webp
-categories: [Website, Django, Python]
-tags: [website, django, python, programming, django-rest-framework]
+categories: [Programming and Development, Django]
+tags: [programming, django, django-rest-framework]
 ---
 
 ## Setup Project

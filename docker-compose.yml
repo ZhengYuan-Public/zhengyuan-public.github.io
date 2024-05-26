@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jekyll-local:
+    image: jekyll-ruby-env:latest
+    command: sh -c "bundle exec jekyll s --host=0.0.0.0"
+    volumes:
+      - /share/Container/jekyll/zhengyuan-public.github.io:/srv/jekyll
+    working_dir: /srv/jekyll
+    network_mode: host
+    expose:
+      - "4000"
+    stdin_open: true                        # Enable stdin
+    tty: true                               # Allocate a pseudo-TTY

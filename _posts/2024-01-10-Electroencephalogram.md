@@ -1,11 +1,11 @@
 ---
 comments: true
-title: Basis of Electroencephalogram (EEG)
+title: Electroencephalogram (EEG)
 date: 2024-1-10 12:00:00
 image:
     path: /assets/img/images_neuroscience/cortical_pyramidal_cell-EPSP-IPSP.png
 math: true
-categories: [Neuroscience, Electrical Measurements, Electroencephalogram]
+categories: [Neuroscience, Electroencephalogram]
 tags: [neuroscience, electroencephalogram, eeg]
 ---
 ## Introduction
@@ -16,7 +16,7 @@ Standard Sensitivity: 7 µV/mm - 0.007 V/m
 
 ## EEG - Origin and Measurement
 
-:notebook:EEG-fMRI: Physiological Basis, Technique, and Applications {% cite mulert2023eeg --file basis_eeg %}
+:notebook:EEG-fMRI: Physiological Basis, Technique, and Applications {% cite mulert2023eeg --file papers_aio %}
 
 The EEG consists of the **summed** electrical activities of **populations of neurons**, with a **modest contribution** from glial cells. The neurons are **excitable** cells with **characteristic intrinsic electrical properties**, and their activity produces **electrical and magnetic fields**.
 
@@ -45,4 +45,4 @@ The EEG consists of the **summed** electrical activities of **populations of neu
 
 ## Reference
 
-{% bibliography --cited --file basis_eeg %}
+{% bibliography --cited --file papers_aio %}

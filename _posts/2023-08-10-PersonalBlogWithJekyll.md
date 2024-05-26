@@ -5,8 +5,8 @@ date: 2023-08-10 12:00:00
 image:
     path: /assets/img/images_preview/JekyllPreview.png
 math: true
-categories: [Website, Jekyll]
-tags: [website, jekyll]
+categories: [Programming and Development, Jekyll]
+tags: [programming, jekyll]
 ---
 
 ## A Brief Introduction to Jekyll
@@ -185,15 +185,15 @@ To add a reference at the end of the post, put the following lines at the end of
 
 ---
 
-{% bibliography --cited --file papers_cv %}
+{% bibliography --cited --file papers_aio %}
 ```
 {% endraw %}
 
-To cite the above-mentioned two papers within the post, use the following syntax. They will be rendered as {% cite girshick2014rich --file papers_cv %} and {% cite he2015spatial --file papers_cv %}.
+To cite the above-mentioned two papers within the post, use the following syntax. They will be rendered as {% cite girshick2014rich --file papers_aio %} and {% cite he2015spatial --file papers_aio %}.
 {% raw %} 
 
 ```liquid
-{% cite girshick2014rich --file papers_cv %} and {% cite he2015spatial --file papers_cv %} 
+{% cite girshick2014rich --file papers_aio %} and {% cite he2015spatial --file papers_aio %} 
 ```
 {% endraw %}
 
@@ -521,4 +521,4 @@ Examples:
 
 ---
 
-{% bibliography --cited --file papers_cv %}
+{% bibliography --cited --file papers_aio %}

@@ -10,7 +10,7 @@ categories: [Mathematics, Optimization]
 tags: [mathematics, optimization]
 ---
 
-\*This note is based on the book Practical mathematical optimization {% cite snyman2005practical --file books %}.
+\*This note is based on the book Practical mathematical optimization {% cite snyman2005practical --file books_aio %}.
 
 ## Introduction
 
@@ -337,4 +337,4 @@ where $ T(x) $ is the temperature measured at some specified point in a reactor 
 ## Reference
 
 ---
-{% bibliography --file books %}
+{% bibliography --file books_aio %}

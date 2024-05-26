@@ -4,8 +4,8 @@ title: Rename Proxmox Hostname
 image:
     path: /assets/img/images_preview/ProxmoxPreview.png
 date: 2023-9-14 12:00:00
-categories: [Server, Proxmox]
-tags: [server, hardware, gpu-server, proxmox]
+categories: [Virtualization, Proxmox]
+tags: [virtualization, proxmox]
 ---
 
 ## Modify Related Files

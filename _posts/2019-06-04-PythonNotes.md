@@ -1,11 +1,11 @@
 ---
 comments: true
 title: Python Notes
-date: 2019-01-06 12:00:00
+date: 2019-06-04 12:00:00
 image:
     path: /assets/img/images_preview/PythonNotesPreview.png
 mermaid: true
-categories: [Programming, Python]
+categories: [Programming and Development, Python]
 tags: [programming, python]
 ---
 
