@@ -4,8 +4,8 @@ title: Markdown Notes
 date: 2020-04-05 12:00:00
 image:
     path: /assets/img/images_preview/MarkdownPreview.webp
-categories: [Programming, Markdown]
-tags: [programming, markdown, generic]
+categories: [Programming and Development, Markdown]
+tags: [programming, markdown]
 ---
 
 ## Heading

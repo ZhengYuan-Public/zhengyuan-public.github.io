@@ -4,8 +4,8 @@ title: Home Lab GPU Server Build
 image:
     path: /assets/img/images_preview/ProxmoxPreview.png
 date: 2023-07-28 12:00:00
-categories: [Server, GPU Server, Proxmox]
-tags: [server, hardware, gpu-server, proxmox]
+categories: [Virtualization, Proxmox]
+tags: [virtualization, proxmox, gpu-passthrough]
 ---
 
 ## Specification Sheet
@@ -115,11 +115,11 @@ For the CPU, I prioritized `CPU Max Boost Clock` > `CPU Cores`. I considered the
 | :--------: | ---------------- | ---------------------------------------------- | ------------------------------------------------------------ |
 |    EPYC    | Product Family   | EPYC<br />EPYC Embedded                        |                                                              |
 |     9      | Product Series   | 3xxx <br />7xxx <br />9xxx                     | Embedded SOC<br />High-performance server CPU/SOC (Zen 1~3)<br />High-performance server CPU/SOC (Zen 4) |
-|     65     | Product Model    | Fx/xF <br />Hx                                 | Frequency optimized<br />[HPC](http://localhost:4000/w/index.php?title=HPC&action=edit&redlink=1)-optimized |
-|     4      | Generation       | 1st gen<br />2nd gen<br />3rd gen<br />4th gen | 7001 [Naples](http://localhost:4000/wiki/amd/cores/naples) series, [Zen](http://localhost:4000/wiki/amd/microarchitectures/zen) microarchitecture<br />7002 [Rome](http://localhost:4000/wiki/amd/cores/rome) series, [Zen 2](http://localhost:4000/wiki/amd/microarchitectures/zen_2) microarchitecture<br />7003 [Milan](http://localhost:4000/wiki/amd/cores/milan) series, [Zen 3](http://localhost:4000/wiki/amd/microarchitectures/zen_3) microarchitecture<br />9004 [Genoa](http://localhost:4000/wiki/amd/cores/genoa) series, [Zen 4](http://localhost:4000/wiki/amd/microarchitectures/zen_4) microarchitecture |
+|     65     | Product Model    | Fx/xF <br />Hx                                 | Frequency optimized<br />HPC-optimized                       |
+|     4      | Generation       | 1st gen<br />2nd gen<br />3rd gen<br />4th gen | 7001 Naples series, Zen microarchitecture<br />7002 Rome series, Zen 2 microarchitecture<br />7003 Milan series, Zen 3 microarchitecture<br />9004 Genoa series, Zen 4 microarchitecture |
 |     P      | Feature Modifier | (none)<br />P                                  | 1P, 2P<br />1P (single socket) only                          |
 
-Based on the naming scheme, EPYC-7642 is the 2nd generation high-performance server CPU/SOC that belongs to the [Rome](http://localhost:4000/wiki/amd/cores/rome) series with [Zen 2](http://localhost:4000/wiki/amd/microarchitectures/zen_2) microarchitecture and it can be used in motherboards with dual sockets.
+Based on the naming scheme, EPYC-7642 is the 2nd generation high-performance server CPU/SOC that belongs to the Rome series with Zen 2 microarchitecture and it can be used in motherboards with dual sockets.
 
 ## RAM and Disk
 

@@ -1,12 +1,12 @@
 ---
 comments: true
-title: Programming Notes - Generic
+title: Programming Principles
 date: 2019-06-03 12:00:00
 image:
     path: /assets/img/images_preview/ProgrammingPreview.png
 math: true
-categories: [Programming, Generic]
-tags: [programming, generic]
+categories: [Programming and Development, Programming Principles]
+tags: [programming, principle]
 ---
 
 ## Variables Naming Conventions

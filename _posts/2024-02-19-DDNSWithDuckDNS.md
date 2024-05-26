@@ -1,12 +1,12 @@
 ---
 comments: true
-title: DDNS(DuckDNS) on Docker
+title: DDNS with DuckDNS
 date: 2024-02-09 12:00:00
 image:
     path: /assets/img/images_preview/DuckDNSPreview.png
-categories: [Network, DDNS, Docker]
 math: true
-tags: [network, ddns, duckdns, docker]
+categories: [Virtualization, Docker]
+tags: [virtulization, proxmox, docker, ddns, network]
 ---
 
 ## DuckDNS
@@ -18,10 +18,10 @@ Register an account @[duckdns.org](https://www.duckdns.org/) and add your own su
 ```bash
 $ mkdir duckdns
 $ cd duckdns
-$ nano compose.yaml
+$ nano compose.yml
 ```
 
-```yaml
+```yml
 ---
 services:
   duckdns:

@@ -4,3 +4,12 @@ This is a statis website made with [Jekyll](https://jekyllrb.com/) + [Chirpy The
 Click [here](https://zhengyuan-public.github.io) to visit my site.
 
 > Made by Zheng Yuan with :hearts:
+
+## Host locally with Docker
+```bash
+# Build image
+docker build -t jekyll-ruby-env .
+
+# Start app
+docker-compose up
+```

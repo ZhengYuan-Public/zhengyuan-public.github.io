@@ -4,9 +4,9 @@ title: OpenWrt VM on LXC Container
 date: 2024-02-09 12:00:00
 image:
     path: /assets/img/images_preview/OpenWrtPreview.png
-categories: [Network, OpenWrt, Proxmox, Virtulization]
 math: true
-tags: [network, openwrt-vm, proxmox, virtulization]
+categories: [Virtualization, LXC]
+tags: [virtulization, proxmox, lxc, openwrt-vm, proxy, network]
 ---
 
 ## Installation

@@ -1,12 +1,12 @@
 ---
 comments: true
-title: Computer Vision Notes
+title: Object Detection Notes
 math: true
 image:
     path: /assets/img/images_preview/ComputerVisionPreview.jpg
 date: 2023-04-16 12:00:00
 categories: [Machine Learning, Computer Vision]
-tags: [machine-learning, computer-vision]
+tags: [machine-learning, computer-vision, object-detection]
 ---
 
 ## Introduction
@@ -188,7 +188,7 @@ $$
 
 ---
 
-### R-CNN {% cite girshick2014rich --file papers_cv %}
+### R-CNN {% cite girshick2014rich --file papers_aio %}
 
 #### Some Insights
 
@@ -216,7 +216,7 @@ $$
 
 ---
 
-### SPP-Net {% cite he2015spatial --file papers_cv %}
+### SPP-Net {% cite he2015spatial --file papers_aio %}
 
 #### Problems Addressed
 
@@ -244,7 +244,7 @@ Project the **corner point of a RoI** onto a **pixel in the feature maps** such 
 
 ---
 
-### Fast R-CNN {% cite girshick2015fast --file papers_cv %}
+### Fast R-CNN {% cite girshick2015fast --file papers_aio %}
 
 #### Model Architecture
 
@@ -281,7 +281,7 @@ $$
 
 ---
 
-### Faster R-CNN {% cite ren2015faster --file papers_cv %}
+### Faster R-CNN {% cite ren2015faster --file papers_aio %}
 
 #### Key Terms
 
@@ -349,7 +349,7 @@ $$
 
 ---
 
-### R-FCN  {% cite dai2016r --file papers_cv %}
+### R-FCN  {% cite dai2016r --file papers_aio %}
 
 [Understanding Region-based Fully Convolutional Networks (R-FCN) for object detection](https://jonathan-hui.medium.com/understanding-region-based-fully-convolutional-networks-r-fcn-for-object-detection-828316f07c99)
 
@@ -387,7 +387,7 @@ $$
 
 ---
 
-### FPN {% cite lin2017feature --file papers_cv %}
+### FPN {% cite lin2017feature --file papers_aio %}
 
 [Understanding Feature Pyramid Networks for Object Detection](https://jonathan-hui.medium.com/understanding-feature-pyramid-networks-for-object-detection-fpn-45b227b9106c)
 
@@ -441,7 +441,7 @@ __RoI Pooling (FPN)_
 
 ---
 
-### Deformable-CNN {% cite dai2017deformable --file papers_cv %}
+### Deformable-CNN {% cite dai2017deformable --file papers_aio %}
 
 #### Intuitions
 
@@ -517,7 +517,7 @@ $$
 
 ---
 
-### Mask R-CNN {% cite he2017mask --file papers_cv %}
+### Mask R-CNN {% cite he2017mask --file papers_aio %}
 
 #### Intuition
 
@@ -562,7 +562,7 @@ Misalignment due to RoI Pooling
 
 ---
 
-### RoI Transformer {% cite ding2019learning --file papers_cv %}
+### RoI Transformer {% cite ding2019learning --file papers_aio %}
 
 *CV on Aerial Images
 
@@ -596,7 +596,7 @@ RoI Transformer
 
 ---
 
-### ReDet {% cite han2021redet --file papers_cv %}
+### ReDet {% cite han2021redet --file papers_aio %}
 
 *CV on Aerial Images
 
@@ -606,7 +606,7 @@ RoI Transformer
 
 - Rotation-invariant RoI Align (Ri RoI Align)
 
-#### ReCNN {% cite veeling2018rotation --file papers_cv %}
+#### ReCNN {% cite veeling2018rotation --file papers_aio %}
 
 [Rotation Equivariant Convolutional Neural Network](https://medium.com/intel-student-ambassadors/rotation-equivariant-convolutional-neural-network-16e279924fa4)
 
@@ -626,7 +626,7 @@ RiRoI has an extra orientation dimension
 
 ---
 
-### Point R-CNN {% cite zhou2022point --file papers_cv %}
+### Point R-CNN {% cite zhou2022point --file papers_aio %}
 
 *CV on Aerial Images
 
@@ -647,7 +647,7 @@ RiRoI has an extra orientation dimension
 
 ---
 
-### Vision Transformer {% cite dosovitskiy2020image --file papers_cv %}
+### Vision Transformer {% cite dosovitskiy2020image --file papers_aio %}
 
 ####  Model Architecture
 
@@ -703,7 +703,7 @@ $$
 
 ---
 
-### Swin Transformer {% cite liu2021swin --file papers_cv %}
+### Swin Transformer {% cite liu2021swin --file papers_aio %}
 
 #### Intuitions
 
@@ -750,7 +750,7 @@ $$
 
 ---
 
-### RST-CNN {% cite gao2021deformation --file papers_cv %} 
+### RST-CNN {% cite gao2021deformation --file papers_aio %} 
 
 #### Model Definition
 
@@ -791,7 +791,7 @@ $$
 - $ \lambda' $ corresponds to the unstructured channels in the hidden layer, just like the RGB channels.
 
 
-### ConvNeXt {% cite liu2022convnet --file papers_cv %} 
+### ConvNeXt {% cite liu2022convnet --file papers_aio %} 
 
 #### CV vs. NLP
 
@@ -832,4 +832,4 @@ NLP
 
 ---
 
-{% bibliography --file papers_cv %}
+{% bibliography --cited --file papers_aio %}

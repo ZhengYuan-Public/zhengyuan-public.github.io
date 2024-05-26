@@ -5,11 +5,11 @@ date: 2023-10-01 12:00:00
 image:
     path: /assets/img/images_preview/SRWPreview.png
 mermaid: true
-categories: [Writing, Science Research Writing]
-tags: [writing, science-research-writing]
+categories: [Career Skills, Science Research Writing]
+tags: [career-skills, science-research-writing]
 ---
 
-This series of notes are based on *Science Research Writing for Non-Native Speakers of English* by {% cite glasman2009science --file books%}.
+This series of notes are based on *Science Research Writing for Non-Native Speakers of English* by {% cite glasman2009science --file books_aio%}.
 
 ## Structure
 
@@ -107,4 +107,4 @@ This series of notes are based on *Science Research Writing for Non-Native Speak
 
 ---
 
-{% bibliography --cited --file books %}
+{% bibliography --cited --file books_aio %}

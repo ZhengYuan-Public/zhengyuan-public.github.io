@@ -4,8 +4,8 @@ title: Passthrough Physical Disk (Partition) to VM
 image:
     path: /assets/img/images_preview/ProxmoxPreview.png
 date: 2024-1-27 12:00:00
-categories: [Server, Proxmox]
-tags: [server, hardware, gpu-server, proxmox]
+categories: [Virtualization, Proxmox]
+tags: [virtualization, proxmox, disk-passthrough]
 ---
 
 ## Devices in Linux
