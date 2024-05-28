@@ -9,6 +9,49 @@ categories: [Virtualization, Docker]
 tags: [virtualization, docker, docker-compose]
 ---
 
+## qBittorrent
+
+```yml
+version: '3'
+services:
+  qbittorrent:
+    image: linuxserver/qbittorrent:14.3.9
+    container_name: qbittorrent
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=0
+      - PGID=0
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=62000
+    volumes:
+      - /share/Container/qbittorrent/config:/config
+      - /share/Container/qbittorrent/qb-webui:/qb-webui
+      - /share:/share
+    ports:
+      - 6360:8080         # WebUI port
+      - 62000:62000       # Torrent port
+      - 62000:62000/udp   # Torrent port (UDP)
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true      # Enable stdin
+    tty: true             # Allocate a pseudo-TTY
+```
+
+### Fix unauthorized
+
+1. Shutdown the container
+
+2. Add `WebUI\HostHeaderValidation=false` to `qBittorrent.conf`
+
+[Reference](https://www.reddit.com/r/qBittorrent/comments/198f81e/how_to_fix_unauthorized_webui_error_on_truenas/)
+
+### Change password
+
+```markdown
+1. Log into WebUI
+2. Tools -> Options -> Web UI -> Authentication
+```
+
 ## Transmission
 
 ```yml
@@ -21,17 +64,45 @@ services:
       - TZ=Asia/Shanghai
       - PUID=0
       - PGID=0
-      - USER=admin
-      - PASS=123456
+      # - USER=
+      # - PASS=
       - TRANSMISSION_WEB_HOME=/transmission-web-control
     volumes:
       - /share/Container/transmission/config:/config
       - /share/Container/transmission/downloads:/downloads
       - /share:/share
     ports:
-      - 6362:9091       # Transmission Web UI port
+      - 6361:9091       # Transmission Web UI port
       - 62001:62001     # Default Transmission port
       - 62001:62001/udp # Default Transmission port (UDP)
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true    # Enable stdin
+    tty: true           # Allocate a pseudo-TTY
+```
+
+```yml
+version: '3'
+services:
+  transmission:
+    image: chisbread/transmission:latest        # TR with TPE
+    container_name: transmission-tpe
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=0
+      - PGID=0
+      # - USER=
+      # - PASS=
+      # - TRANSMISSION_WEB_HOME=/transmission-web-control
+    volumes:
+      - /share/Container/transmission-tpe/config:/config
+      - /share/Container/transmission-tpe/downloads:/downloads
+      - /share:/share
+    ports:
+      - 6362:9091       # Transmission Web UI port
+      - 62002:62002     # Default Transmission port
+      - 62002:62002/udp # Default Transmission port (UDP)
+    network_mode: bridge
     restart: unless-stopped
     stdin_open: true    # Enable stdin
     tty: true           # Allocate a pseudo-TTY
@@ -59,44 +130,7 @@ sh install-tr-control-cn.sh
 /config/torrents
 ```
 
-## qBittorrent
 
-```yml
-version: '3'
-services:
-  qbittorrent:
-    image: padhihomelab/qbittorrent-nox:4.3.9
-    container_name: qbittorrent
-    environment:
-      - TZ=Asia/Shanghai
-      - PUID=0
-      - PGID=0
-      - WEBUI_PORT=6363
-      - QBT_WEBUI_USERNAME=admin
-      - QBT_WEBUI_PASSWORD=123456
-    volumes:
-      # - /share/Container/qbittorrent/data:/home/user/.local/share/qBittorrent
-      # - /share/Container/qbittorrent/config:/config
-      # - /share/Container/qbittorrent/downloads:/downloads
-      # - /share/Container/qbittorrent/torrents:/torrents
-      - /share/Container/qbittorrent/qbit-webui:/qbit-webui
-      - /share:/share
-    ports:
-      - 6363:8080         # WebUI port
-      - 62000:62000       # Torrent port
-      - 62000:62000/udp   # Torrent port (UDP)
-    restart: unless-stopped
-    stdin_open: true      # Enable stdin
-    tty: true             # Allocate a pseudo-TTY
-```
-
-### Some useful path
-
-```shell
-# Path inside container
-/home/user/.local/share/qBittorrent
-/data
-```
 
 ## IYUUPlus-dev
 
@@ -105,13 +139,14 @@ version: '3'
 services:
   iyuuplus-dev:
       image: iyuucn/iyuuplus-dev:latest
+      container_name: IYUUPlus
       volumes:
         - /share/Container/iyuuplus-dev/iyuu:/iyuu
         - /share/Container/iyuuplus-dev/data:/data
         - /share:/share
       ports:
         - "8780:8780"
-      container_name: IYUUPlus
+      network_mode: bridge
       restart: unless-stopped
       stdin_open: true
       tty: true
@@ -120,7 +155,7 @@ services:
 ## Jellyfin
 
 ```yml
-version: '3.5'
+version: '3'
 services:
   jellyfin:
     image: jellyfin/jellyfin
@@ -165,6 +200,12 @@ RUN bundle install && \
 CMD ["bash"]
 ```
 
+```bash
+# Build the image
+# Make sure CD into the repo folder first
+docker build -t jekyll-ruby-env .
+```
+
 ```yml
 version: '3'
 services:
@@ -181,4 +222,3 @@ services:
     stdin_open: true          # Enable stdin
     tty: true                 # Allocate a pseudo-TTY
 ```
-
