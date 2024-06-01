@@ -54,6 +54,8 @@ services:
 
 ## Transmission
 
+### Transmission 2.94
+
 ```yml
 version: '3'
 services:
@@ -81,6 +83,22 @@ services:
     tty: true           # Allocate a pseudo-TTY
 ```
 
+#### Web-UI
+
+```shell
+docker exec -it <container_id> bash
+
+# Download from github
+wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh
+# or gitee
+wget https://gitee.com/culturist/transmission-web-control/raw/master/release/install-tr-control-gitee.sh
+
+sh install-tr-control-cn.sh
+# sh install-tr-control-gitee.sh
+```
+
+### Transmission-TPE
+
 ```yml
 version: '3'
 services:
@@ -107,30 +125,6 @@ services:
     stdin_open: true    # Enable stdin
     tty: true           # Allocate a pseudo-TTY
 ```
-
-### Install Web-UI
-
-```shell
-docker exec -it <container_id> bash
-
-# Download from github
-wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh
-# or gitee
-wget https://gitee.com/culturist/transmission-web-control/raw/master/release/install-tr-control-gitee.sh
-
-sh install-tr-control-cn.sh
-# sh install-tr-control-gitee.sh
-```
-
-### Some useful path
-
-```shell
-# Path inside container
-/config/resume
-/config/torrents
-```
-
-
 
 ## IYUUPlus-dev
 
@@ -161,7 +155,6 @@ services:
     image: jellyfin/jellyfin
     container_name: jellyfin
     user: 0:0
-    network_mode: 'host'
     volumes:
       - /share/Container/jellyfin/config:/config
       - /share/Container/jellyfin/cache:/cache
@@ -170,9 +163,12 @@ services:
       - 'host.docker.internal:host-gateway'
     devices:
       - /dev/dri:/dev/dri           # Enable GPU Transcoding
-    restart: 'unless-stopped'
-    stdin_open: true                # Enable stdin
-    tty: true                       # Allocate a pseudo-TTY
+    ports:
+      - 8096:8096
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true      # Enable stdin
+    tty: true             # Allocate a pseudo-TTY
 ```
 
 ## Jekyll
@@ -217,8 +213,169 @@ services:
       - /share/Container/jekyll/zhengyuan-public.github.io:/srv/jekyll
       - /share/Container/bundle:/usr/local/bundle
     ports:
-      - "4000:4000"
+      - 4000:4000
+    network_mode: bridge
     restart: unless-stopped
-    stdin_open: true          # Enable stdin
-    tty: true                 # Allocate a pseudo-TTY
+    stdin_open: true      # Enable stdin
+    tty: true             # Allocate a pseudo-TTY
 ```
+
+## Vaultwarden
+
+```yml
+version: '3.8'
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    volumes:
+      - /share/Container/vaultwarden/vw-data:/data/
+    ports:
+      - 8888:80
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true      # Enable stdin
+    tty: true             # Allocate a pseudo-TTY
+```
+
+## DuckDNS
+
+```yml
+version: '3.8'
+services: 
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns-dc
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - SUBDOMAINS={YOUR_SUBDOMAIN_HERE}  # Without the "duckdns.org" suffix
+      - TOKEN={YOUR_TOKEN_HERE}
+      - UPDATE_IP=ipv4
+      - LOG_FILE=false
+    volumes:
+      - /share/Container/duckdns/config:/config
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true      # Enable stdin
+    tty: true             # Allocate a pseudo-TTY
+```
+
+## Nginx Proxy Manager
+
+```yml
+version: '3.8'
+services:
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    ports:
+      - 63000:81            # Admin port
+      - 63001:80
+      - 63002:443
+      # Add any other Stream port you want to expose
+      # - '21:21' # FTP
+
+    # environment:
+      # Uncomment this if you want to change the location of
+      # the SQLite DB file within the container
+      # DB_SQLITE_FILE: "/data/database.sqlite"
+      # Uncomment this if IPv6 is not enabled on your host
+      # DISABLE_IPV6: 'true'
+
+    volumes:
+      - /share/Container/nginx-proxy-manager/data:/data
+      - /share/Container/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true      # Enable stdin
+    tty: true             # Allocate a pseudo-TTY
+```
+
+## Navidrome
+
+```yml
+version: '3'
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    user: 0:0 # should be owner of volumes
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ''
+    ports:
+      - 4533:4533
+    volumes:
+      - /share/Container/navidrome/data:/data
+      - /share/Music/__Navidrome:/music:ro
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true      # Enable stdin
+    tty: true             # Allocate a pseudo-TTY
+```
+
+### *Entware-std
+
+To install additional packages on QNAP NAS, download `Entware-std` from [here](https://www.myqnap.org/product/entware-std/).
+
+```shell
+$ opkg update
+$ opkg install tree
+```
+
+```shell
+[/share/Music/__Navidrome] # tree
+.
+├── Albums
+│   └── 100 Best Encores Classics -> /share/Music/Albums/100 Best Encores Classics/
+├── Singles
+│   └── Dire Straits - Sultans Of Swing.flac
+└── symlink_tar_folder.sh
+```
+
+### *Helper Script
+
+```shell
+#!/bin/bash
+
+# Use absolute symlink for Navidrome
+# Check if a directory was provided as an argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 <target_directory>"
+  exit 1
+fi
+
+TARGET_DIR="$1"
+
+# Ensure the target directory exists
+if [ ! -d "$TARGET_DIR" ]; then
+  echo "Error: Target directory does not exist."
+  exit 1
+fi
+
+# Get the base name of the target directory
+BASE_NAME=$(basename "$TARGET_DIR")
+
+# Define the symlink path
+SYMLINK_PATH="/share/Music/__Navidrome/Albums/$BASE_NAME"
+
+# Create the symlink
+ln -s "$TARGET_DIR" "$SYMLINK_PATH"
+
+# Check if the symlink was created successfully
+if [ -L "$SYMLINK_PATH" ]; then
+  echo "Symlink created successfully: $SYMLINK_PATH -> $TARGET_DIR"
+else
+  echo "Error: Failed to create symlink."
+  exit 1
+fi
+```
+
+```shell
+[/share/Music/__Navidrome] # ./symlink_tar_folder.sh /share/Music/Albums/Adele\ -\ 21
+Symlink created successfully: /share/Music/__Navidrome/Albums/Adele - 21 -> /share/Music/Albums/Adele - 21
+```
+

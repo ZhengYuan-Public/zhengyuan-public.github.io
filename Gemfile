@@ -14,6 +14,7 @@ group :jekyll_plugins do
   gem "jekyll-admin"
   gem "jekyll-scholar"
   gem "jekyll-latex"
+  gem 'jekyll-asciinema'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
