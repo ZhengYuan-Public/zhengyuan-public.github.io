@@ -86,19 +86,19 @@ In *Clash for Windows*, enable **Allow LAN** from the setting and look at the in
 
 ```yaml
 vEthernet (Default Switch)
-Address:	172.31.80.1
-Netmask:	255.255.240.0 (20)
-MAC:		00:15:5d:48:8d:cf
+Address:    172.31.80.1
+Netmask:    255.255.240.0 (20)
+MAC:        00:15:5d:48:8d:cf
 
 WLAN
-Address:	192.168.1.49
-Netmask:	255.255.255.0 (24)
-MAC:		a4:6b:b6:40:15:46
+Address:    192.168.1.49
+Netmask:    255.255.255.0 (24)
+MAC:        a4:6b:b6:40:15:46
 
 Loopback Pseudo-Interface 1
-Address:	127.0.0.1
-Netmask:	255.0.0.0 (8)
-MAC:		00:00:00:00:00:00
+Address:    127.0.0.1
+Netmask:    255.0.0.0 (8)
+MAC:        0:00:00:00:00:00
 ```
 
 In the `WLAN` section, the address is the IP address of your computer. The VPN shared by LAN is then `http://192.168.1.49:7890`. The use it to replace the `http://127.0.0.1` in previous sections.
