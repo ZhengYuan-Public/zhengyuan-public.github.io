@@ -9,10 +9,37 @@ categories: [Virtualization, Docker]
 tags: [virtualization, docker, docker-compose]
 ---
 
+## Transmission-TPE
+
+```yaml
+services:
+  transmission:
+    image: chisbread/transmission:latest        # TR with TPE
+    container_name: transmission-tpe
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=0
+      - PGID=0
+      # - USER=
+      # - PASS=
+      # - TRANSMISSION_WEB_HOME=/transmission-web-control
+    volumes:
+      - /share/Container/transmission-tpe/config:/config
+      - /share/Container/transmission-tpe/downloads:/downloads
+      - /share:/share
+    ports:
+      - 6362:9091       # Transmission Web UI port
+      - 62002:62002     # Default Transmission port
+      - 62002:62002/udp # Default Transmission port (UDP)
+    network_mode: bridge
+    restart: unless-stopped
+    stdin_open: true    # Enable stdin
+    tty: true           # Allocate a pseudo-TTY
+```
+
 ## qBittorrent
 
-```yml
-version: '3'
+```yaml
 services:
   qbittorrent:
     image: linuxserver/qbittorrent:14.3.9
@@ -52,84 +79,9 @@ services:
 2. Tools -> Options -> Web UI -> Authentication
 ```
 
-## Transmission
-
-### Transmission 2.94
-
-```yml
-version: '3'
-services:
-  transmission:
-    image: linuxserver/transmission:2.94-r3-ls53
-    container_name: transmission-with-webui
-    environment:
-      - TZ=Asia/Shanghai
-      - PUID=0
-      - PGID=0
-      # - USER=
-      # - PASS=
-      - TRANSMISSION_WEB_HOME=/transmission-web-control
-    volumes:
-      - /share/Container/transmission/config:/config
-      - /share/Container/transmission/downloads:/downloads
-      - /share:/share
-    ports:
-      - 6361:9091       # Transmission Web UI port
-      - 62001:62001     # Default Transmission port
-      - 62001:62001/udp # Default Transmission port (UDP)
-    network_mode: bridge
-    restart: unless-stopped
-    stdin_open: true    # Enable stdin
-    tty: true           # Allocate a pseudo-TTY
-```
-
-#### Web-UI
-
-```shell
-docker exec -it <container_id> bash
-
-# Download from github
-wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh
-# or gitee
-wget https://gitee.com/culturist/transmission-web-control/raw/master/release/install-tr-control-gitee.sh
-
-sh install-tr-control-cn.sh
-# sh install-tr-control-gitee.sh
-```
-
-### Transmission-TPE
-
-```yml
-version: '3'
-services:
-  transmission:
-    image: chisbread/transmission:latest        # TR with TPE
-    container_name: transmission-tpe
-    environment:
-      - TZ=Asia/Shanghai
-      - PUID=0
-      - PGID=0
-      # - USER=
-      # - PASS=
-      # - TRANSMISSION_WEB_HOME=/transmission-web-control
-    volumes:
-      - /share/Container/transmission-tpe/config:/config
-      - /share/Container/transmission-tpe/downloads:/downloads
-      - /share:/share
-    ports:
-      - 6362:9091       # Transmission Web UI port
-      - 62002:62002     # Default Transmission port
-      - 62002:62002/udp # Default Transmission port (UDP)
-    network_mode: bridge
-    restart: unless-stopped
-    stdin_open: true    # Enable stdin
-    tty: true           # Allocate a pseudo-TTY
-```
-
 ## IYUUPlus-dev
 
-```yml
-version: '3'
+```yaml
 services:
   iyuuplus-dev:
       image: iyuucn/iyuuplus-dev:latest
@@ -148,8 +100,7 @@ services:
 
 ## Jellyfin
 
-```yml
-version: '3'
+```yaml
 services:
   jellyfin:
     image: jellyfin/jellyfin
@@ -173,45 +124,13 @@ services:
 
 ## Jekyll
 
-> Make sure the docker file is inside your site folder where the `Gemfile` is located..
-{: .prompt-tip }
-
-```dockerfile
-# Use the official Ruby image as base
-FROM ruby:latest
-
-# Set working directory in the container
-WORKDIR /srv/jekyll
-
-# Copy Gemfile and Gemfile.lock into the container
-COPY Gemfile .
-
-# Install dependencies and update Bundler
-RUN bundle install && \
-    bundle update --bundler && \
-    bundle clean --force && \
-    rm Gemfile
-
-# Set the default command to be executed when the container starts
-CMD ["bash"]
-```
-
-```bash
-# Build the image
-# Make sure CD into the repo folder first
-docker build -t jekyll-ruby-env .
-```
-
-```yml
-version: '3'
+```yaml
 services:
   jekyll:
-    image: jekyll/jekyll:latest
-    working_dir: /srv/jekyll
-    command: ["sh", "-c", "bundle install && bundle exec jekyll serve --host 0.0.0.0"]
+    image: bretfisher/jekyll-serve
     volumes:
-      - /share/Container/jekyll/zhengyuan-public.github.io:/srv/jekyll
-      - /share/Container/bundle:/usr/local/bundle
+      - /share/Container/jekyll/zhengyuan-public.github.io:/site
+      - /share/Container/jekyll/bundle:/usr/local/bundle
     ports:
       - 4000:4000
     network_mode: bridge
@@ -222,8 +141,7 @@ services:
 
 ## Vaultwarden
 
-```yml
-version: '3.8'
+```yaml
 services:
   vaultwarden:
     image: vaultwarden/server:latest
@@ -240,8 +158,7 @@ services:
 
 ## DuckDNS
 
-```yml
-version: '3.8'
+```yaml
 services: 
   duckdns:
     image: lscr.io/linuxserver/duckdns:latest
@@ -264,8 +181,7 @@ services:
 
 ## Nginx Proxy Manager
 
-```yml
-version: '3.8'
+```yaml
 services:
   nginx-proxy-manager:
     image: 'jc21/nginx-proxy-manager:latest'
@@ -294,8 +210,7 @@ services:
 
 ## Navidrome
 
-```yml
-version: '3'
+```yaml
 services:
   navidrome:
     image: deluan/navidrome:latest
@@ -311,6 +226,7 @@ services:
     volumes:
       - /share/Container/navidrome/data:/data
       - /share/Music/__Navidrome:/music:ro
+      - /share/Music:/share/Music
     network_mode: bridge
     restart: unless-stopped
     stdin_open: true      # Enable stdin
@@ -333,7 +249,7 @@ $ opkg install tree
 │   └── 100 Best Encores Classics -> /share/Music/Albums/100 Best Encores Classics/
 ├── Singles
 │   └── Dire Straits - Sultans Of Swing.flac
-└── symlink_tar_folder.sh
+└── syamlink_tar_folder.sh
 ```
 
 ### *Helper Script
@@ -341,7 +257,7 @@ $ opkg install tree
 ```shell
 #!/bin/bash
 
-# Use absolute symlink for Navidrome
+# Use absolute syamlink for Navidrome
 # Check if a directory was provided as an argument
 if [ -z "$1" ]; then
   echo "Usage: $0 <target_directory>"
@@ -359,23 +275,23 @@ fi
 # Get the base name of the target directory
 BASE_NAME=$(basename "$TARGET_DIR")
 
-# Define the symlink path
-SYMLINK_PATH="/share/Music/__Navidrome/Albums/$BASE_NAME"
+# Define the syamlink path
+SyamlINK_PATH="/share/Music/__Navidrome/Albums/$BASE_NAME"
 
-# Create the symlink
-ln -s "$TARGET_DIR" "$SYMLINK_PATH"
+# Create the syamlink
+ln -s "$TARGET_DIR" "$SyamlINK_PATH"
 
-# Check if the symlink was created successfully
-if [ -L "$SYMLINK_PATH" ]; then
-  echo "Symlink created successfully: $SYMLINK_PATH -> $TARGET_DIR"
+# Check if the syamlink was created successfully
+if [ -L "$SyamlINK_PATH" ]; then
+  echo "Syamlink created successfully: $SyamlINK_PATH -> $TARGET_DIR"
 else
-  echo "Error: Failed to create symlink."
+  echo "Error: Failed to create syamlink."
   exit 1
 fi
 ```
 
 ```shell
-[/share/Music/__Navidrome] # ./symlink_tar_folder.sh /share/Music/Albums/Adele\ -\ 21
-Symlink created successfully: /share/Music/__Navidrome/Albums/Adele - 21 -> /share/Music/Albums/Adele - 21
+[/share/Music/__Navidrome] # ./syamlink_tar_folder.sh /share/Music/Albums/demo
+Syamlink created successfully: /share/Music/__Navidrome/Albums/demo -> /share/Music/Albums/demo
 ```
 
