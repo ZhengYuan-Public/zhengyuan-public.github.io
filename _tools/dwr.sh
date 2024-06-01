@@ -10,10 +10,12 @@
 # list. Selected runs will be deleted. Uses the GitHub API.
 
 # Requires gh (GitHub CLI) and jq (JSON processor)
+# First version
+
 # brew install gh jq fzf
 # gh auth login
-
-# First version
+# ./_tools/dwr.sh owner/repo
+# (use `Tab` to select run entries)
 
 set -o errexit
 set -o pipefail
