@@ -26,3 +26,4 @@ assets/js/dist
 # DS_store
 .DS_store
 .ruby-version
+.jekyll-metadata
