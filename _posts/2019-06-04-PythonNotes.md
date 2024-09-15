@@ -383,7 +383,8 @@ def f(a, b, c, /, d, e, */, f, g):
 
 ## Metaprogramming
 
-> Metaprogramming is about creating functions and classes whose main goal is to manipulate code.
+> Metaprogramming is about creating functions and classes whose main goal is to **manipulate code**.
+{: .prompt-info }
 
 ### Decorators
 
@@ -392,6 +393,7 @@ def f(a, b, c, /, d, e, */, f, g):
 [PEP 318 – Decorators for Functions and Methods](https://peps.python.org/pep-0318/) :link:
 
 > Decorators wrap a function, modifying its behavior.
+{: .prompt-tip }
 
 ```python
 def my_decorator(func):
@@ -416,7 +418,7 @@ def foo_func():
 results = foo_func(my_args, my_kwargs)
 ```
 
-Problem: Important metadata such as the name, doc string, annotations, and calling signatures are lost. Workarounds >>> 
+Problem: Important metadata such as the name, doc string, annotations, and calling signatures are lost. Workarounds $$ \longrightarrow $$
 
 ```python
 from functools import wraps
