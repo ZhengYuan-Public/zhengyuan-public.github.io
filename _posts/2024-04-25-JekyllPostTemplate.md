@@ -9,9 +9,7 @@ categories: [Programming and Development, Jekyll]
 tags: [programming, jekyll]
 ---
 
-> - Use `space` instead of `tab` for indentation for better compatability.
-> - User `\vert` instead of `|` because it will start a table sometimes.
-> - Use `$$ $$`, `\$$ $$`, and `\$\$ $$` to add in-line math eqations. [(Kramdown Doc)](https://kramdown.gettalong.org/syntax.html#math-blocks)
+> Use `space` instead of `tab` for indentation for better compatability.
 {: .prompt-tip }
 
 ## YAML Header
@@ -69,6 +67,10 @@ _Image Caption_
 
 ## Mathematics
 
+> - User `\vert` instead of `|` because it will start a table sometimes.
+> - Use `$$ $$`, `\$$ $$`, and `\$\$ $$` to add in-line math eqations. [(Kramdown Doc)](https://kramdown.gettalong.org/syntax.html#math-blocks)
+{: .prompt-tip }
+
 ### Block Math
 
 > Block math need a **mandatory** blank line before and after the `$$` sign.
@@ -109,7 +111,7 @@ $$
 \begin{align}
 D_{KL}(P^{*}(y|x_i) \vert \vert P(y|x_i; \Theta)) 
     &= \sum_{y} P^*(y|x_i) log \frac{P^*(y|x_i)}{P(y|x_i; \Theta)} \\
-    &= \sum_{y} P^*(y|x_i)[logP^*(y|x_i) - logP(y|x_i; \Theta)] \\
+    &= \sum_{y} P^*(y|x_i)[logP^*(y|x_i) - logP(y|x_i; \Theta)] \nonumber\\
     &= \sum_{y} P^*(y|x_i)logP^*(y|x_i) - \sum_{y} P^{*}(y|x_i)logP(y|x_i; \Theta)
 \end{align}
 $$
@@ -120,12 +122,15 @@ $$
 \begin{align}
 D_{KL}(P^{*}(y|x_i) \vert \vert P(y|x_i; \Theta)) 
     &= \sum_{y} P^*(y|x_i) log \frac{P^*(y|x_i)}{P(y|x_i; \Theta)} \\
-    &= \sum_{y} P^*(y|x_i)[logP^*(y|x_i) - logP(y|x_i; \Theta)] \\
+    &= \sum_{y} P^*(y|x_i)[logP^*(y|x_i) - logP(y|x_i; \Theta)] \nonumber\\
     &= \sum_{y} P^*(y|x_i)logP^*(y|x_i) - \sum_{y} P^{*}(y|x_i)logP(y|x_i; \Theta)
 \end{align}
 $$
 <Mandatory Blank Line>
 ```
+
+> Use `\nonumber` to disable the number behind equations.
+{: .prompt-tip }
 
 #### System of Equations
 
@@ -226,3 +231,38 @@ $$
     \underbrace{\begin{bmatrix} v_1 \\ v_2 \\ v_3 \\ v_4 \end{bmatrix}}_{v}
 $$
 ```
+
+### Display Modes
+
+Default display math mode
+
+$$
+    \sum_{a} \pi (a \vert s) = 1
+$$
+
+Force in-line math mode
+
+$$
+    \textstyle \sum_{a} \pi (a \vert s) = 1
+$$
+
+- Defualt in-line math mode: $$ \sum_{a} \pi (a \vert s) = 1 $$
+- Force display math mode: $$ \displaystyle \sum_{a} \pi (a \vert s) = 1 $$
+
+```markdown
+Default display math mode
+<Mandatory Blank Line>
+$$
+    \sum_{a} \pi (a \vert s) = 1
+$$
+<Mandatory Blank Line>
+Force in-line math mode
+<Mandatory Blank Line>
+$$
+    \textstyle \sum_{a} \pi (a \vert s) = 1
+$$
+<Mandatory Blank Line>
+- Defualt in-line math mode: $$ \sum_{a} \pi (a \vert s) = 1 $$
+- Force display math mode: $$ \displaystyle \sum_{a} \pi (a \vert s) = 1 $$
+```
+
