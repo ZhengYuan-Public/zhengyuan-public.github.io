@@ -328,6 +328,9 @@ Unknow factors
 
 ## Value & Policy Iteration
 
+> **Model-based**
+{: .prompt-tip }
+
 > **Matrix-vector** form is useful for theoretical analysis and **Elementwise form** is useful for implementation.
 {: .prompt-tip }
 
@@ -378,7 +381,7 @@ Step 2: Policy Improvement
 $$
 \begin{align}
     \pi_{k+1} &= \arg \max_{\pi} (r_{pi} + \gamma P_{\pi} v_{\pi_k}) \nonumber\\
-    \pi_{k+1}(s) &= \arg \max_{\pi} \sum_{a} \pi(a \vert s) \underbrace{(\sum_{r} p(r \vert s, a)r + \gamma \sum_{s'} p(s' \vert s, a) v_k(s'))}_{q_k (s,a)}, s \in S 
+    \pi_{k+1}(s) &= \arg \max_{\pi} \sum_{a} \pi(a \vert s) (\sum_{r} p(r \vert s, a)r + \gamma \sum_{s'} p(s' \vert s, a) v_k(s')), s \in S 
 \end{align}
 $$
 
@@ -400,3 +403,73 @@ v_{\pi 1}^{(\infty)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(\infty)} \longr
 $$
 
 ## Monte Carlo Methods
+
+> **Model-free**
+{: .prompt-tip }
+
+> Convert the **Policy Iteration** algorithm to be **model-free**.
+{: .prompt-tip }
+
+### Monte Carlo Basic
+
+$$
+\begin{align}
+q(\pi, s, a) \rightarrow q_{\pi}(s, a) 
+&= \mathbb{E}[G_t \vert S_t = s, A_t = a] \longrightarrow Model-free \nonumber\\
+&= \sum_{r} p(r|s, a) r + \gamma \sum_{s'} p(s' \vert s, a) v_{\pi}(s') \longrightarrow Model-based \nonumber
+\end{align}
+$$
+
+Step 1: Policy Evaluation
+- Estimate $$ q_{\pi_k}(s, a) $$ directly, instead of sovling $$ v_{\pi_k}(s) $$.
+
+Step 2: Policy Improvement
+- Same as Policy Iteration.
+
+### Monte Carlo Exploring Starts
+
+**Visit**: Every time a state-action pair appears in one episode is a visit of that state-action pair.
+
+#### Data-efficient Methods
+
+1. First-visit method: Use the return of the **first** visit of a state-value pair to estimate $$ q_{\pi_k}(s, a) $$
+
+2. Every-visit method: $$ \dots $$ **every** visit of a state-value pair $$ \dots $$
+
+3. Dynamic Programming in implementation.
+
+#### Generalized Policy Iteration
+
+Switch between the policy-evaluation and policy-improvement processes.
+
+#### Monte Carlo Exploring Starts
+
+- Exploring (all state-action pairs)
+    1. as Start
+    2. via Visit (can't be guaranteed yet)
+
+### Monte Carlo $$ \epsilon $$-Greedy
+
+**Soft Policy**: The probability to take any action is positive. Hence, the requirement of **Exploring Starts** can be removed.
+
+#### $$ \epsilon $$-Greedy Policy
+
+$$
+\pi (a \vert s) =
+\begin{cases}
+    \displaystyle 1 - \frac{\epsilon}{ \vert \mathcal{A}(s) \vert} (\vert \mathcal{A}(s) \vert - 1) \nonumber\\
+    \displaystyle \frac{\epsilon}{ \vert \mathcal{A}(s) \vert} \nonumber
+\end{cases}
+$$
+
+where $$ \epsilon \in [0, 1] $$ and $$ \vert \mathcal{A}(s) \vert $$ is the number of actions for $$ s $$.
+
+#### Exploitation versus Exploration
+
+$$ 0 \xleftarrow[]{Exploitation!} \epsilon \xrightarrow[]{Exploration!} 1 $$
+
+#### Monte Carlo $$ \epsilon $$-Greedy
+
+- Use every-visit method.
+
+## Stochastic Approxmimation
