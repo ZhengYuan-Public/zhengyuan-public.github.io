@@ -185,19 +185,21 @@ $$
 ### Arrows
 
 $$
-\begin{align}
-    &\xrightarrow[\text{Text Below}]{\text{Text Above}} \\
-    &\xleftarrow[\text{Text Below}]{\text{Text Above}} \\
-\end{align}
+\xleftarrow[\text{Text Below}]{\text{Text Above}}
+$$
+
+$$
+\xrightarrow[\text{Text Below}]{\text{Text Above}}
 $$
 
 ```markdown
 <Mandatory Blank Line>
 $$
-\begin{align}
-    &\xrightarrow[\text{Text Below}]{\text{Text Above}} \\
-    &\xleftarrow[\text{Text Below}]{\text{Text Above}} \\
-\end{align}
+\xleftarrow[\text{Text Below}]{\text{Text Above}}
+$$
+<Mandatory Blank Line>
+$$
+\xrightarrow[\text{Text Below}]{\text{Text Above}}
 $$
 <Mandatory Blank Line>
 ```
