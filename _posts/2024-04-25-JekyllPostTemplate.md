@@ -268,3 +268,60 @@ $$
 - Force display math mode: $$ \displaystyle \sum_{a} \pi (a \vert s) = 1 $$
 ```
 
+### Fonts
+
+$$
+\begin{align}
+&\text{mathbb: } \mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathcal: } \mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathfrak: } \mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathrm: } \mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathbf: } \mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathsf: } \mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathtt: } \mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+\end{align}
+$$
+
+```markdown
+$$
+\begin{align}
+&\text{mathbb: } \mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathcal: } \mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathfrak: } \mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathrm: } \mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathbf: } \mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathsf: } \mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&\text{mathtt: } \mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+\end{align}
+$$
+```
+
+### Dots
+
+- **\ldots** for horizontal dots on the line
+- **\cdots** for horizontal dots above the line
+- **\vdots** for vertical dots
+- **\ddots** for diagonal dots
+
+$$
+\Sigma=\left[
+\begin{array}{ccc}
+   \sigma_{11} & \cdots & \sigma_{1n} \\
+   \vdots & \ddots & \vdots \\
+   \sigma_{n1} & \cdots & \sigma_{nn}
+\end{array}
+\right]
+$$
+
+```makrdown
+$$
+\Sigma=\left[
+\begin{array}{ccc}
+   \sigma_{11} & \cdots & \sigma_{1n} \\
+   \vdots & \ddots & \vdots \\
+   \sigma_{n1} & \cdots & \sigma_{nn}
+\end{array}
+\right]
+$$
+```
+
