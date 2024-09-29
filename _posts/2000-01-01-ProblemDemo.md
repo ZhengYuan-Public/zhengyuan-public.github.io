@@ -44,9 +44,7 @@ $$
 
 I wonder where the grammar check for code block was enabled. Here are two examples:
 
-The first one is from my [post](https://zhengyuan-public.github.io/posts/JekyllPostTemplate/#align-multiple-equations) for equation template/reminder. I have open a [topic](https://github.com/cotes2020/jekyll-theme-chirpy/discussions/1943) in discussion, but no one has replied yet.
-
-The first one is particularly strange because some part of the eqation becase italic. So maybe it's a kramdown engine problem? I'll report it in the kramdown repo if so.
+The first one is from my [post](https://zhengyuan-public.github.io/posts/JekyllPostTemplate/#align-multiple-equations) for equation template/reminder. I have open a [topic](https://github.com/cotes2020/jekyll-theme-chirpy/discussions/1943) in discussion, but no one has replied yet. The first one is particularly strange because some part of the eqation becase italic in light mode. When in dark mode, colors are also applied incorrectly to some part of the text but italic text are longer there. I believe this is related to the switch between light and dark theme.
 
 ```markdown
 <Mandatory Blank Line>
