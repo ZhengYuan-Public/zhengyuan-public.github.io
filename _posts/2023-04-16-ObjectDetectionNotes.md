@@ -38,8 +38,8 @@ $$
 
 $$
 \begin{align}
-	IoU &> t \rightarrow correct\\
-	IoU &< t \rightarrow incorrect
+	IoU &> t \rightarrow correct \nonumber\\
+	IoU &< t \rightarrow incorrect \nonumber
 \end{align}
 $$
 
@@ -154,20 +154,20 @@ $$
 For discrete ***r.v.***
 
 $$
-D_{KL}(P\ ||\ Q)=\sum_{i} P(i) log \frac{P(i)}{Q(i)}
+D_{KL}(P \vert \vert Q)=\sum_{i} P(i) log \frac{P(i)}{Q(i)}
 $$
 
 
 For continuous ***r.v.***
 
 $$
-D_{KL}(P\ ||\ Q)=\int P(x) log \frac{P(x)}{Q(x)}dx
+D_{KL}(P \vert \vert Q)=\int P(x) log \frac{P(x)}{Q(x)}dx
 $$
 
 #### Cross Entropy
 
 $$
-H(P^*|P)= - \sum_{i} P^*(i)logP(i)
+H(P^* \vert P)= - \sum_{i} P^*(i)logP(i)
 $$
 
 - Ground Truth Distribution: $ P^* $, Model Distribution: $ P $
@@ -178,9 +178,9 @@ $$
 
 $$
 \begin{align}
-D_{KL}(P^*(y|x_i)\ ||\ P(y|x_i; \Theta)) &= \sum_{y} P^*(y|x_i) log \frac{P^*(y|x_i)}{P(y|x_i; \Theta)} \\
-			&= \sum_{y} P^*(y|x_i)[logP^*(y|x_i) - logP(y|x_i; \Theta)] \\
-			&= \underbrace{\sum_{y} P^*(y|x_i)logP^*(y|x_i)}_{\text{Does not depend on } \Theta} \ \underbrace{ - \sum_{y} P^*(y|x_i)logP(y|x_i; \Theta)}_{Cross \ Entropy}
+D_{KL}(P^{*}(y \vert x_i)\ ||\ P(y \vert x_i; \Theta)) &= \sum_{y} P^{*}(y \vert x_i) log \frac{P^{*}(y \vert x_i)}{P(y \vert x_i; \Theta)} \nonumber\\
+			&= \sum_{y} P^{*}(y \vert x_i)[\log P^{*}(y \vert x_i) - \log P(y \vert x_i; \Theta)] \nonumber\\
+			&= \underbrace{\sum_{y} P^{*}(y \vert x_i)\log P^{*}(y \vert x_i)}_{\text{Does not depend on } \Theta} \ \underbrace{ - \sum_{y} P^{*}(y \vert x_i) \log P(y \vert x_i; \Theta)}_{\text{Cross Entropy}} \nonumber
 \end{align}
 $$
 
@@ -263,8 +263,8 @@ Project the **corner point of a RoI** onto a **pixel in the feature maps** such 
 
 $$
 \begin{align}
-p &= (p_0, ..., p_K), t^k = (t_x^k, t_y^k, t_w^k, t_h^k,) \\
-L(p, u, t^u, v) &= L_{cls}(p, u) + \lambda[u \geq 1]L_{loc}(t^u, v)
+p &= (p_0, ..., p_K), t^k = (t_x^k, t_y^k, t_w^k, t_h^k,) \nonumber\\
+L(p, u, t^u, v) &= L_{cls}(p, u) + \lambda[u \geq 1]L_{loc}(t^u, v) \nonumber
 \end{align}
 $$
 
@@ -664,8 +664,8 @@ Standard **qkv** self-attention $ (SA_{qkv}) $
 
 $$
 \begin{align}
-	[q,k,v] &= z U_{qkv}  \\
-	SA_{qkv}(z) &= softmax(\frac{QK^T}{\sqrt{d_k}})V
+	[q,k,v] &= z U_{qkv}  \nonumber\\
+	SA_{qkv}(z) &= softmax(\frac{QK^T}{\sqrt{d_k}})V \nonumber
 \end{align}
 $$
 
@@ -686,8 +686,8 @@ GELU is a smooth approximation of the rectifier
 
 $$
 \begin{align}
-f(x) &=x \cdot \Phi (x) \\
-\Phi (x) &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-t^2/2} dt
+f(x) &=x \cdot \Phi (x) \nonumber\\
+\Phi (x) &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-t^2/2} dt \nonumber
 \end{align}
 $$
 
@@ -783,8 +783,8 @@ $$
 
 $$
 \begin{align}
-&[D_{\eta, \beta, v}^{(0)}x^{(0)}](u, \lambda) = x^{(0)}(R_{-\eta}2^{-\beta}(u-v), \lambda), l=0 \\
-		&[D_{\eta, \beta, v}^{(l)}x^{(l)}](u, \theta, \alpha, \lambda') = x^{(l)}(R_{-\eta}2^{-\beta}(u-v), \theta - \eta, \lambda'), 1 \leq l \leq L
+&[D_{\eta, \beta, v}^{(0)}x^{(0)}](u, \lambda) = x^{(0)}(R_{-\eta}2^{-\beta}(u-v), \lambda), l=0 \nonumber\\
+&[D_{\eta, \beta, v}^{(l)}x^{(l)}](u, \theta, \alpha, \lambda') = x^{(l)}(R_{-\eta}2^{-\beta}(u-v), \theta - \eta, \lambda'), 1 \leq l \leq L \nonumber
 \end{align}
 $$
 

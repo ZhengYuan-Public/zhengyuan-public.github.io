@@ -391,15 +391,15 @@ $$
 {: .prompt-tip }
 
 $$
-\begin{align}
+\begin{alignat}{2}
 v_{\pi 1}^{(0)} &= v_0 \nonumber\\
-v_{\pi 1}^{(1)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(0)} \longrightarrow v_1 \longrightarrow \text{Value Iteration} \nonumber\\
+v_{\pi 1}^{(1)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(0)} &&\longrightarrow v_1 \longrightarrow \text{Value Iteration} \nonumber\\
 v_{\pi 1}^{(2)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(1)} \nonumber\\
 \vdots \nonumber\\
-v_{\pi 1}^{(j)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(j-1)} \longrightarrow \bar{v}_1 \longrightarrow \text{Truncated Policy Iteration} \nonumber\\
+v_{\pi 1}^{(j)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(j-1)} &&\longrightarrow \bar{v}_1 \longrightarrow \text{Truncated Policy Iteration} \nonumber\\
 \vdots \nonumber\\
-v_{\pi 1}^{(\infty)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(\infty)} \longrightarrow v_{\pi 1} \longrightarrow \text{Policy Iteration} \nonumber
-\end{align}
+v_{\pi 1}^{(\infty)} &= r_{\pi 1} + \gamma P_{\pi 1} v_{\pi 1}^{(\infty)} &&\longrightarrow v_{\pi 1} \longrightarrow \text{Policy Iteration} \nonumber
+\end{alignat}
 $$
 
 ## Monte Carlo Methods
@@ -723,14 +723,14 @@ $$
 The discounted return $$ G_t $$ can be written as
 
 $$
-\begin{align}
-G_t &= \gamma^{0}R_{t+1} + \gamma^{1}q_{\pi}(S_{t+1}, A_{t+1}) \longrightarrow \text{Sarsa} \nonumber\\
+\begin{alignat}{2}
+G_t &= \gamma^{0}R_{t+1} + \gamma^{1}q_{\pi}(S_{t+1}, A_{t+1}) &&\longrightarrow \text{Sarsa} \nonumber\\
 G_t &= \gamma^{0}R_{t+1} + \gamma^{1}R_{t+2} + \gamma^{2} q_{\pi}(S_{t+2}, A_{t+2})\nonumber\\
     &\vdots \nonumber\\
-G_t &= \gamma^{0}R_{t+1} + \gamma^{1}R_{t+2} + \cdots + \gamma^{n}q_{\pi}(S_{t+n}, A_{t+n}) \longrightarrow n\text{-Step Sarsa}\\
+G_t &= \gamma^{0}R_{t+1} + \gamma^{1}R_{t+2} + \cdots + \gamma^{n}q_{\pi}(S_{t+n}, A_{t+n}) &&\longrightarrow n\text{-Step Sarsa} \nonumber\\
     &\vdots \nonumber\\
-G_t &= \gamma^{0}R_{t+1} + \gamma^{1}R_{t+2} + \gamma^{2}R_{t+3} + \cdots \longrightarrow \text{Monte Carlo} \nonumber
-\end{align}
+G_t &= \gamma^{0}R_{t+1} + \gamma^{1}R_{t+2} + \gamma^{2}R_{t+3} + \cdots &&\longrightarrow \text{Monte Carlo} \nonumber
+\end{alignat}
 $$
 
 ### Q-Learning

@@ -119,7 +119,7 @@ paginate: 10
 plugins:
   - jemoji # Add support for emojis
   - jekyll-pdf-embed
-  - jekyll-admin
+  # - jekyll-admin
   - jekyll-scholar
   - jekyll-latex
 
