@@ -57,9 +57,9 @@ tags: [machine-learning, reinforcement-learning, mathematics]
 $$
 \displaylines{
     \textcolor{red}{v_1} = r_1 + \gamma v_2\\
-    v_2 = r_1 + \gamma v_3\\
-    v_3 = r_1 + \gamma v_4\\
-    v_4 = r_1 + \gamma \textcolor{red}{v_1}
+    v_2 = r_2 + \gamma v_3\\
+    v_3 = r_3 + \gamma v_4\\
+    v_4 = r_4 + \gamma \textcolor{red}{v_1}
 }
 $$
 
