@@ -120,14 +120,14 @@ $$
 
 $$
 \begin{align}
-\mathbb{E}[G_t \vert S_t = s] &= \sum_{a} \pi (a \vert s) \mathbb{E} [R_{t+1} \vert S_t = s, A_t = a] \nonumber\\
-    &= \sum_{a} \pi (a \vert s) \sum_{r} p(r|s, a) r \nonumber
+\mathbb{E}[R_{t+1} \vert S_t = s] &= \sum_{a \in \mathcal{A}} \pi (a \vert s) \mathbb{E} [R_{t+1} \vert S_t = s, A_t = a] \nonumber\\
+    &= \sum_{a \in \mathcal{A}} \pi (a \vert s) \sum_{r \in \mathcal{R}} p(r|s, a) r \nonumber
 \end{align}
 $$
 
+- The mean of **immediate reward**.
 - At state $$ s $$ there are actions $$ {a_i} $$ and the probability to take an action $$ a $$ is $$ \pi (a \vert s) $$
 - After taking action $$ a $$, the return is $$ \mathbb{E} [R_{t+1} \vert S_t = s, A_t = a] $$
-- The mean of **immediate reward**.
 
 #### Term II
 
@@ -137,13 +137,13 @@ $$
     &= \sum_{s'} p(s' \vert s) \mathbb{E}[G_{t+1} \vert \textcolor{red}{S_t = s}, S_{t+1} = s'] \nonumber\\
     &= \sum_{s'} p(s' \vert s) \mathbb{E}[G_{t+1} \vert S_{t+1} = s'] \nonumber\\
     &= \sum_{s'} p(s' \vert s) v_{\pi}(s') \nonumber\\
-    &= \sum_{s'} v_{\pi}(s') \sum_{a} p(s' \vert s, a) \pi(a \vert s)  \nonumber
+    &= \sum_{s' \in \mathcal{S}} v_{\pi}(s') \sum_{a \in \mathcal{A}} p(s' \vert s, a) \pi(a \vert s)  \nonumber
 \end{align}
 $$
 
-- $$ \mathbb{E}[G_{t+1} \vert \textcolor{red}{S_t = s}, S_{t+1} = s'] = \mathbb{E}[G_{t+1} \vert S_{t+1} = s'] $$ since the return is not dependent on previous steps.
-- $$ p(s' \vert s) = \sum_{a} p(s' \vert s, a) \pi(a \vert s) \longleftarrow $$ Law of total probability
 - The mean of **future reward**.
+- $$ \mathbb{E}[G_{t+1} \vert \textcolor{red}{S_t = s}, S_{t+1} = s'] = \mathbb{E}[G_{t+1} \vert S_{t+1} = s'] $$ since the return is not dependent on previous steps.
+- $$ \displaystyle p(s' \vert s) = \sum_{a} p(s' \vert s, a) \pi(a \vert s) \longleftarrow $$ Law of total probability
 
 #### Final form
 
@@ -153,7 +153,7 @@ $$
     &= \mathbb{E}[R_{t+1} \vert S_t = s] + \gamma \mathbb{E} [G_{t+1} \vert S_t = s] \nonumber\\
     &= \sum_{a} \pi (a \vert s) \sum_{r} p(r|s, a) r + \gamma \sum_{s'} v_{\pi}(s') \sum_{a} p(s' \vert s, a) \pi(a \vert s) \nonumber\\
     &= \sum_{a} \pi (a \vert s) [\sum_{r} p(r|s, a) r + \gamma \sum_{s'} \textcolor{red}{v_{\pi}(s')} p(s' \vert s, a) ], \textcolor{green}{\forall s \in S}. \nonumber\\
-    &= \sum_{a} \underbrace{\pi (a \vert s)}_{\text{A given policy}} [\sum_{r} \underbrace{p(r|s, a) r}_{\text{Dynamic model}} + \gamma \sum_{s'} \underbrace{p(s' \vert s, a)}_{\text{Dynamic model}} \textcolor{red}{v_{\pi}(s')} ], \textcolor{green}{\forall s \in S}. \nonumber
+    &= \sum_{a \in \mathcal{A}} \underbrace{\pi (a \vert s)}_{\text{A given policy}} [\sum_{r \in \mathcal{R}} \underbrace{p(r|s, a) r}_{\text{Dynamic model}} + \gamma \sum_{s' \in \mathcal{S}} \underbrace{p(s' \vert s, a)}_{\text{Dynamic model}} \textcolor{red}{v_{\pi}(s')} ], \textcolor{green}{\forall s \in S}. \nonumber
 \end{align}
 $$
 
@@ -413,18 +413,15 @@ $$
 ### Monte Carlo Basic
 
 $$
-\begin{align}
-q(\pi, s, a) \rightarrow q_{\pi}(s, a) 
-&= \mathbb{E}[G_t \vert S_t = s, A_t = a] \longrightarrow \text{Model-free} \nonumber\\
-&= \sum_{r} p(r|s, a) r + \gamma \sum_{s'} p(s' \vert s, a) v_{\pi}(s') \longrightarrow \text{Model-based} \nonumber
-\end{align}
+\begin{alignat}{2}
+q_{\pi}(s, a) 
+&= \mathbb{E}[G_t \vert S_t = s, A_t = a] &&\longrightarrow \text{Model-free} \nonumber\\
+&= \sum_{r} p(r|s, a) r + \gamma \sum_{s'} p(s' \vert s, a) v_{\pi}(s') &&\longrightarrow \text{Model-based} \nonumber
+\end{alignat}
 $$
 
-Step 1: Policy Evaluation
-- Estimate $$ q_{\pi_k}(s, a) $$ directly, instead of sovling $$ v_{\pi_k}(s) $$
-
-Step 2: Policy Improvement
-- Same as Policy Iteration
+1. Policy Evaluation: Estimate $$ q_{\pi_k}(s, a) $$ directly, instead of sovling $$ v_{\pi_k}(s) $$
+2. Policy Improvement: Same as Policy Iteration
 
 ### Monte Carlo Exploring Starts
 
@@ -472,9 +469,9 @@ $$ 0 \xleftarrow[]{Exploitation!} \epsilon \xrightarrow[]{Exploration!} 1 $$
 
 - Use every-visit method.
 
-## Stochastic Approxmimation 🐾
+## Stochastic Approximation🐾
 
-> **Stochastic Approxmimation** refers to a broad class of **stochastic** and **iterative** algorithms solving root-finding or optimization problems. (From non-incremental to incremental methods.)
+> **Stochastic Approximation** refers to a broad class of **stochastic** and **iterative** algorithms solving root-finding or optimization problems. (From non-incremental to incremental methods.)
 - No expression of the objective function required.
 - No derivative required.
 {: .prompt-tip }
@@ -573,7 +570,7 @@ $$
 #### Stochastic Gradient Descent
 
 $$
-w_{k+1} = w_k - \alpha_k \mathbb{E} [\nabla_w f(w_k, \textcolor{red}{x_k})]
+w_{k+1} = w_k - \alpha_k [\nabla_w f(w_k, \textcolor{red}{x_k})]
 $$
 
 - Replace ture gradient $$ \nabla_w f(w_k, \textcolor{red}{X}) $$ with the stochastic gradient $$ \nabla_w f(w_k, \textcolor{red}{x_k}) $$
@@ -609,7 +606,7 @@ $$
 
 ## Temporal Difference Learning
 
-> Temporal Difference Learning often refers to a broad class of RL algorithms and/or a specific algorithm for estimationg state value.
+> Temporal Difference Learning often refers to a broad class of RL algorithms and/or a specific algorithm for **estimating state value**, and it can be viewed as **a special Stochastic Approximation algorithm**.
 {: .prompt-tip }
 
 ### TD Learning
@@ -735,7 +732,7 @@ $$
 
 ### Q-Learning
 
-> TD Learning for **Optimal Action Value**. State-Action-Reward-State-Action $$ (s_t, a_t, r_{t+1}, s_{t+1}, a_{t+1}) $$
+> TD Learning for **Optimal Action Value**.
 {: .prompt-info }
 
 $$
@@ -833,22 +830,32 @@ w_{k+1} &= w_{k} - \alpha_k (-2\textcolor{red}{\mathbb{E}}[(v_{\pi}(S) - \hat{v}
 \end{align}
 $$
 
-#### Approximate $$ v_{\pi}(s_t) $$
+### Approximate $$ v_{\pi}(s_t) $$
 
-1. Monte Carlo: $$ w_{k+1} = w_{k} + \textcolor{green}{\alpha_k}[\textcolor{red}{g_t} - \hat{v}(s_t, w_t)]\nabla_w\hat{v}(S, w) $$
-
-2. TD Learning: $$ w_{k+1} = w_{k} + \textcolor{green}{\alpha_k}[\textcolor{red}{r_{t+1} + \gamma \hat{v}(s_{t+1}, w_t) } - \hat{v}(s_t, w_t)]\nabla_w\hat{v}(S, w) $$
-
-### Sarsa
+#### Monte Carlo
 
 $$
-w_{k+1} = w_{k} + \alpha_k[r_{t+1 + \gamma \hat{q}(s_{t+1}, w_t) } - \hat{q}(s_t, w_t)]\nabla_w\hat{q}(S, w)
+w_{k+1} = w_{k} + \textcolor{green}{\alpha_k}[\textcolor{red}{g_t} - \hat{v}(s_t, w_t)]\nabla_w\hat{v}(S, w)
 $$
 
-### Q-Learning
+#### TD Learning
 
 $$
-w_{k+1} = w_{k} + \alpha_k[r_{t+1} + \gamma \max_{a \in \mathcal{A}(s_{s+1})}\hat{q}(s_{t+1},a, w_t) - \hat{q}(s_t, a_t, w_t)]\nabla_w\hat{q}(s_t, a_t, w_t)
+w_{k+1} = w_{k} + \textcolor{green}{\alpha_k}[\textcolor{red}{r_{t+1} + \gamma \hat{v}(s_{t+1}, w_t) } - \hat{v}(s_t, w_t)]\nabla_w\hat{v}(S, w)
+$$
+
+### Approximate $$ q_{\pi}(s_t) $$
+
+#### Sarsa
+
+$$
+w_{k+1} = w_{k} + \alpha_k[r_{t+1} + \gamma \hat{q}(s_{t+1}, w_t) - \hat{q}(s_t, w_t)]\nabla_w\hat{q}(S, w)
+$$
+
+#### Q-Learning
+
+$$
+w_{k+1} = w_{k} + \alpha_k[r_{t+1} + \gamma \max_a \hat{q}(s_{t+1},a, w_t) - \hat{q}(s_t, a_t, w_t)]\nabla_w\hat{q}(s_t, a_t, w_t)
 $$
 
 ### Deep Q-Learning
@@ -882,7 +889,7 @@ $$
 \nabla_w J(w) = \mathbb{E} [(R + \gamma \max_{a \in \mathcal{A}(S')} \textcolor{red}{\hat{q}(S', a, w_T)} - \textcolor{blue}{\hat{q}(S, A, w)}) \nabla_w \textcolor{blue}{\hat{q}(S, A, w)}] \nonumber
 $$
 
-- DNQ use the target network $$ \textcolor{red}{\hat{q}(S', a, w_T)} $$ and the main network $$ \textcolor{blue}{\hat{q}(S, A, w)} $$
+- DQN use the target network $$ \textcolor{red}{\hat{q}(S', a, w_T)} $$ and the main network $$ \textcolor{blue}{\hat{q}(S, A, w)} $$
 - $$ w $$ updates constantly while $$ w_T $$ updates periodically
 
 #### Experience Replay
@@ -924,7 +931,7 @@ $$
 \begin{align}
 \bar{r}_{\pi} = \sum_{s \in \mathcal{S}} d_{\pi}(s) \textcolor{red}{r_{\pi}(s)} &= \mathbb{E} [r_{\pi}(S)], S \sim d_{\pi} \nonumber\\
 r_{\pi}(s) &= \sum_{a \in \mathcal{A}} \pi(a \vert s) \textcolor{red}{r(s, a)} \nonumber\\
-r(s, a) &= \mathbb{E}[R \vert s, a] = \sum_{r} r p(r \vert s, a) \nonumber
+r(s, a) &= \mathbb{E}[R \vert s, a] = \sum_{r} p(r \vert s, a) r \nonumber
 \end{align}
 $$
 
@@ -980,7 +987,7 @@ Use SG to approximate $$ q_{\pi}(s_t, a_t) $$
 - Sample $$ S \sim d $$, where $$ d $$ is a long-run behavior under $$ \pi $$ (typically trivial because it's impossible in reality)
 - Sample $$ A \sim \pi(A \vert S, \theta) $$, hence $ a_t $ should be sampled following $$ \pi(\theta_t) $$ at $$ s_t \Longrightarrow $$ (**On-Policy**)
 
-### Actor-Critic Methods
+## Actor-Critic Methods
 
 > Acotr refers to Policy Update and Critic refers to Policy Evaluation or Value Estimation.
 {: .prompt-tip }
@@ -1024,7 +1031,7 @@ $$
 
 - The optimal baseline $$ \displaystyle b^*(s) = \frac{\mathbb{E}_{A \sim \pi}[ \vert \vert \nabla_{\theta} \ln \pi(A \vert s, \theta) \vert \vert^2 q(s, A)]}{\mathbb{E}_{A \sim \pi}[ \vert \vert \nabla_{\theta} \ln \pi(A \vert s, \theta) \vert \vert^2]} $$ is too complex, so it's more often to use $$ \displaystyle b^*(s) = \mathbb{E}_{A \sim \pi} [q(s, A)] = \textcolor{red}{v_{\pi}(s)} $$
 - Advantage function: $$ \delta_{\pi}(S, A) := q_{\pi}(S, A) - v_{\pi}(S) $$
-- Use TD error to approximate $$ \delta_{\pi}(s_t, a_t) := q_{\pi}(s_t, a_t) - v_{\pi}(s_t) = r_{t+1} + \gamma v_t(s_{t+1}) - v_t(s_t) $$ so we can use only one network to approximate v_{\pi}(s)
+- Use TD error to approximate $$ \delta_{\pi}(s_t, a_t) := q_{\pi}(s_t, a_t) - v_{\pi}(s_t) = r_{t+1} + \gamma v_t(s_{t+1}) - v_t(s_t) $$ so we can use only one network to approximate $$ v_{\pi}(s) $$
 
 #### Off-Policy AC
 
@@ -1047,7 +1054,7 @@ $$
 \end{align}
 $$
 
-#### Deterministic AC (DPG)
+##### Deterministic Policy Gradient (DPG)
 
 > Stochastic policies cannot handle continuous (infinity) actions at time $$ t $$.
 {: .prompt-tip }
@@ -1069,10 +1076,3 @@ $$
 - Off-Policy. The behavior policy $$ \beta $$ can be different from $$ \mu $$
 - $$ \beta $$ can be replaced by $$ \mu $$ + noise so the algorithm can explore
 - $$ q(s, a, w) $$ can be a Linuear Function (DPG) or Neural Networks (DDPG)
-
-## Miscellaneous
-
-### Mathematical Notation
-
-- Approximately equal to: $$ \doteq $$ or $$ \approx $$.
-- Defined as: $$ := $$
