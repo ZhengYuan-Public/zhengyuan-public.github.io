@@ -180,6 +180,8 @@ defaults:
 
 sass:
   style: compressed
+  # Remove later
+  quiet_deps: true
 
 compress_html:
   clippings: all
