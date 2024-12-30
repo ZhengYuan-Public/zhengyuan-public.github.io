@@ -3,7 +3,7 @@ comments: true
 title: Mathematical Foundations of Reinforcement Learning
 date: 2024-09-08 12:00:00
 image:
-    path: /assets/img/images_preview/ReinforcementLearning.webp
+    path: /assets/img/images_preview/ReinforcementLearningPreview.png
 math: true
 categories: [Machine Learning, Reinforcement Learning]
 tags: [machine-learning, reinforcement-learning, mathematics]

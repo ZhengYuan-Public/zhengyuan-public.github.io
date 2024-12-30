@@ -7,6 +7,7 @@ image:
 math: true
 categories: [Programming and Development, Jekyll]
 tags: [programming, jekyll]
+pin: true
 ---
 
 > Use `space` instead of `tab` for indentation for better compatability.
@@ -28,7 +29,19 @@ tags: [tag_1, tag_2]
 ---
 ```
 
-## Image
+## Preview Image
+
+Recommended preview image resolution is `1200 x 630`. If the image aspect ratio does not meet `1.91 : 1`, the image will be scaled and cropped.
+
+```yaml
+---
+image:
+  path: /path/to/image
+  alt: image alternative text
+---
+```
+
+## Blog Post Image
 
 ```markdown
 ![img-description](/path/to/image){: style="max-width: 700px; height: auto;"}
@@ -313,7 +326,7 @@ $$
 \right]
 $$
 
-```makrdown
+```markdown
 $$
 \Sigma=\left[
 \begin{array}{ccc}
@@ -324,4 +337,3 @@ $$
 \right]
 $$
 ```
-

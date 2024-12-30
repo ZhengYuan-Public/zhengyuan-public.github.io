@@ -3,7 +3,7 @@ comments: true
 title: Reinforcement Learning Notes
 date: 2024-10-01 12:00:00
 image:
-    path: /assets/img/images_preview/ReinforcementLearning.webp
+    path: /assets/img/images_preview/ReinforcementLearningPreview2.png
 math: true
 categories: [Machine Learning, Reinforcement Learning]
 tags: [machine-learning, reinforcement-learning]
