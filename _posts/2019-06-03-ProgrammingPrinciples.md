@@ -15,12 +15,13 @@ tags: [programming, principle]
 
 For example, naming two variables first name and last name
 
-* Camel Case :point_right: `firstName`, `lastName`
-* Snake Case :point_right: `first_name`, `last_name`	
-* Kebab Case :point_right: `first-name`, `last-name`
-* Pascal Case :point_right: `FirstName`, `LastName`
+- Camel Case :point_right: `firstName`, `lastName`
+- Snake Case :point_right: `first_name`, `last_name`
+- Kebab Case :point_right: `first-name`, `last-name`
+- Pascal Case :point_right: `FirstName`, `LastName`
 
 ### Style guides
+
 - Python - [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/) :link: 
 - JavaScript - [Airbnb JavaScript Style Guide ](https://github.com/airbnb/javascript):link: 
 - Java - [Java style guide ](https://www.cs.cornell.edu/courses/JavaAndDS/JavaStyle.html):link: 

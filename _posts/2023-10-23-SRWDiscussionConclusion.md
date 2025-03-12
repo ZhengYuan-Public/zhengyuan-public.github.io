@@ -29,15 +29,15 @@ tags: [career-skills, science-research-writing]
 | :--------------------------------------------: |
 |                   **Part I**                   |
 |          Revisiting previous sections          |
-| Summarizing/Revisiting General or Key Results  |
+| Summarizing/Revisiting general or key results  |
 |                  **Part II**                   |
-| Mapping the Present Work into the Research Map |
+| Mapping the present work into the research map |
 |                  **Part III**                  |
 |            Achievement/Contribution            |
-|           Refining the Implications            |
+|           Refining the implications            |
 |                  **Part IV**                   |
 |                  Limitations                   |
-|            Current and Future Work             |
+|            Current and future work             |
 |                  Applications                  |
 
 ### Train of Thoughts

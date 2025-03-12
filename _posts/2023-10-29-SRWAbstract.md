@@ -45,7 +45,7 @@ Many people will read the title more than the Abstract, and many more will read 
 |        Background        |
 |           Aim            |
 |         Problem          |
-|   What the Paper Does    |
+|   What the paper does    |
 |       **Part II**        |
 |  Methodology/Materials   |
 |       **Part III**       |
@@ -54,7 +54,7 @@ Many people will read the title more than the Abstract, and many more will read 
 |       Implications       |
 |       **Part IV**        |
 |       Limitations        |
-|       Future Work        |
+|       Future work        |
 
 ### Train of Thoughts
 

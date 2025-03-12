@@ -288,7 +288,7 @@ If you are still left with ambiguous adverb clusters, break the sentence into un
 |       in an attempt to        |            therefore             |
 |          in order to          |               thus               |
 |      it was possible to       |                to                |
-|       off er a means of       |       to take advantage of       |
+|       offer a means of       |       to take advantage of       |
 |      one way to avoid...      | which/this allows/allowed *etc.* |
 |        our aim was to         |      with the intention of       |
 

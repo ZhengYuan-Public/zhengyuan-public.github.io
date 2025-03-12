@@ -134,9 +134,9 @@ $$
 $$
 \begin{align}
 \mathbb{E}[G_{t+1} \vert S_t = s] 
-    &= \sum_{s'} p(s' \vert s) \mathbb{E}[G_{t+1} \vert \textcolor{red}{S_t = s}, S_{t+1} = s'] \nonumber\\
-    &= \sum_{s'} p(s' \vert s) \mathbb{E}[G_{t+1} \vert S_{t+1} = s'] \nonumber\\
-    &= \sum_{s'} p(s' \vert s) v_{\pi}(s') \nonumber\\
+    &= \sum_{s' \in \mathcal{S}} p(s' \vert s) \mathbb{E}[G_{t+1} \vert \textcolor{red}{S_t = s}, S_{t+1} = s'] \nonumber\\
+    &= \sum_{s' \in \mathcal{S}} p(s' \vert s) \mathbb{E}[G_{t+1} \vert S_{t+1} = s'] \nonumber\\
+    &= \sum_{s' \in \mathcal{S}} \textcolor{red}{p(s' \vert s)} v_{\pi}(s') \nonumber\\
     &= \sum_{s' \in \mathcal{S}} v_{\pi}(s') \sum_{a \in \mathcal{A}} p(s' \vert s, a) \pi(a \vert s)  \nonumber
 \end{align}
 $$
@@ -509,7 +509,7 @@ can solve the problem where
 
 #### Robbins-Monro Theorem
 
-$$ w_k $$ **converges with probability 1 (w.p.1)** (almost sure convergence) to the root $$ w^{*} $$ satisfying $$ g(w^{*}) = 0 $$ if
+$$ w_k $$ converges **with probability 1 (w.p.1)** (almost sure convergence) to the root $$ w^{*} $$ satisfying $$ g(w^{*}) = 0 $$ if
 
 1. $$ 0 < c_1 \leq \nabla_w g(w) \leq c_2 $$ for all $$ w $$
     - $$ g(w) $$ is monotonically increasing $$ \Longrightarrow g(w) = 0 $$ exists and is unique ($$ \Longrightarrow $$ Convexity of objective function $$ H(x) = \nabla_w^2 J(w) $$)
@@ -518,7 +518,7 @@ $$ w_k $$ **converges with probability 1 (w.p.1)** (almost sure convergence) to 
     - $$ \displaystyle \sum_{k=1}^{\infty} a_k = \infty $$ ensures $$ a_k $$ do not converge to zero too fast
     - $$ \displaystyle \sum_{k=1}^{\infty} a_k^2 < \infty $$ ensures $$ a_k $$ converges to zero as $$ k \rightarrow \infty $$
 3. $$ \mathbb{E} [\eta_k \vert \mathcal{H_k}] = 0 $$ and $$ \mathbb{E} [\eta_k^2 \vert \mathcal{H_k}] = 0 $$, where $$ \mathcal{H_k} = \{w_k, w_{k-1}, \dots\} $$
-    - $$ \eta_k $$ has a mean of zero and bounded variance, such as Independent and identically distributed (iid)
+    - $$ \eta_k $$ has a mean of zero and bounded variance, such as **Independent and Identically Distributed (IID)**
 
 #### Example
 In the mean estimation problem, $$ a_k = \frac{1}{k} $$
@@ -558,6 +558,9 @@ w_{k+1} &\approx  w_k - \alpha_k \frac{1}{n} \sum_{i=1}^{n} [\nabla_w f(w_k, \te
 \end{align}
 $$
 
+- Use entire training dataset in each iteration.
+- Updates the model parameters once per epoch (a full pass through the dataset).
+
 #### Mini Batch Gradient Descent
 
 $$
@@ -566,6 +569,10 @@ $$
 w_{k+1} &\approx  w_k - \alpha_k \frac{1}{m} \sum_{x_j \in X} [\nabla_w f(w_k, \textcolor{red}{x_j})] \nonumber
 \end{align}
 $$
+
+- Splits the training dataset into small batches.
+- Computes the gradient and updates the model parameters for each batch.
+- Processes one batch at a time, making multiple updates per epoch.
 
 #### Stochastic Gradient Descent
 
@@ -676,7 +683,7 @@ $$
 
 #### Convergence
 
-$$ q_t(s, a) $$ converges ***w.p.1*** to $$ q_{\pi}(s, a), \forall (s, a) $$ as $$ t \to \infty $$, if $$ \displaystyle \sum_t \alpha_t (s, a) = \infty $$ and $$ \displaystyle \sum_t \alpha_t^2 (s, a) < \infty, \forall (s, a) \in \mathcal{S} $$
+$$ q_t(s, a) $$ converges **w.p.1** to $$ q_{\pi}(s, a), \forall (s, a) $$ as $$ t \to \infty $$, if $$ \displaystyle \sum_t \alpha_t (s, a) = \infty $$ and $$ \displaystyle \sum_t \alpha_t^2 (s, a) < \infty, \forall (s, a) \in \mathcal{S} $$
 
 - Policy Evaluation
 - Action value can be found for a given policy $$ \pi $$
