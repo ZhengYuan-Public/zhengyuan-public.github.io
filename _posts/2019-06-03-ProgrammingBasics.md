@@ -1,12 +1,12 @@
 ---
 comments: true
-title: Programming Principles
+title: Programming Basics
 date: 2019-06-03 12:00:00
 image:
     path: /assets/img/images_preview/ProgrammingPreview.png
 math: true
-categories: [Programming and Development, Programming Principles]
-tags: [programming, principle]
+categories: [Programming and Development, Programming Basics]
+tags: [programming, basics]
 ---
 
 ## Variables Naming Conventions
