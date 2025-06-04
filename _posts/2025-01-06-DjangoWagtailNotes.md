@@ -4,10 +4,9 @@ title: Django & Wagtail Notes
 date: 2025-01-06 12:00:00
 image:
     path: /assets/img/images_preview/DjangoDRFPreview.webp
-categories: [Programming and Development, Django]
 math: true
 mermaid: true
-pin: true
+categories: [Programming and Development, Django]
 tags: [programming, django, django-rest-framework]
 ---
 

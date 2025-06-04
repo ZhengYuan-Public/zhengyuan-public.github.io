@@ -10,7 +10,7 @@ tags: [programming, markdown]
 
 ## Heading
 
-Markdown supports 6 levels of heading with `# x n={1, 2, 3, 4, 5, 6}`
+Markdown supports 6 levels of heading
 
 ```markdown
 # Heading 1 
@@ -18,7 +18,7 @@ Markdown supports 6 levels of heading with `# x n={1, 2, 3, 4, 5, 6}`
 ### Heading 3 
 #### Heading 4 
 ##### Heading 5 
-##### Heading 6
+###### Heading 6
 ```
 
 ## Emphasizing
@@ -29,17 +29,27 @@ Markdown supports 6 levels of heading with `# x n={1, 2, 3, 4, 5, 6}`
 This text is *Italic*.
 ```
 
+This text is *Italic*.
+
 ### Bold 
 
 ```markdown
 This text is **Bold**.
 ```
+
+This text is **Bold**.
+
 ### Bold and Italic
 
 ```markdown
 This text is ***Italic and Bold***.
 ```
+
+This text is ***Italic and Bold***.
+
 ### Strikethrough 
+
+This text is ~~Strikethrough~~.
 
 ```markdown
 This text is ~~Strikethrough~~.
@@ -49,6 +59,7 @@ This text is ~~Strikethrough~~.
 ```markdown
 I ==love== you so much.
 ```
+
 ### Subscript and Subscript
 
 ```markdown
@@ -61,11 +72,11 @@ y = a~1~x^2^ + b~1~
 
 ### Blockquotes with one paragraph
 
+> The quick brown fox jumps over the lazy dog.
+
 ```markdown
 > The quick brown fox jumps over the lazy dog.
 ```
-
-> The quick brown fox jumps over the lazy dog.
 
 ### Blockquotes with multiple paragraphs
 
