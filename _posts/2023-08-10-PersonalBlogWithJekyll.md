@@ -14,19 +14,19 @@ tags: [programming, jekyll]
 Jekyll is a static site generator, also called a site builder, that transforms plain text files into static HTML and CSS files. It was written in **Ruby**, and it is open-source and free to use. Jekyll is a popular choice for creating websites and blogs because it is easy to use and produces fast-loading, lightweight websites. Jekyll websites are also easy to deploy and host on any web server.
 
 ### A Brief Introduction to Ruby
-Ruby was designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan. Ruby is known for its elegant syntax, which makes it easy to read and write. Here are some key features of **Ruby**:
+**Ruby** was designed and developed in the mid-1990s by *Yukihiro "Matz" Matsumoto* in Japan. Ruby is known for its elegant syntax, which makes it easy to read and write. Here are some key features of **Ruby**:
 
 - Object-oriented: Ruby is an object-oriented language, which means that everything in Ruby is an object. This makes it easy to create reusable code and to encapsulate data.
-- Dynamic: Ruby is a dynamic language, which means that the type of a variable can change at runtime. This makes Ruby code more flexible and easier to write.
+- Dynamic: Ruby is a dynamic language, which means that the type of variables can change at runtime. This makes Ruby code more flexible and easier to write.
 - Reflective: Ruby is a reflective language, which means that Ruby programs can inspect and modify their structure and behavior. This makes it possible to write powerful and flexible code.
 - General-purpose: Ruby is a general-purpose language, which means that it can be used to write a wide variety of programs, from web applications to data science scripts.
 
 ### Basics of Ruby
 
-- `gem` is a package
-- `bundle` is a tool for managing Ruby gem dependencies, similar to `pip` in Python. Bundler has a built-in command to run the project `bundle exec`
+- `gem` is a package.
+- `bundle` is a tool for managing Ruby gem dependencies, similar to `pip` in Python. Bundler has a built-in command to run the project `bundle exec`.
 - `Gemfile` is a text file that describes the gem dependencies required to execute associated Ruby code.
-- `Gemfile.lock`  is a text file that specifies the exact versions of the gems that were installed
+- `Gemfile.lock`  is a text file that specifies the exact versions of the gems that were installed.
 - `bundle install` will install all gems listed in the `Gemfile` with specific versions listed in the `Gemfile.lock`. This command will set up everything for the application.
 - `gem install` will install gems for your own environment.
 
@@ -35,7 +35,7 @@ Ruby was designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in
 ```bash
 $ which ruby
 /usr/bin/ruby
-# This means you are using the ruby preinstalled by MacOS, which is often outdated.
+# This means you are using the ruby preinstalled by macOS, which is often outdated.
 # Scripting language runtimes such as Python, Ruby, and Perl are included in macOS 
 # by default for compatibility with legacy software. 
 ```
@@ -45,7 +45,7 @@ $ which ruby
 > There are other options, feel free to explore them.
 {:  .prompt-tip}
 
-#### Install [Homebrew](https://brew.sh/)
+#### Install [homebrew](https://brew.sh/)
 
 Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple's operating system, macOS, as well as Linux. It's also written in Ruby.
 
@@ -56,7 +56,7 @@ https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 #### Install [rbenv](https://github.com/rbenv/rbenv)
 
-rbenv is a version manager tool for the Ruby programming language on Unix-like systems. It is useful for switching between multiple Ruby versions on the same machine and for ensuring that each project you are working on always runs on the correct Ruby version.
+**rbenv** is a version manager tool for the Ruby programming language on Unix-like systems. It is useful for switching between multiple Ruby versions on the same machine and for ensuring that each project you are working on always runs on the correct Ruby version.
 
 ```bash
 # Install rbenv
@@ -115,6 +115,14 @@ $ bundle exec jekyll serve --host=0.0.0.0
 # By using --host=0.0.0.0, you can access your jekyll site with http://host_machine_ip:4000/
 ```
 
+I recommend create a script (`run.sh` in my case) that will delete the generated site cache first then start a new one (because in many cases, the cache prevents me from accessing my new posts). Here is the script I'm using:
+
+```bash
+[ -d "_site" ] && rm -r _site
+[ -d ".jekyll-cache" ] && rm -r .jekyll-cache
+bundle exec jekyll serve --host=0.0.0.0 --incremental
+```
+
 ### Jekyll Plugins
 
 To add plugins to your Jekyll site, just add a new section in your `_config.yml` and gems in `Gemfile`. Here are the plugins I'm using:
@@ -142,7 +150,7 @@ end
 
 #### Jekyll-Scholar for Academic Scholars
 
-Create a new folder `_bibliography` at the project root, and add your [configuration](https://github.com/inukshuk/jekyll-scholar#configuration) in `_config.yml`
+Create a new folder `_bibliography` at the project root, and add your [configuration](https://github.com/inukshuk/jekyll-scholar#configuration) in `_config.yml`.
 
 ```yaml
 scholar:
@@ -176,7 +184,7 @@ You can have a default `.bib` file to store all of your references, but I prefer
    }
 ```
 
-To add a reference at the end of the post, put the following lines at the end of the markdown file. Note that the argument `papers_cv` is from the file name `papers_cv.bib`. A preview can be found in my computer vision notes [here](https://zhengyuan-public.github.io/posts/ComputerVisionNotes/#reference).
+To add a reference at the end of the post, put the following lines at the end of the markdown file. Note that the argument `papers_cv` is from the file name `papers_cv.bib`. A preview can be found in my computer vision notes [here](https://zhengyuan-public.github.io/posts/ObjectDetectionNotes/#reference).
 
 
 {% raw %}
@@ -190,8 +198,8 @@ To add a reference at the end of the post, put the following lines at the end of
 {% endraw %}
 
 To cite the above-mentioned two papers within the post, use the following syntax. They will be rendered as {% cite girshick2014rich --file papers_aio %} and {% cite he2015spatial --file papers_aio %}.
-{% raw %} 
 
+{% raw %} 
 ```liquid
 {% cite girshick2014rich --file papers_aio %} and {% cite he2015spatial --file papers_aio %} 
 ```
@@ -199,17 +207,20 @@ To cite the above-mentioned two papers within the post, use the following syntax
 
 ## $$ \LaTeX $$ Math Equations in Jekyll
 
+> The updated math usage with Chirpy can be found [here](https://chirpy.cotes.page/posts/write-a-new-post/#mathematics).
+{: .prompt-tip}
+
 For Jekyll, the procedures to render $$ \LaTeX $$ math equations are:
 
 $$
 \text{Markdown} \xrightarrow[]{kramdown} \text{HTML} \xrightarrow[]{MathJax} \text{Math Equation Images}
 $$
 
-Where kramdown is the markdown engine used by Jekyll (and GitHub) for translating markdown into HTML, and MathJax is a JavaScript that renders the HTML as images shown on the website. It should be noticed that kramdown has a slightly different syntax compared to standard markdown (see details [here](https://kramdown.gettalong.org/syntax.html#math-blocks)).  I encountered several problems with inline math rendering (see examples [here](https://github.com/mathjax/MathJax/issues/3103)) and here I'd like to summarize my findings on how to avoid those problems.
+Where **kramdown** is the markdown engine used by Jekyll (and GitHub) for translating markdown into HTML, and **MathJax** is a JavaScript that renders the HTML as images shown on the website. It should be noticed that kramdown has a slightly different syntax compared to standard markdown (see details [here](https://kramdown.gettalong.org/syntax.html#math-blocks)).  I encountered several problems with inline math rendering (see examples [here](https://github.com/mathjax/MathJax/issues/3103)) and here I'd like to summarize my findings on how to avoid those problems.
 
-I usually start writing my notes on Jekyll with Typora (which has its private markdown engine and it works better than kramdown in my humble opinion) and then revise it until it's ready for publication on GitHub. However, the rendered outputs on Jekyll are not always the same as in Typora because of their differences in the markdown engine.
+I usually start writing my markdown notes with *Typora* (It has its private markdown engine and it works better than *kramdown* in my humble opinion). Then I will revise it until it's ready for publication on GitHub. However, the rendered outputs on Jekyll are not always the same as in *Typora* because of their differences in the markdown engine.
 
-In standard markdown syntax, you should add inline math with `$ math $` and block math with `$$ math $$`. However, the situation is a little complicated in kramdown. If you are not interested in the examples, just jump to the [summary](#summary).
+In standard markdown syntax, you should add inline math with `$ math $` and block math with `$$ math $$`. However, the situation is a little complicated in *kramdown*. If you are not interested in the examples, just jump to the [summary](#summary).
 
 > Here are just the temporary solutions I've found. I believe this is a bug in kramdown, so I'll start an issue and update this part accordingly.
 {: .prompt-warning }
@@ -502,7 +513,7 @@ There’s no specific number of categories that you should have. In most cases, 
 [URLs and links in Jekyll](https://mademistakes.com/mastering-jekyll/how-to-link/) :link:
 
 1. Reference the post’s full root-relative URL.
-2. Use the {% raw %} `{% post_url %}` {% endraw %} tag. This tag will automatically generate the correct root-relative URL to the post, regardless of your permalink structure. **(Recommended)**
+2. Use the {% raw %} `{% post_url %}` {% endraw %} tag. This tag will automatically generate the correct root-relative URL to the post, regardless of your permalink structure **(Recommended)**.
 3. Use {% raw %} `{% link %}` {% endraw %}. This tag is more general and can be used to link to any file or directory on your site, including posts, pages, collections, and static assets.
 
 Examples:
